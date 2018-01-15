@@ -6,7 +6,7 @@ using Caf.Etl.Models.LoggerNet.TOA5;
 using System;
 using Caf.Etl.Models.LoggerNet.TOA5.DataTables;
 
-namespace Nsar.Nodes.CafEcTower.LoggerNet.Tests
+namespace Caf.Etl.Nodes.LoggerNet.Tests
 {
     public class DocumentDbMeasurementTransformerTests
     {

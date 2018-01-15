@@ -2,7 +2,7 @@
 
   <PropertyGroup>    
     <TargetFrameworks>net461</TargetFrameworks>    
-    <RootNamespace>Nsar.Nodes.CafEcTower.LoggerNet.Tests</RootNamespace>
+    <RootNamespace>Caf.Etl.Nodes.LoggerNet.Tests</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
