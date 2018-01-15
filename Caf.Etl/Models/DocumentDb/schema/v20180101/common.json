@@ -1,0 +1,144 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "definitions": {
+    "cosmosEntity": {
+      "type": "object",
+      "properties": {
+        "partitionKey": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "schemaID": {
+          "type": "string"
+        },
+        "metadataID": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "partitionKey",
+        "id",
+        "type",
+        "name",
+        "schemaID",
+        "metadataID"
+      ]
+    },
+    "cosmosInternal": {
+      "type": "object",
+      "properties": {
+        "_rid": {
+          "type": "string"
+        },
+        "_self": {
+          "type": "string"
+        },
+        "_etag": {
+          "type": "string"
+        },
+        "_attachments": {
+          "type": "string"
+        },
+        "_ts": {
+          "type": "integer"
+        }
+      }
+    },
+    "areaOfInterestID": {
+      "type": "string",
+      "enum": [
+        "CookEast_Boundary_*",
+        "CookWest_Boundary_*",
+        "BoydNorth_Boundary_*",
+        "BoydSouth_Boundary_*",
+        "Cook_Boundary_*",
+        "Boyd_Boundary_*",
+        "Caf_Boundary_*",
+        "Ltar_Boundary_*"
+      ]
+    },
+    "location": {
+      "$ref": "geojson.json#"
+    },
+    "physicalQuantities": {
+      "items": {
+        "properties": {
+          "value": {
+            "type": "number"
+          },
+          "unit": {
+            "type": "string"
+          },
+          "qualityCode": {
+            "type": "integer"
+          },
+          "qcAppliedCode": {
+            "type": "integer"
+          },
+          "qcResultCode": {
+            "type": "number"
+          },
+          "submissionDateTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "sourceID": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "qualityCode",
+          "qcAppliedCode",
+          "qcResultCode",
+          "submissionDateTime",
+          "sourceID",
+          "value",
+          "unit"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "personContact": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "phoneNumber": {
+          "type": "string",
+          "pattern": "^(\\([0-9]{3}\\))?[0-9]{3}-[0-9]{4}$"
+        },
+        "email": {
+          "type": "string",
+          "format": "email"
+        },
+        "affiliatedOrganization": {
+          "type": "string"
+        },
+        "positionTitle": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "firstName",
+        "lastName",
+        "email",
+        "affiliatedOrganization",
+        "positionTitle"
+      ]
+    }
+  },
+  "id": "https://raw.githubusercontent.com/bryanrcarlson/Nsar.Nodes/master/Models/DocumentDb/schema/v20180101/common.json#"
+}

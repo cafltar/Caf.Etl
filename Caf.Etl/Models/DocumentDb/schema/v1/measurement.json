@@ -1,0 +1,33 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "https://raw.githubusercontent.com/bryanrcarlson/Nsar.Nodes/master/Models/DocumentDb/schema/v1/measurement.json#",
+    "allOf": [
+        {
+            "$ref": "common.json#/definitions/cosmosEntity"
+        },
+        {
+            "$ref": "common.json#/definitions/cosmosInternal"
+        }
+    ],
+    "properties": {
+        "fieldId": {
+            "$ref": "common.json#/definitions/fieldId"
+        },
+        "location": {
+            "$ref": "common.json#/definitions/location"
+        },
+        "measurementDateTime": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "physicalQuantities": {
+            "$ref": "common.json#/definitions/physicalQuantities"
+        }
+    },
+    "required": [
+        "measurementDateTime",
+        "physicalQuantities",
+        "location",
+        "fieldId"
+    ]
+}
