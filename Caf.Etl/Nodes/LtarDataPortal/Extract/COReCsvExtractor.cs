@@ -29,6 +29,8 @@ namespace Caf.Etl.Nodes.LtarDataPortal.Extract
             using (TextReader sr = new StringReader(fileContent))
             using (CsvReader csv = new CsvReader(sr))
             {
+                csv.Read();
+                csv.ReadHeader();
                 while(csv.Read())
                 {
                     string ltarSiteAcronym = csv.GetField<string>("LTARSiteAcronym");

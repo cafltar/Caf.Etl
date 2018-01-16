@@ -1,18 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using CsvHelper;
 using Caf.Etl.Models.LtarDataPortal.CORe;
 using System.IO;
-using System.ComponentModel;
 using CsvHelper.TypeConversion;
 
 namespace Caf.Etl.Nodes.LtarDataPortal.Load
 {
     public class COReCsvStringWriter
     {
+        /// <summary>
+        /// Converts a list of observations to a string in csv format
+        /// </summary>
+        /// <param name="observations"></param>
+        /// <returns></returns>
         public string GetContentString(List<Observation> observations)
         {
             List<Observation> sortedObservations = observations.OrderBy(o => o.DateTime).ToList();
@@ -24,14 +26,14 @@ namespace Caf.Etl.Nodes.LtarDataPortal.Load
             using (var writer = new StreamWriter(stream))
             using (var csvWriter = new CsvWriter(writer))
             {
-                var formatDateTimeOffset = new CsvHelper.TypeConversion.TypeConverterOptions
+                var formatDateTimeOffset = new TypeConverterOptions
                 {
-                    Format = "yyyy-MM-ddTHH:mmzzz"
+                    Formats = new string[] { "yyyy-MM-ddTHH:mmzzz" }
                 };
 
-                TypeConverterOptionsFactory.AddOptions<DateTimeOffset>(formatDateTimeOffset);
-                //csvWriter.Context.WriterConfiguration.TypeConverterOptionsCache.AddOptions<DateTimeOffset>(formatDateTimeOffset);
-                //CsvHelper.TypeConversion.TypeConverterFactory.AddConverter<Decimal?>(new MyDecimalConverter());
+                csvWriter.Context.WriterConfiguration
+                    .TypeConverterOptionsCache
+                    .AddOptions<DateTimeOffset>(formatDateTimeOffset);
 
                 csvWriter.WriteRecords(sortedObservations);
                 writer.Flush();
