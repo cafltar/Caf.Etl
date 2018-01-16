@@ -28,8 +28,8 @@
         "id",
         "type",
         "name",
-        "schemaID",
-        "metadataID"
+        "schemaId",
+        "metadataId"
       ]
     },
     "cosmosInternal": {
@@ -52,7 +52,7 @@
         }
       }
     },
-    "areaOfInterestID": {
+    "areaOfInterestId": {
       "type": "string",
       "enum": [
         "CookEast_Boundary_*",
@@ -90,7 +90,7 @@
             "type": "string",
             "format": "date-time"
           },
-          "sourceID": {
+          "sourceId": {
             "type": "string"
           }
         },
@@ -99,7 +99,7 @@
           "qcAppliedCode",
           "qcResultCode",
           "submissionDateTime",
-          "sourceID",
+          "sourceId",
           "value",
           "unit"
         ],

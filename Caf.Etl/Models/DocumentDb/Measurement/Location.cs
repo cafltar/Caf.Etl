@@ -6,6 +6,7 @@ using System.Text;
 namespace Caf.Etl.Models.DocumentDb.Measurement
 {
     /// <summary></summary>
+    /// <todo>Consider using a proper GeoJSON library: https://github.com/GeoJSON-Net/GeoJSON.Net</todo>
     public class Location
     {
         /// <summary>

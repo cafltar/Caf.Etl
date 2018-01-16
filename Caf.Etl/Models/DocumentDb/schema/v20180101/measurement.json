@@ -9,25 +9,25 @@
             "$ref": "common.json#/definitions/cosmosInternal"
         }
     ],
-    "properties": {
-        "fieldID": {
-            "$ref": "common.json#/definitions/fieldID"
-        },
-        "location": {
-            "$ref": "common.json#/definitions/location"
-        },
-        "measurementDateTime": {
-            "type": "string",
-            "format": "date-time"
-        },
-        "physicalQuantities": {
-            "$ref": "common.json#/definitions/physicalQuantities"
-        }
+  "properties": {
+    "areaOfInterestId": {
+      "$ref": "common.json#/definitions/areaOfInterestId"
     },
+    "location": {
+      "$ref": "common.json#/definitions/location"
+    },
+    "measurementDateTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "physicalQuantities": {
+      "$ref": "common.json#/definitions/physicalQuantities"
+    }
+  },
     "required": [
         "measurementDateTime",
         "physicalQuantities",
         "location",
-        "fieldID"
+        "fieldId"
     ]
 }
