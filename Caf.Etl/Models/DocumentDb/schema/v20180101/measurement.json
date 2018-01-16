@@ -24,10 +24,10 @@
       "$ref": "common.json#/definitions/physicalQuantities"
     }
   },
-    "required": [
-        "measurementDateTime",
-        "physicalQuantities",
-        "location",
-        "fieldId"
-    ]
+  "required": [
+    "measurementDateTime",
+    "physicalQuantities",
+    "location",
+    "areaOfInterestId"
+  ]
 }
