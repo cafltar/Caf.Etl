@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Caf.Etl.Models.DocumentDb.Measurement;
+using Caf.Etl.Models.CosmosDBSqlApi.Measurement;
 using Newtonsoft.Json;
 
-namespace Caf.Etl.Nodes.DocumentDb.Extract
+namespace Caf.Etl.Nodes.CosmosDBSqlApi.Extract
 {
     public class MeasurementJsonExtractor
     {

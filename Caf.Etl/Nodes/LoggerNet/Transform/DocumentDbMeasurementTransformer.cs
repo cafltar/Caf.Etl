@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Caf.Etl.Models.LoggerNet.TOA5;
-using Caf.Etl.Models.DocumentDb.Measurement;
+using Caf.Etl.Models.CosmosDBSqlApi.Measurement;
 using System;
 using System.Collections.Generic;
 using System.IO;

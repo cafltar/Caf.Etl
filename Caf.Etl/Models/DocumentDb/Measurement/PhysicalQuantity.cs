@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Caf.Etl.Models.DocumentDb.Measurement
+namespace Caf.Etl.Models.CosmosDBSqlApi.Measurement
 {
     /// <summary></summary>
     public class PhysicalQuantity// : Nsar.Common.Measure.Models.PhysicalQuantity

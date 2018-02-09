@@ -1,13 +1,13 @@
 using System;
 using Xunit;
-using Caf.Etl.Nodes.DocumentDb.Extract;
-using Caf.Etl.Models.DocumentDb.Measurement;
+using Caf.Etl.Nodes.CosmosDBSqlApi.Extract;
+using Caf.Etl.Models.CosmosDBSqlApi.Measurement;
 using System.Collections.Generic;
-using Caf.Etl.Nodes.DocumentDb.Transform;
+using Caf.Etl.Nodes.CosmosDBSqlApi.Transform;
 using Caf.Etl.Models.LtarDataPortal.CORe;
 using System.Globalization;
 
-namespace Caf.Etl.Nodes.DocumentDb.Tests
+namespace Caf.Etl.Nodes.CosmosDBSqlApi.Tests
 {
     public class LtarDataPortalCOReTransformerTests
     {

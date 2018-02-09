@@ -1,7 +1,7 @@
 ﻿using Caf.Etl.Nodes.LoggerNet.Transform;
 using System.Collections.Generic;
 using Xunit;
-using Caf.Etl.Models.DocumentDb.Measurement;
+using Caf.Etl.Models.CosmosDBSqlApi.Measurement;
 using Caf.Etl.Models.LoggerNet.TOA5;
 using System;
 using Caf.Etl.Models.LoggerNet.TOA5.DataTables;

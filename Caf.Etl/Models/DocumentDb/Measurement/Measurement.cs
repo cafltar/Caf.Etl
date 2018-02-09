@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using Caf.Etl.Models.DocumentDb;
+using Caf.Etl.Models.CosmosDBSqlApi;
 using Newtonsoft.Json;
 
-namespace Caf.Etl.Models.DocumentDb.Measurement
+namespace Caf.Etl.Models.CosmosDBSqlApi.Measurement
 {
     /// <summary>
     /// Dto class for data as described by json-schema located in schema\v1\measurement.json or https://raw.githubusercontent.com/bryanrcarlson/Nsar.Nodes/master/Models/DocumentDb/schema/v1/measurement.json#
