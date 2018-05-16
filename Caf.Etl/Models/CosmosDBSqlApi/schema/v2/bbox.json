@@ -1,8 +1,8 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
-    "id": "https://raw.githubusercontent.com/bryanrcarlson/Nsar.Nodes/master/Models/DocumentDb/schema/v20180101/bbox.json#",
-    "description": "A bounding box as defined by GeoJSON.  From: https://github.com/fge/sample-json-schemas/tree/master/geojson.",
-    "FIXME": "unenforceable constraint: even number of elements in array",
-    "type": "array",
-    "items": { "type": "number" }
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://files.cafltar.org/data/schema/documentDb/v2/bbox.json#",
+  "description": "A bounding box as defined by GeoJSON.  From: https://github.com/fge/sample-json-schemas/tree/master/geojson.",
+  "FIXME": "unenforceable constraint: even number of elements in array",
+  "type": "array",
+  "items": { "type": "number" }
 }
