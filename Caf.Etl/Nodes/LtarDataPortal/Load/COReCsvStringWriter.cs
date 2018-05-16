@@ -95,5 +95,10 @@ namespace Caf.Etl.Nodes.LtarDataPortal.Load
 
             return result;
         }
+
+        public void Load(string content)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

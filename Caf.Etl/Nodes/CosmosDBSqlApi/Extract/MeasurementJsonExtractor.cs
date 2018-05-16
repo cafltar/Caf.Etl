@@ -12,8 +12,10 @@ namespace Caf.Etl.Nodes.CosmosDBSqlApi.Extract
     {
         public MeasurementJsonExtractor()
         {
-
+            // TODO: Create client for Cosmos DB?
         }
+
+        // TODO: Create Extract() function
 
         public List<Measurement> ToMeasurements(string jsonMeasurements)
         {
