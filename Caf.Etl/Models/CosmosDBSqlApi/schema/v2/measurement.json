@@ -28,6 +28,9 @@
     },
     "physicalQuantities": {
       "$ref": "common.json#/definitions/physicalQuantities"
+    },
+    "timestep": {
+      "type":  "integer"
     }
   },
   "required": [
