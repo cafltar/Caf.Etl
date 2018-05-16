@@ -1,10 +1,10 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
-    "id": "https://raw.githubusercontent.com/bryanrcarlson/Nsar.Nodes/master/Models/DocumentDb/schema/v20180101/project.json#",
+    "id": "http://files.cafltar.org/data/schema/documentDb/v2/project.json#",
     "allOf": [
-        {
-            "$ref": "common.json#/definitions/cosmosEntity"
-        },
+      {
+        "$ref": "common.json#/definitions/cosmosEntity"
+      },
         {
             "$ref": "common.json#/definitions/cosmosInternal"
         }

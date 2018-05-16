@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json#",
+  "allOf": [
+    {
+      "$ref": "common.json#/definitions/cosmosEntity"
+    },
+    {
+      "$ref": "common.json#/definitions/cosmosInternal"
+    }
+  ],
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "project": {
+      "type": "string"
+    },
+    "areaOfInterest": {
+      "$ref": "common.json#/definitions/areaOfInterest"
+    },
+    "location": {
+      "$ref": "common.json#/definitions/location"
+    },
+    "dateTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "physicalQuantities": {
+      "$ref": "common.json#/definitions/physicalQuantities"
+    }
+  },
+  "required": [
+    "name",
+    "project",
+    "areaOfInterestId",
+    "location",
+    "dateTime",
+    "physicalQuantities"
+  ]
+}

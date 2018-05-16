@@ -13,13 +13,7 @@
         "type": {
           "type": "string"
         },
-        "name": {
-          "type": "string"
-        },
-        "schemaID": {
-          "type": "string"
-        },
-        "metadataID": {
+        "schemaId": {
           "type": "string"
         }
       },
@@ -27,9 +21,7 @@
         "partitionKey",
         "id",
         "type",
-        "name",
-        "schemaId",
-        "metadataId"
+        "schemaId"
       ]
     },
     "cosmosInternal": {
@@ -52,17 +44,17 @@
         }
       }
     },
-    "areaOfInterestId": {
+    "areaOfInterest": {
       "type": "string",
       "enum": [
-        "CookEast_Boundary_*",
-        "CookWest_Boundary_*",
-        "BoydNorth_Boundary_*",
-        "BoydSouth_Boundary_*",
-        "Cook_Boundary_*",
-        "Boyd_Boundary_*",
-        "Caf_Boundary_*",
-        "Ltar_Boundary_*"
+        "CookEast",
+        "CookWest",
+        "BoydNorth",
+        "BoydSouth",
+        "Cook",
+        "Boyd",
+        "Caf",
+        "Ltar"
       ]
     },
     "location": {
@@ -77,31 +69,22 @@
           "unit": {
             "type": "string"
           },
-          "qualityCode": {
-            "type": "integer"
-          },
-          "qcAppliedCode": {
-            "type": "integer"
-          },
-          "qcResultCode": {
-            "type": "number"
-          },
           "submissionDateTime": {
             "type": "string",
             "format": "date-time"
           },
           "sourceId": {
             "type": "string"
+          },
+          "qualityControlId": {
+            "type": "string"
           }
         },
         "required": [
-          "qualityCode",
-          "qcAppliedCode",
-          "qcResultCode",
-          "submissionDateTime",
-          "sourceId",
           "value",
-          "unit"
+          "unit",
+          "submissionDateTime",
+          "sourceId"
         ],
         "type": "object"
       },
@@ -140,5 +123,5 @@
       ]
     }
   },
-  "id": "https://raw.githubusercontent.com/bryanrcarlson/Nsar.Nodes/master/Models/DocumentDb/schema/v20180101/common.json#"
+  "id": "http://files.cafltar.org/data/schema/documentDb/v2/common.json#"
 }
