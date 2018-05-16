@@ -8,7 +8,7 @@ using Caf.Etl.Models.LoggerNet.TOA5.DataTables;
 
 namespace Caf.Etl.Nodes.LoggerNet.Tests
 {
-    public class DocumentDbMeasurementTransformerTests
+    public class DocumentDbMeasurementV1TransformerTests
     {
         [Fact]
         public void ToMeasurement_ValidData_ReturnCorrectMeasurements()

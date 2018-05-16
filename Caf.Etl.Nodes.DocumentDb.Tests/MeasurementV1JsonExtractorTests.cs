@@ -7,7 +7,7 @@ using System.Globalization;
 
 namespace Caf.Etl.Nodes.CosmosDBSqlApi.Tests
 {
-    public class MeasurementJsonExtractorTests
+    public class MeasurementV1JsonExtractorTests
     {
         [Fact]
         public void ToMeasurements_ValidData_ReturnsCorrectMeasurements()
