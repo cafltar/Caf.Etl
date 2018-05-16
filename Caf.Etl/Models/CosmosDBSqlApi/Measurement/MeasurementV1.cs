@@ -8,7 +8,7 @@ namespace Caf.Etl.Models.CosmosDBSqlApi.Measurement
     /// <summary>
     /// Dto class for data as described by json-schema located in schema\v1\measurement.json or https://raw.githubusercontent.com/bryanrcarlson/Nsar.Nodes/master/Models/DocumentDb/schema/v1/measurement.json#
     /// </summary>
-    public class Measurement
+    public class MeasurementV1
     {
         /// <summary>
         /// PartitionKey maps partionKey
@@ -68,10 +68,10 @@ namespace Caf.Etl.Models.CosmosDBSqlApi.Measurement
         public string FieldID { get; private set; }
 
         /// <summary>
-        /// Location maps location
+        /// LocationV1 maps location
         /// </summary>
         [JsonProperty("location")]
-        public Location Location { get; private set; }
+        public LocationV1 Location { get; private set; }
 
         /// <summary>
         /// MeasurementDateTime maps measurementDateTime
@@ -83,7 +83,7 @@ namespace Caf.Etl.Models.CosmosDBSqlApi.Measurement
         /// PhysicalQuantities maps physicalQuantities
         /// </summary>
         [JsonProperty("physicalQuantities")]
-        public List<PhysicalQuantity> PhysicalQuantities { get; set; }
+        public List<PhysicalQuantityV1> PhysicalQuantities { get; set; }
 
         /// <summary>
         /// Constructor
@@ -103,13 +103,13 @@ namespace Caf.Etl.Models.CosmosDBSqlApi.Measurement
         /// <param name="location"></param>
         /// <param name="measurementDateTime"></param>
         /// <param name="physicalQuantities"></param>
-        public Measurement(
+        public MeasurementV1(
             string partitionKey, string id, string type, string name,
             string schemaVersion, string metadataID, string _rid,
             string _self, string _etag, string _attachements,
-            int? _ts, string fieldId, Location location,
+            int? _ts, string fieldId, LocationV1 location,
             DateTime measurementDateTime,
-            List<PhysicalQuantity> physicalQuantities)
+            List<PhysicalQuantityV1> physicalQuantities)
         {
             PartitionKey = partitionKey;
             ID = id;

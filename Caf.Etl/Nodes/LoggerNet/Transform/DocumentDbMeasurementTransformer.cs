@@ -35,9 +35,9 @@ namespace Caf.Etl.Nodes.LoggerNet.Transform
             this.map = map;
         }
 
-        public List<Measurement> ToMeasurements(TOA5 meteorology)
+        public List<MeasurementV1> ToMeasurements(TOA5 meteorology)
         {
-            List<Measurement> measurements = new List<Measurement>();
+            List<MeasurementV1> measurements = new List<MeasurementV1>();
 
             foreach(IObservation obs in meteorology.Observations)
             {
@@ -48,7 +48,7 @@ namespace Caf.Etl.Nodes.LoggerNet.Transform
                         variable.FieldName == "RECORD")
                         continue;
 
-                    Measurement measurement = CreateMeasurementFromVariable(variable, obs, meteorology.Metadata);
+                    MeasurementV1 measurement = CreateMeasurementFromVariable(variable, obs, meteorology.Metadata);
                     measurements.Add(measurement);
                 }
             }
@@ -56,7 +56,7 @@ namespace Caf.Etl.Nodes.LoggerNet.Transform
             return measurements;
         }
 
-        private Measurement CreateMeasurementFromVariable(Variable variable, IObservation observation, Metadata metadata)
+        private MeasurementV1 CreateMeasurementFromVariable(Variable variable, IObservation observation, Metadata metadata)
         {
             // Look up property based on string, get value
             var value = observation.GetType().GetProperty(variable.FieldName).GetValue(observation, null);
@@ -72,11 +72,11 @@ namespace Caf.Etl.Nodes.LoggerNet.Transform
             string name = map.GetMeasurementName(variable.FieldName);
             DateTime measurementDateTime = new DateTime(observation.TIMESTAMP.Ticks, DateTimeKind.Utc);
 
-            List<PhysicalQuantity> physicalQuantitis = new List<PhysicalQuantity>() {
-                new PhysicalQuantity(pqMetric.Value, pqMetric.Unit, 0, 0, 0, DateTime.UtcNow, "DocumentDbMeasurementTransformer")
+            List<PhysicalQuantityV1> physicalQuantitis = new List<PhysicalQuantityV1>() {
+                new PhysicalQuantityV1(pqMetric.Value, pqMetric.Unit, 0, 0, 0, DateTime.UtcNow, "DocumentDbMeasurementTransformer")
             };
 
-            Location location = new Location("Point",
+            LocationV1 location = new LocationV1("Point",
                 map.GetLatFromStation(metadata),
                 map.GetLonFromStation(metadata));
 
@@ -85,7 +85,7 @@ namespace Caf.Etl.Nodes.LoggerNet.Transform
             string partitionKey = "EcTower_" + fieldId + "_" + name;
             string id = fieldId + "_" + name + "_" + measurementDateTime.ToString("o");
 
-            return new Measurement(partitionKey, id, DocumentType, name, TargetSchemaVersion, metadataId,
+            return new MeasurementV1(partitionKey, id, DocumentType, name, TargetSchemaVersion, metadataId,
                 "", "", "", "", null, fieldId, location, measurementDateTime, physicalQuantitis);
         }
     }

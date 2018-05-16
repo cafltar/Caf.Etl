@@ -14,7 +14,7 @@ namespace Caf.Etl.Nodes.LoggerNet.Tests
         public void ToMeasurement_ValidData_ReturnCorrectMeasurements()
         {
             //# Arrange
-            Measurement expectedMeasurement_RH_Avg = new Measurement(
+            MeasurementV1 expectedMeasurement_RH_Avg = new MeasurementV1(
                 "EcTower_CookEast_RelativeHumidityTsAvg",
                 "CookEast_RelativeHumidityTsAvg_2017-06-20T11:30:00.0000000Z",
                 "Measurement",
@@ -23,14 +23,14 @@ namespace Caf.Etl.Nodes.LoggerNet.Tests
                 "CafMeteorologyEcTower",
                 "", "", "", "", null,
                 "CookEast",
-                new Location("Point", 46.78152, -117.08205),
+                new LocationV1("Point", 46.78152, -117.08205),
                 new DateTime(2017, 6, 20, 11, 30, 0),
-                new List<PhysicalQuantity>() { new PhysicalQuantity(
+                new List<PhysicalQuantityV1>() { new PhysicalQuantityV1(
                     (decimal)56.22676, "%", 0, 0, 0,
                     DateTime.MaxValue,
                     "DocumentDbMeasurementTransformer")});
 
-            Measurement expectedMeasurement_amb_tmpr_Avg = new Measurement(
+            MeasurementV1 expectedMeasurement_amb_tmpr_Avg = new MeasurementV1(
                 "EcTower_CookEast_TemperatureAirTsAvg",
                 "CookEast_TemperatureAirTsAvg_2017-06-20T11:30:00.0000000Z",
                 "Measurement",
@@ -39,14 +39,14 @@ namespace Caf.Etl.Nodes.LoggerNet.Tests
                 "CafMeteorologyEcTower",
                 "", "", "", "", null,
                 "CookEast",
-                new Location("Point", 46.78152, -117.08205),
+                new LocationV1("Point", 46.78152, -117.08205),
                 new DateTime(2017, 6, 20, 11, 30, 0),
-                new List<PhysicalQuantity>() { new PhysicalQuantity(
+                new List<PhysicalQuantityV1>() { new PhysicalQuantityV1(
                     (decimal)4.940109, "C", 0, 0, 0,
                     DateTime.MaxValue,
                     "DocumentDbMeasurementTransformer")});
 
-            Measurement expectedMeasurement_PAR_density_Avg = new Measurement(
+            MeasurementV1 expectedMeasurement_PAR_density_Avg = new MeasurementV1(
                 "EcTower_CookEast_ParDensityTsAvg",
                 "CookEast_ParDensityTsAvg_2017-06-20T11:30:00.0000000Z",
                 "Measurement",
@@ -55,14 +55,14 @@ namespace Caf.Etl.Nodes.LoggerNet.Tests
                 "CafMeteorologyEcTower",
                 "", "", "", "", null,
                 "CookEast",
-                new Location("Point", 46.78152, -117.08205),
+                new LocationV1("Point", 46.78152, -117.08205),
                 new DateTime(2017, 6, 20, 11, 30, 0),
-                new List<PhysicalQuantity>() { new PhysicalQuantity(
+                new List<PhysicalQuantityV1>() { new PhysicalQuantityV1(
                     (decimal)0.001956598, "mol/(m^2 s)", 0, 0, 0,
                     DateTime.MaxValue,
                     "DocumentDbMeasurementTransformer")});
 
-            List<Measurement> actualMeasurements = new List<Measurement>();
+            List<MeasurementV1> actualMeasurements = new List<MeasurementV1>();
 
             //# Act
             Caf.Etl.Nodes.LoggerNet.Mappers.MapFromMeteorologyToCafStandards map = 

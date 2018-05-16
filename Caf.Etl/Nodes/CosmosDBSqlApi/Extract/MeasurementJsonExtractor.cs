@@ -17,10 +17,10 @@ namespace Caf.Etl.Nodes.CosmosDBSqlApi.Extract
 
         // TODO: Create Extract() function
 
-        public List<Measurement> ToMeasurements(string jsonMeasurements)
+        public List<MeasurementV1> ToMeasurements(string jsonMeasurements)
         {
-            List<Measurement> results = new List<Measurement>();
-            results = JsonConvert.DeserializeObject<List<Measurement>>(jsonMeasurements);
+            List<MeasurementV1> results = new List<MeasurementV1>();
+            results = JsonConvert.DeserializeObject<List<MeasurementV1>>(jsonMeasurements);
 
             return results;
         }

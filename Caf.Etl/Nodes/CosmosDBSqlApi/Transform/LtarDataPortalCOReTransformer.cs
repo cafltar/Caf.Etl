@@ -17,12 +17,12 @@ namespace Caf.Etl.Nodes.CosmosDBSqlApi.Transform
             string stationId,
             char recordType,
             int utcOffset, 
-            List<Measurement> measurements)
+            List<MeasurementV1> measurements)
         {
             List<Observation> observations = new List<Observation>();
 
-            IEnumerable<IGrouping<DateTime, Measurement>> groups = measurements.GroupBy(d => d.MeasurementDateTime);
-            foreach (IGrouping<DateTime, Measurement> group in groups)
+            IEnumerable<IGrouping<DateTime, MeasurementV1>> groups = measurements.GroupBy(d => d.MeasurementDateTime);
+            foreach (IGrouping<DateTime, MeasurementV1> group in groups)
             {
                 // TODO: Don't hardcode!  When you have time...
                 // TODO: Unit conversions!
@@ -98,7 +98,7 @@ namespace Caf.Etl.Nodes.CosmosDBSqlApi.Transform
             string stationId,
             char recordType,
             int utcOffset,
-            List<Measurement> measurements)
+            List<MeasurementV1> measurements)
         {
             throw new NotImplementedException();
         }

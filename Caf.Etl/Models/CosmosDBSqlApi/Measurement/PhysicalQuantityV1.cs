@@ -6,7 +6,7 @@ using System.Text;
 namespace Caf.Etl.Models.CosmosDBSqlApi.Measurement
 {
     /// <summary></summary>
-    public class PhysicalQuantity// : Nsar.Common.Measure.Models.PhysicalQuantity
+    public class PhysicalQuantityV1// : Nsar.Common.Measure.Models.PhysicalQuantity
     {
         /// <summary></summary>
         [JsonProperty("value")]
@@ -46,7 +46,7 @@ namespace Caf.Etl.Models.CosmosDBSqlApi.Measurement
         /// <param name="qcResultCode"></param>
         /// <param name="submissionDateTime"></param>
         /// <param name="sourceID"></param>
-        public PhysicalQuantity(
+        public PhysicalQuantityV1(
             decimal value, string unit, int qualityCode,
             int qcAppliedCode, int qcResultCode,
             DateTime submissionDateTime, string sourceID)

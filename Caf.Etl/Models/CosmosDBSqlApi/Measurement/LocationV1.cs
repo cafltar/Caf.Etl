@@ -7,7 +7,7 @@ namespace Caf.Etl.Models.CosmosDBSqlApi.Measurement
 {
     /// <summary></summary>
     /// <todo>Consider using a proper GeoJSON library: https://github.com/GeoJSON-Net/GeoJSON.Net</todo>
-    public class Location
+    public class LocationV1
     {
         /// <summary>
         /// Type maps type
@@ -30,7 +30,7 @@ namespace Caf.Etl.Models.CosmosDBSqlApi.Measurement
         /// <param name="type"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        public Location(
+        public LocationV1(
             string type,
             double latitude,
             double longitude)
