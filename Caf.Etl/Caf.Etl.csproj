@@ -1,8 +1,8 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0</TargetFrameworks>
-    <PackageVersion>0.1.0</PackageVersion>
+    <PackageVersion>0.2.1</PackageVersion>
     <Title>CafEtl</Title>
     <Authors>Bryan Carlson</Authors>
     <Description>A simple ETL library for working with CAF LTAR related data</Description>

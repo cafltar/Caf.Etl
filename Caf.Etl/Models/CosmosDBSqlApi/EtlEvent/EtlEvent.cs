@@ -106,5 +106,36 @@ namespace Caf.Etl.Models.CosmosDBSqlApi.EtlEvent
             Outputs = outputs;
             Logs = logs;
         }
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        public EtlEvent(
+            string type, string name,
+            string schema, string project, string _rid,
+            string _self, string _etag, string _attachements, int? _ts,
+            string version, string source,
+            DateTime dateTimeStart, DateTime dateTimeEnd,
+            List<string> inputs, List<string> outputs, List<string> logs)
+        {
+            PartitionKey = $"{type}_{name}";
+            Id = $"{project}_{name}_{dateTimeStart.ToString("o")}";
+            Type = type;
+            Name = name;
+            Schema = schema;
+            Project = project;
+            this._rid = _rid;
+            this._self = _self;
+            this._etag = _etag;
+            this._attachments = _attachments;
+            this._ts = _ts;
+            Version = version;
+            Source = source;
+            DateTimeStart = dateTimeStart;
+            DateTimeEnd = dateTimeEnd;
+            Inputs = inputs;
+            Outputs = outputs;
+            Logs = logs;
+        }
     }
 }
