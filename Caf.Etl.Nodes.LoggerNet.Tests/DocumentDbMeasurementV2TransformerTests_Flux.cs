@@ -43,7 +43,7 @@ namespace Caf.Etl.Nodes.LoggerNet.Tests
         {
             foreach(var first in firsts)
             {
-                var second = seconds.SingleOrDefault(m => m.ID == first.ID);
+                var second = seconds.SingleOrDefault(m => m.Id == first.Id);
                 if (second == null)
                     return false;
 

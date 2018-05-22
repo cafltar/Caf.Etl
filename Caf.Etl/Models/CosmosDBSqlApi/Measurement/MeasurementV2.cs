@@ -16,7 +16,7 @@ namespace Caf.Etl.Models.CosmosDBSqlApi.Measurement
 
         /// <summary></summary>
         [JsonProperty("id")]
-        public string ID { get; private set; }
+        public string Id { get; private set; }
 
         /// <summary></summary>
         [JsonProperty("type")]
@@ -82,7 +82,7 @@ namespace Caf.Etl.Models.CosmosDBSqlApi.Measurement
             int? timestep)
         {
             PartitionKey = partitionKey;
-            ID = id;
+            Id = id;
             Type = type;
             Name = name;
             Schema = schema;
@@ -108,7 +108,7 @@ namespace Caf.Etl.Models.CosmosDBSqlApi.Measurement
         {
             return other != null &&
                    PartitionKey == other.PartitionKey &&
-                   ID == other.ID &&
+                   Id == other.Id &&
                    Type == other.Type &&
                    Name == other.Name &&
                    Schema == other.Schema &&
@@ -129,7 +129,7 @@ namespace Caf.Etl.Models.CosmosDBSqlApi.Measurement
         {
             var hashCode = -329364641;
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(PartitionKey);
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(ID);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Id);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Type);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Name);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Schema);

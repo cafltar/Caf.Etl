@@ -5,13 +5,13 @@ VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Caf.Etl", "Caf.Etl\Caf.Etl.csproj", "{042EDCA2-4368-420F-BCC5-7A6EC804D2C2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Caf.Etl.Nodes.DocumentDb.Tests", "Caf.Etl.Nodes.DocumentDb.Tests\Caf.Etl.Nodes.DocumentDb.Tests.csproj", "{CD3F6020-F033-4597-A381-51406A07403F}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Caf.Etl.Nodes.LoggerNet.Tests", "Caf.Etl.Nodes.LoggerNet.Tests\Caf.Etl.Nodes.LoggerNet.Tests.csproj", "{6A3475C2-12EE-477E-BCB5-7CEB83822BAE}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Caf.Etl.Nodes.LtarDataPortal.Tests", "Caf.Etl.Nodes.LtarDataPortal.Tests\Caf.Etl.Nodes.LtarDataPortal.Tests.csproj", "{9EECC5F3-4670-481B-A850-F185692E26B7}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Caf.Etl.Nodes.TestUtils", "Caf.Etl.Nodes.TestUtil\Caf.Etl.Nodes.TestUtils.csproj", "{E4C1A075-4BA5-4D40-B40A-F0671E9B25C0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Caf.Etl.Nodes.CosmosDBSqlApi.Tests", "Caf.Etl.Nodes.CosmosDBSqlApi.Tests\Caf.Etl.Nodes.CosmosDBSqlApi.Tests.csproj", "{2E69CF9F-C244-49F2-A819-B39DA2E88D75}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,6 @@ Global
 		{042EDCA2-4368-420F-BCC5-7A6EC804D2C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{042EDCA2-4368-420F-BCC5-7A6EC804D2C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{042EDCA2-4368-420F-BCC5-7A6EC804D2C2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CD3F6020-F033-4597-A381-51406A07403F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CD3F6020-F033-4597-A381-51406A07403F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CD3F6020-F033-4597-A381-51406A07403F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CD3F6020-F033-4597-A381-51406A07403F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6A3475C2-12EE-477E-BCB5-7CEB83822BAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6A3475C2-12EE-477E-BCB5-7CEB83822BAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A3475C2-12EE-477E-BCB5-7CEB83822BAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -39,6 +35,10 @@ Global
 		{E4C1A075-4BA5-4D40-B40A-F0671E9B25C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E4C1A075-4BA5-4D40-B40A-F0671E9B25C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E4C1A075-4BA5-4D40-B40A-F0671E9B25C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E69CF9F-C244-49F2-A819-B39DA2E88D75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E69CF9F-C244-49F2-A819-B39DA2E88D75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E69CF9F-C244-49F2-A819-B39DA2E88D75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E69CF9F-C244-49F2-A819-B39DA2E88D75}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
