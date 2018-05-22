@@ -78,6 +78,9 @@
           },
           "qualityControlId": {
             "type": "string"
+          },
+          "qcValues": {
+            "type": "array"
           }
         },
         "required": [

@@ -12,7 +12,7 @@ using Caf.Etl.Nodes.LoggerNet.Core;
 
 namespace Caf.Etl.Nodes.LoggerNet.Transform
 {
-    public class DocumentDbMeasurementTransformer
+    public class DocumentDbMeasurementV1Transformer
     {
         private readonly string targetSchemaVersion;
         private readonly string documentType;
@@ -24,7 +24,7 @@ namespace Caf.Etl.Nodes.LoggerNet.Transform
         public string DocumentType { get { return documentType; } }
         public string MetadataId { get { return metadataId; } }
 
-        public DocumentDbMeasurementTransformer(IMapper map,
+        public DocumentDbMeasurementV1Transformer(IMapper map,
             string targetSchemaVersion,
             string documentType = "Measurement",
             string metadataId = "CafMeteorologyEcTower")

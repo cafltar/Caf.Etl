@@ -8,7 +8,7 @@ using Caf.Etl.Models.LoggerNet.TOA5.DataTables;
 
 namespace Caf.Etl.Nodes.LoggerNet.Tests
 {
-    public class DocumentDbMeasurementV1TransformerTests
+    public class DocumentDbMeasurementV1TransformerTests_Meteorology
     {
         [Fact]
         public void ToMeasurement_ValidData_ReturnCorrectMeasurements()
@@ -65,10 +65,10 @@ namespace Caf.Etl.Nodes.LoggerNet.Tests
             List<MeasurementV1> actualMeasurements = new List<MeasurementV1>();
 
             //# Act
-            Caf.Etl.Nodes.LoggerNet.Mappers.MapFromMeteorologyToCafStandards map = 
-                new Caf.Etl.Nodes.LoggerNet.Mappers.MapFromMeteorologyToCafStandards();
+            Caf.Etl.Nodes.LoggerNet.Mappers.MapFromMeteorologyDataTableToCafStandards map = 
+                new Caf.Etl.Nodes.LoggerNet.Mappers.MapFromMeteorologyDataTableToCafStandards();
 
-            DocumentDbMeasurementTransformer sut = new DocumentDbMeasurementTransformer(map, "1.0.0");
+            DocumentDbMeasurementV1Transformer sut = new DocumentDbMeasurementV1Transformer(map, "1.0.0");
             actualMeasurements = sut.ToMeasurements(GetMockMeteorology());
 
             //# Assert

@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Caf.Etl.Nodes.LoggerNet.Tes
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Caf.Etl.Nodes.LtarDataPortal.Tests", "Caf.Etl.Nodes.LtarDataPortal.Tests\Caf.Etl.Nodes.LtarDataPortal.Tests.csproj", "{9EECC5F3-4670-481B-A850-F185692E26B7}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Caf.Etl.Nodes.TestUtils", "Caf.Etl.Nodes.TestUtil\Caf.Etl.Nodes.TestUtils.csproj", "{E4C1A075-4BA5-4D40-B40A-F0671E9B25C0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{9EECC5F3-4670-481B-A850-F185692E26B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9EECC5F3-4670-481B-A850-F185692E26B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9EECC5F3-4670-481B-A850-F185692E26B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4C1A075-4BA5-4D40-B40A-F0671E9B25C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4C1A075-4BA5-4D40-B40A-F0671E9B25C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4C1A075-4BA5-4D40-B40A-F0671E9B25C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4C1A075-4BA5-4D40-B40A-F0671E9B25C0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

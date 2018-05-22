@@ -7,7 +7,7 @@ namespace Caf.Etl.Models.CosmosDBSqlApi.Measurement
 {
     /// <summary></summary>
     /// <todo>Consider using a proper GeoJSON library: https://github.com/GeoJSON-Net/GeoJSON.Net</todo>
-    public class LocationV2
+    public class LocationV2 : IEquatable<LocationV2>
     {
         /// <summary>
         /// Type maps type
@@ -42,5 +42,39 @@ namespace Caf.Etl.Models.CosmosDBSqlApi.Measurement
                 longitude
             };
         }
+
+        public override bool Equals(object obj)
+        {
+            return Equals(obj as LocationV2);
+        }
+
+        public bool Equals(LocationV2 other)
+        {
+            return other != null &&
+                   Type == other.Type &&
+                   //EqualityComparer<List<double>>.Default.Equals(Coordinates, other.Coordinates);
+                   Coordinates[0] == other.Coordinates[0] &&
+                   Coordinates[1] == other.Coordinates[1];
+        }
+
+        public override int GetHashCode()
+        {
+            var hashCode = 1743564093;
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Type);
+            hashCode = hashCode * -1521134295 + EqualityComparer<List<double>>.Default.GetHashCode(Coordinates);
+            return hashCode;
+        }
+
+        public static bool operator ==(LocationV2 v1, LocationV2 v2)
+        {
+            return EqualityComparer<LocationV2>.Default.Equals(v1, v2);
+        }
+
+        public static bool operator !=(LocationV2 v1, LocationV2 v2)
+        {
+            return !(v1 == v2);
+        }
+
+
     }
 }

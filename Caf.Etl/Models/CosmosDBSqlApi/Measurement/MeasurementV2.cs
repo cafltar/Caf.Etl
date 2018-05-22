@@ -8,7 +8,7 @@ namespace Caf.Etl.Models.CosmosDBSqlApi.Measurement
     /// <summary>
     /// Dto class for data as described by json-schema located in schema\v2\measurement.json or http://files.cafltar.org/data/schema/documentDb/v2/measurement.json
     /// </summary>
-    public class MeasurementV2
+    public class MeasurementV2 : IEquatable<MeasurementV2>
     {
         /// <summary></summary>
         [JsonProperty("partitionKey")]
@@ -98,5 +98,65 @@ namespace Caf.Etl.Models.CosmosDBSqlApi.Measurement
             PhysicalQuantities = physicalQuantities;
             TimestepSec = timestep;
         }
+
+        public override bool Equals(object obj)
+        {
+            return Equals(obj as MeasurementV2);
+        }
+
+        public bool Equals(MeasurementV2 other)
+        {
+            return other != null &&
+                   PartitionKey == other.PartitionKey &&
+                   ID == other.ID &&
+                   Type == other.Type &&
+                   Name == other.Name &&
+                   Schema == other.Schema &&
+                   Project == other.Project &&
+                   _rid == other._rid &&
+                   _self == other._self &&
+                   _etag == other._etag &&
+                   _attachments == other._attachments &&
+                   EqualityComparer<int?>.Default.Equals(_ts, other._ts) &&
+                   AreaOfInterest == other.AreaOfInterest &&
+                   EqualityComparer<LocationV2>.Default.Equals(Location, other.Location) &&
+                   DateTime == other.DateTime &&
+                   EqualityComparer<List<PhysicalQuantityV2>>.Default.Equals(PhysicalQuantities, other.PhysicalQuantities) &&
+                   EqualityComparer<int?>.Default.Equals(TimestepSec, other.TimestepSec);
+        }
+
+        public override int GetHashCode()
+        {
+            var hashCode = -329364641;
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(PartitionKey);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(ID);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Type);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Name);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Schema);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Project);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(_rid);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(_self);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(_etag);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(_attachments);
+            hashCode = hashCode * -1521134295 + EqualityComparer<int?>.Default.GetHashCode(_ts);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(AreaOfInterest);
+            hashCode = hashCode * -1521134295 + EqualityComparer<LocationV2>.Default.GetHashCode(Location);
+            hashCode = hashCode * -1521134295 + DateTime.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<List<PhysicalQuantityV2>>.Default.GetHashCode(PhysicalQuantities);
+            hashCode = hashCode * -1521134295 + EqualityComparer<int?>.Default.GetHashCode(TimestepSec);
+            return hashCode;
+        }
+
+        public static bool operator ==(MeasurementV2 v1, MeasurementV2 v2)
+        {
+            return EqualityComparer<MeasurementV2>.Default.Equals(v1, v2);
+        }
+
+        public static bool operator !=(MeasurementV2 v1, MeasurementV2 v2)
+        {
+            return !(v1 == v2);
+        }
+
+
     }
 }
