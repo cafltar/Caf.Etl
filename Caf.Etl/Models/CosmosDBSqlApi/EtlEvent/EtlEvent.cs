@@ -63,18 +63,18 @@ namespace Caf.Etl.Models.CosmosDBSqlApi.EtlEvent
 
         /// <summary></summary>
         [JsonProperty("dateTimeEnd")]
-        public DateTime DateTimeEnd { get; private set; }
+        public DateTime DateTimeEnd { get; set; }
 
         /// <summary></summary>
         [JsonProperty("inputs")]
-        public List<string> Inputs { get; private set; }
+        public List<string> Inputs { get; set; }
 
         /// <summary></summary>
         [JsonProperty("outputs")]
-        public List<string> Outputs { get; private set; }
+        public List<string> Outputs { get; set; }
 
         [JsonProperty("logs")]
-        public List<string> Logs { get; private set; }
+        public List<string> Logs { get; set; }
 
         /// <summary>
         /// Constructor
@@ -108,7 +108,7 @@ namespace Caf.Etl.Models.CosmosDBSqlApi.EtlEvent
         }
 
         /// <summary>
-        /// Constructor
+        /// Constructor, generates PartitionKey and Id
         /// </summary>
         public EtlEvent(
             string type, string name,
@@ -136,6 +136,34 @@ namespace Caf.Etl.Models.CosmosDBSqlApi.EtlEvent
             Inputs = inputs;
             Outputs = outputs;
             Logs = logs;
+        }
+
+        /// <summary>
+        /// Constructor, generates PartitionKey and Id, sets defaults
+        /// </summary>
+        public EtlEvent(
+            string type, string name,
+            string schema, string project,
+            string version, string source,
+            DateTime dateTimeStart)
+        {
+            PartitionKey = $"{type}_{name}";
+            Id = $"{project}_{name}_{dateTimeStart.ToString("o")}";
+            Type = type;
+            Name = name;
+            Schema = schema;
+            Project = project;
+            Version = version;
+            Source = source;
+            DateTimeStart = dateTimeStart;
+            this._rid = "";
+            this._self = "";
+            this._etag = "";
+            this._attachments = "";
+            this._ts = null;
+            Inputs = new List<string>();
+            Outputs = new List<string>();
+            Logs = new List<string>();
         }
     }
 }
