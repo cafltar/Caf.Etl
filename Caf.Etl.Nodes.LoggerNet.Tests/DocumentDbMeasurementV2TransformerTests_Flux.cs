@@ -26,6 +26,9 @@ namespace Caf.Etl.Nodes.LoggerNet.Tests
                 new DocumentDbMeasurementV2Transformer(
                     map,
                     "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json",
+                    "DocumentDbMeasurementTransformer",
+                    "Measurement",
+                    "CafMeteorologyEcTower",
                     1800);
 
             //# Act
@@ -67,7 +70,6 @@ namespace Caf.Etl.Nodes.LoggerNet.Tests
                 && first._rid == second._rid
                 && first._self == second._self
                 && first._ts == second._ts;
-                
         }
 
 

@@ -17,21 +17,25 @@ namespace Caf.Etl.Nodes.LoggerNet.Transform
         private readonly IMapper map;
 
         public string Schema { get; }
+        public string EtlEventId { get; }
         public string DocumentType { get; }
         public string Project { get; }
         public int? Timestep { get; }
+        
 
         public DocumentDbMeasurementV2Transformer(
             IMapper map,
             string schema,
-            int? timestep = null,
+            string etlEventId,
             string documentType = "Measurement",
-            string project = "CafMeteorologyEcTower")
+            string project = "CafMeteorologyEcTower",
+            int? timestep = null)
         {
+            this.map = map;
             Schema = schema;
+            EtlEventId = etlEventId;
             DocumentType = documentType;
             Project = project;
-            this.map = map;
             Timestep = timestep;
         }
 
@@ -99,7 +103,7 @@ namespace Caf.Etl.Nodes.LoggerNet.Transform
                         (double?)value, 
                         variable.Units, 
                         DateTime.UtcNow, 
-                        "DocumentDbMeasurementTransformer")
+                        EtlEventId)
                 };
 
             LocationV2 location = new LocationV2("Point",
