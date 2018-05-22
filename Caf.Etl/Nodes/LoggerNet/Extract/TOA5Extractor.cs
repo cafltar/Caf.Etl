@@ -14,13 +14,9 @@ namespace Caf.Etl.Nodes.LoggerNet.Extract
     /// </summary>
     public class TOA5Extractor
     {
-        private readonly string fileName;
-        private readonly string fileContent;
-        private readonly int utcOffset;
-
-        public string FileName { get { return fileName; } }
-        public string FileContent { get { return fileContent; } }
-        public int UtcOffset { get { return utcOffset; } }
+        public string FileName { get; }
+        public string FileContent { get; }
+        public int UtcOffset { get; }
 
         /// <summary>
         /// Constructor with file path
@@ -34,7 +30,7 @@ namespace Caf.Etl.Nodes.LoggerNet.Extract
 
             try
             {
-                fileContent = File.ReadAllText(pathToFile);
+                FileContent = File.ReadAllText(pathToFile);
             }
             catch(Exception e)
             {
@@ -43,14 +39,14 @@ namespace Caf.Etl.Nodes.LoggerNet.Extract
 
             try
             {
-                fileName = Path.GetFileName(pathToFile);
+                FileName = Path.GetFileName(pathToFile);
             }
             catch(Exception e)
             {
                 throw e;
             }
 
-            this.utcOffset = utcOffset;
+            this.UtcOffset = utcOffset;
         }
 
         /// <summary>
@@ -61,18 +57,18 @@ namespace Caf.Etl.Nodes.LoggerNet.Extract
         /// <param name="utcOffset">UTC timezone offset, accepts negatives.  Use -8 for PST, for example</param>
         public TOA5Extractor(string fileName, string fileContent, int utcOffset = 0)
         {
-            this.fileContent = fileContent;
-            this.fileName = fileName;
-            this.utcOffset = utcOffset;
+            this.FileContent = fileContent;
+            this.FileName = fileName;
+            this.UtcOffset = utcOffset;
         }
 
         public List<T> GetObservations<T>() where T : IObservation
         {
-            if (this.fileContent.Length <= 0) throw new Exception("No content");
+            if (this.FileContent.Length <= 0) throw new Exception("No content");
 
             List<T> observations = new List<T>();
 
-            using (TextReader sr = new StringReader(cleanNulls(cleanHeaders(trimMetaData(this.fileContent)))))
+            using (TextReader sr = new StringReader(cleanNulls(cleanHeaders(trimMetaData(this.FileContent)))))
             {
 
                 CsvReader csv = new CsvReader(sr);
@@ -87,7 +83,7 @@ namespace Caf.Etl.Nodes.LoggerNet.Extract
             // Datetimes were in unknown timezone (most likely PST, or UTC-08), so convert to UTC
             foreach(IObservation obs in observations)
             {
-                obs.TIMESTAMP = new DateTime(obs.TIMESTAMP.AddHours((-1 * utcOffset)).Ticks, DateTimeKind.Utc);
+                obs.TIMESTAMP = new DateTime(obs.TIMESTAMP.AddHours((-1 * UtcOffset)).Ticks, DateTimeKind.Utc);
             }
 
             return observations;
@@ -95,12 +91,12 @@ namespace Caf.Etl.Nodes.LoggerNet.Extract
 
         public Metadata GetMetadata()
         {
-            if (this.fileContent.Length <= 0) throw new Exception("No content");
+            if (this.FileContent.Length <= 0) throw new Exception("No content");
 
             Metadata md = new Metadata();
             md.Variables = new List<Variable>();
 
-            using (StringReader sr = new StringReader(this.fileContent))
+            using (StringReader sr = new StringReader(this.FileContent))
             {
                 string[] fileMeta = sr.ReadLine().Replace("\"", "").Split(',');
 
@@ -135,16 +131,16 @@ namespace Caf.Etl.Nodes.LoggerNet.Extract
             return md;
         }
 
-        public TOA5 GetMeteorology()
+        public TOA5 GetTOA5<T>() where T : IObservation
         {
-            TOA5 met = new TOA5();
+            TOA5 toa5 = new TOA5();
 
-            met.Metadata = GetMetadata();
+            toa5.Metadata = GetMetadata();
             //List<Meteorology> obs = GetObservations<Meteorology>();
 
-            met.Observations = GetObservations<Meteorology>().Cast<IObservation>().ToList();
+            toa5.Observations = GetObservations<T>().Cast<IObservation>().ToList();
 
-            return met;
+            return toa5;
         }
 
         private string trimMetaData(string fileContent)
