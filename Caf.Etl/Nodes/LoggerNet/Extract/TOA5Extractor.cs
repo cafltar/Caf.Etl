@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace Caf.Etl.Nodes.LoggerNet.Extract
 {
@@ -109,9 +110,16 @@ namespace Caf.Etl.Nodes.LoggerNet.Extract
                 md.DataloggerProgramSignature   =    Convert.ToInt32(fileMeta[6]);
                 md.TableName                    =    fileMeta[7];
 
-                string[] fieldNames = cleanHeaders(sr.ReadLine().Replace("\"", "")).Split(',');
-                string[] units = sr.ReadLine().Replace("\"", "").Split(',');
-                string[] processing = sr.ReadLine().Replace("\"", "").Split(',');
+                Regex csvSplit = 
+                    new Regex(",(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))", 
+                    RegexOptions.Compiled);
+
+                //string[] fieldNames = cleanHeaders(sr.ReadLine().Replace("\"", "")).Split(',');
+                //string[] units = sr.ReadLine().Replace("\"", "").Split(',');
+                //string[] processing = sr.ReadLine().Replace("\"", "").Split(',');
+                string[] fieldNames = csvSplit.Split(sr.ReadLine());
+                string[] units = csvSplit.Split(sr.ReadLine());
+                string[] processing = csvSplit.Split(sr.ReadLine());
 
                 if ((fieldNames.Length != units.Length) || (units.Length != processing.Length))
                     throw new Exception("Error parsing field metadata");
@@ -121,9 +129,9 @@ namespace Caf.Etl.Nodes.LoggerNet.Extract
                     md.Variables.Add(
                         new Variable()
                         {
-                            FieldName = fieldNames[col],
-                            Units = units[col],
-                            Processing = processing[col]
+                            FieldName = fieldNames[col].Replace("\"", ""),
+                            Units = units[col].Replace("\"", ""),
+                            Processing = processing[col].Replace("\"", "")
                         });
                 }
             }

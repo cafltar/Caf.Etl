@@ -33,5 +33,18 @@ namespace Caf.Etl.Nodes.LoggerNet.Tests
             //# Assert
             Assert.Equal(expectedObservations[0], actualObservations[0]);
         }
+
+        [Fact]
+        public void GetTOA5_ValidContent_ReturnsCorrectTOA5()
+        {
+            TOA5Extractor sut = new TOA5Extractor(pathToFileWithValidContent);
+            List<IObservation> expectedObservations = 
+                LoggerNetArranger.GetObservationsDerivedFromActualData();
+
+            TOA5 fluxTable = sut.GetTOA5<Flux>();
+
+            Assert.Equal(expectedObservations, fluxTable.Observations);
+            //TODO: Test actual metadata
+        }
     }
 }
