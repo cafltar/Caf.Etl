@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Caf.Etl.Nodes.TestUtil\Caf.Etl.Nodes.TestUtils.csproj" />
+    <ProjectReference Include="..\Caf.Etl.Nodes.TestUtil\Caf.Etl.TestUtils.csproj" />
     <ProjectReference Include="..\Caf.Etl\Caf.Etl.csproj" />
   </ItemGroup>
 

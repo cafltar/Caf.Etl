@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net461</TargetFramework>
+    <RootNamespace>Caf.Etl.UnitTests</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CsvHelper" Version="7.1.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.7.2" />
+    <PackageReference Include="xunit" Version="2.3.1" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.3.1" />
+    <PackageReference Include="Microsoft.Azure.DocumentDB.Core" Version="1.9.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Nodes\LoggerNet\Assets\CookEastEcTower_Flux_Raw_2018_01_08_1330.dat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Nodes\LoggerNet\Assets\CookEastEcTower_Met_Raw_2017_06_20_1115.dat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Nodes\LoggerNet\Assets\CookEastEcTower_Met_Raw_2017_10_24_0615.dat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Nodes\LoggerNet\Assets\CookEastEcTower_Met_Raw_TestTimeZone.dat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Nodes\CosmosDBSqlApi\Assets\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Caf.Etl.TestUtils\Caf.Etl.TestUtils.csproj" />
+    <ProjectReference Include="..\Caf.Etl\Caf.Etl.csproj" />
+  </ItemGroup>
+
+</Project>

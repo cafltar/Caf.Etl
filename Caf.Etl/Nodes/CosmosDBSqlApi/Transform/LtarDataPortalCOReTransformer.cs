@@ -1,12 +1,8 @@
 ﻿using Caf.Etl.Models.CosmosDBSqlApi.Measurement;
 using Caf.Etl.Models.LtarDataPortal.CORe;
-using Caf.Etl.Models.CosmosDBSqlApi.Measurement;
-using Caf.Etl.Models.LtarDataPortal.CORe;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Caf.Etl.Nodes.CosmosDBSqlApi.Transform
 {

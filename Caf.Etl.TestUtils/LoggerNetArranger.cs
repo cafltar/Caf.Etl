@@ -4,7 +4,7 @@ using Caf.Etl.Models.LoggerNet.TOA5.DataTables;
 using System;
 using System.Collections.Generic;
 
-namespace Caf.Etl.Nodes.TestUtils
+namespace Caf.Etl.TestUtils
 {
     public static class LoggerNetArranger
     {

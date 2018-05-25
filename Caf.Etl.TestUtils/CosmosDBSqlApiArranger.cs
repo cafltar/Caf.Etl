@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Caf.Etl.Nodes.TestUtils
+namespace Caf.Etl.TestUtils
 {
     public static class CosmosDBSqlApiArranger
     {
