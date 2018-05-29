@@ -43,12 +43,20 @@ namespace Caf.Etl.Nodes.LoggerNet.Tests
         {
             foreach(var first in firsts)
             {
-                var second = seconds.SingleOrDefault(m => m.Id == first.Id);
-                if (second == null)
-                    return false;
+                try
+                {
+                    var second = seconds.SingleOrDefault(m => m.Id == first.Id);
 
-                if (!AreMeasurementRoughlyEqual(first, second))
-                    return false;
+                    if (second == null)
+                        return false;
+
+                    if (!AreMeasurementRoughlyEqual(first, second))
+                        return false;
+                }
+                catch(Exception e)
+                {
+                    throw e;
+                }
             }
 
             return true;
