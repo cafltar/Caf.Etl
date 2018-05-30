@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Caf.Etl.Models.CosmosDBSqlApi;
 using Newtonsoft.Json;
 
 namespace Caf.Etl.Models.CosmosDBSqlApi.Measurement
@@ -8,7 +7,7 @@ namespace Caf.Etl.Models.CosmosDBSqlApi.Measurement
     /// <summary>
     /// Dto class for data as described by json-schema located in schema\v2\measurement.json or http://files.cafltar.org/data/schema/documentDb/v2/measurement.json
     /// </summary>
-    public class MeasurementV2 : IEquatable<MeasurementV2>
+    public class MeasurementV2 : IEquatable<MeasurementV2>, IAmDocument
     {
         /// <summary></summary>
         [JsonProperty("partitionKey")]

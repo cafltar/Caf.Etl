@@ -1,24 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Net;
 using Microsoft.Azure.Documents;
 using Microsoft.Azure.Documents.Client;
-using Newtonsoft.Json;
-using Caf.Etl.Models.CosmosDBSqlApi.EtlEvent;
+using Caf.Etl.Models.CosmosDBSqlApi;
 
 namespace Caf.Etl.Nodes.CosmosDBSqlApi.Load
 {
-    public class EtlEventLoader
+    public class DocumentLoader
     {
         private readonly DocumentClient client;
         private readonly string databaseId;
         private readonly string collectionId;
 
 
-        public EtlEventLoader(
+        public DocumentLoader(
             DocumentClient client,
             string databaseId,
             string collectionId)
@@ -28,9 +23,8 @@ namespace Caf.Etl.Nodes.CosmosDBSqlApi.Load
             this.collectionId = collectionId;
         }
 
-        //TODO: I think this should create the Id for the document?  Or should the calling function?  Or the Transformer?  Who has the rights?!!!
         public async Task<ResourceResponse<Document>> LoadNoReplace(
-            EtlEvent etlEvent)
+            IAmDocument doc)
         {
             ResourceResponse<Document> r;
 
@@ -40,9 +34,9 @@ namespace Caf.Etl.Nodes.CosmosDBSqlApi.Load
                     UriFactory.CreateDocumentUri(
                         databaseId, 
                         collectionId, 
-                        etlEvent.Id),
+                        doc.Id),
                     new RequestOptions {
-                        PartitionKey = new PartitionKey(etlEvent.PartitionKey)
+                        PartitionKey = new PartitionKey(doc.PartitionKey)
                     });
             }
             catch (DocumentClientException de)
@@ -53,7 +47,7 @@ namespace Caf.Etl.Nodes.CosmosDBSqlApi.Load
                         UriFactory.CreateDocumentCollectionUri(
                             databaseId,
                             collectionId),
-                        etlEvent);
+                        doc);
                 }
                 else
                 {
@@ -65,14 +59,14 @@ namespace Caf.Etl.Nodes.CosmosDBSqlApi.Load
         }
 
         public async Task<ResourceResponse<Document>> LoadReplace(
-            EtlEvent etlEvent)
+            IAmDocument doc)
         {
             var r = await this.client.ReplaceDocumentAsync(
                 UriFactory.CreateDocumentUri(
                     databaseId,
                     collectionId,
-                    etlEvent.Id),
-                etlEvent);
+                    doc.Id),
+                doc);
 
             return r;
         }

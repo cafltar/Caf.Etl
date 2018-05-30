@@ -8,7 +8,7 @@ namespace Caf.Etl.Models.CosmosDBSqlApi.EtlEvent
     /// <summary>
     /// Dto class for data as described by json-schema located in schema\v2\measurement.json or http://files.cafltar.org/data/schema/documentDb/v2/measurement.json
     /// </summary>
-    public class EtlEvent
+    public class EtlEvent : IAmDocument
     {
         /// <summary></summary>
         [JsonProperty("partitionKey")]

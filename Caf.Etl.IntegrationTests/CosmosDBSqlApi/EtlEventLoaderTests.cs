@@ -17,7 +17,7 @@ namespace Caf.Etl.IntegrationTests
     ///     EtlEvent with id "EtlEvent_2018-05-22T01:00:00.000000Z"
     ///     EtlEvent with id "EtlEvent_2018-06-22T01:00:00.000000Z"
     /// </summary>
-    public class EtlEventLoaderTests
+    public class EntityLoaderTests
     {
 
         [Fact]
@@ -30,7 +30,7 @@ namespace Caf.Etl.IntegrationTests
             var e = CosmosDBSqlApiArranger.GetEtlEventMock("EtlEvent_2018-05-22T01:00:00.000000Z");
             var datetime = DateTime.UtcNow;
 
-            EtlEventLoader sut = new EtlEventLoader(
+            DocumentLoader sut = new DocumentLoader(
                 client,
                 "cafdb",
                 "items");
@@ -53,7 +53,7 @@ namespace Caf.Etl.IntegrationTests
             var e = CosmosDBSqlApiArranger.GetEtlEventMock("EtlEvent_2018-06-22T01:00:00.000000Z");
             var datetime = DateTime.UtcNow;
 
-            EtlEventLoader sut = new EtlEventLoader(
+            DocumentLoader sut = new DocumentLoader(
                 client,
                 "cafdb",
                 "items");
