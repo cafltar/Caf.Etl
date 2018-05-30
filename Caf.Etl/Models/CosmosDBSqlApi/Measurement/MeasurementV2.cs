@@ -74,9 +74,9 @@ namespace Caf.Etl.Models.CosmosDBSqlApi.Measurement
         /// </summary>
         public MeasurementV2(
             string partitionKey, string id, string type, string name,
-            string schema, string project, string _rid,
-            string _self, string _etag, string _attachements,
-            int? _ts, string areaOfInterest, LocationV2 location,
+            string schema, string project, string rid,
+            string self, string etag, string attachments,
+            int? ts, string areaOfInterest, LocationV2 location,
             DateTime dateTime,
             List<PhysicalQuantityV2> physicalQuantities,
             int? timestep)
@@ -87,11 +87,75 @@ namespace Caf.Etl.Models.CosmosDBSqlApi.Measurement
             Name = name;
             Schema = schema;
             Project = project;
-            this._rid = _rid;
-            this._self = _self;
-            this._etag = _etag;
-            this._attachments = _attachments;
-            this._ts = _ts;
+            this._rid = rid;
+            this._self = self;
+            this._etag = etag;
+            this._attachments = attachments;
+            this._ts = ts;
+            AreaOfInterest = areaOfInterest;
+            Location = location;
+            DateTime = dateTime;
+            PhysicalQuantities = physicalQuantities;
+            TimestepSec = timestep;
+        }
+
+        /// <summary>
+        /// Constructor, generates PartitionKey and Id
+        /// </summary>
+        /// <remarks>PartitionKey = {project}_{areaOfInterest}_{name}</remarks>
+        /// <remarks>Id = {areaOfInterest}_{name}_{dateTime.ToString("o")}</remarks>
+        public MeasurementV2(
+            string type, string name,
+            string schema, string project, string rid,
+            string self, string etag, string attachments,
+            int? ts, string areaOfInterest, LocationV2 location,
+            DateTime dateTime,
+            List<PhysicalQuantityV2> physicalQuantities,
+            int? timestep)
+        {
+            PartitionKey = $"{project}_{areaOfInterest}_{name}";
+            Id = $"{areaOfInterest}_{name}_{dateTime.ToString("o")}";
+            Type = type;
+            Name = name;
+            Schema = schema;
+            Project = project;
+            this._rid = rid;
+            this._self = self;
+            this._etag = etag;
+            this._attachments = attachments;
+            this._ts = ts;
+            AreaOfInterest = areaOfInterest;
+            Location = location;
+            DateTime = dateTime;
+            PhysicalQuantities = physicalQuantities;
+            TimestepSec = timestep;
+        }
+
+        /// <summary>
+        /// Constructor, generates PartitionKey and Id, sets defaults
+        /// </summary>
+        /// <remarks>PartitionKey = {project}_{areaOfInterest}_{name}</remarks>
+        /// <remarks>If timestep == null: Id = {areaOfInterest}_{name}_{dateTime.ToString("o")}</remarks>
+        /// <remarks>If timestep != null: Id = {areaOfInterest}_{name}_Ts{timestep}_{dateTime.ToString("o")}</remarks>
+        public MeasurementV2(
+            string type, string name,
+            string schema, string project,
+            string areaOfInterest, LocationV2 location,
+            DateTime dateTime,
+            List<PhysicalQuantityV2> physicalQuantities,
+            int? timestep)
+        {
+            PartitionKey = $"{project}_{areaOfInterest}_{name}";
+            Id = $"{areaOfInterest}_{name}{(timestep != null ? ("_Ts" + timestep.ToString()) : "")}_{dateTime.ToString("o")}";
+            Type = type;
+            Name = name;
+            Schema = schema;
+            Project = project;
+            this._rid = "";
+            this._self = "";
+            this._etag = "";
+            this._attachments = "";
+            this._ts = null;
             AreaOfInterest = areaOfInterest;
             Location = location;
             DateTime = dateTime;

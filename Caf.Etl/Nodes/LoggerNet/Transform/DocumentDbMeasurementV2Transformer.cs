@@ -112,33 +112,18 @@ namespace Caf.Etl.Nodes.LoggerNet.Transform
 
             string areaOfInterest = map.GetFieldID(metadata);
 
-            string partitionKey = 
-                "EcTower_" 
-                + areaOfInterest 
-                + "_"
-                + name;
-
-            string id = 
-                areaOfInterest 
-                + "_" 
-                + name 
-                + (Timestep != null ? ("_Ts" + Timestep.ToString()) : "")
-                + "_"
-                + measurementDateTime.ToString("o");
-
-            return new MeasurementV2(
-                partitionKey,
-                id,
+            MeasurementV2 m = new MeasurementV2(
                 DocumentType,
                 name,
                 Schema,
                 Project,
-                "", "", "", "", null,
                 areaOfInterest,
                 location,
                 measurementDateTime,
                 physicalQuantities,
                 Timestep);
+
+            return m;
         }
     }
 }
