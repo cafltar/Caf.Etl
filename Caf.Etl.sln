@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Caf.Etl.UnitTests", "Caf.Et
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Caf.Etl.TestUtils", "Caf.Etl.TestUtils\Caf.Etl.TestUtils.csproj", "{923320CE-59BE-4597-AD59-B5C214D4F5C9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Caf.Etl.IntegrationTests", "Caf.Etl.IntegrationTests\Caf.Etl.IntegrationTests.csproj", "{2FF2AD21-8577-4C37-852E-415B549B77CB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{923320CE-59BE-4597-AD59-B5C214D4F5C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{923320CE-59BE-4597-AD59-B5C214D4F5C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{923320CE-59BE-4597-AD59-B5C214D4F5C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FF2AD21-8577-4C37-852E-415B549B77CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FF2AD21-8577-4C37-852E-415B549B77CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FF2AD21-8577-4C37-852E-415B549B77CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FF2AD21-8577-4C37-852E-415B549B77CB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

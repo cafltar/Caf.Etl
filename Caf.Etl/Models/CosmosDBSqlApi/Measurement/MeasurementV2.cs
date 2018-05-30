@@ -70,7 +70,7 @@ namespace Caf.Etl.Models.CosmosDBSqlApi.Measurement
         public int? TimestepSec { get; private set; }
 
         /// <summary>
-        /// Constructor
+        /// Basic constructor
         /// </summary>
         public MeasurementV2(
             string partitionKey, string id, string type, string name,
