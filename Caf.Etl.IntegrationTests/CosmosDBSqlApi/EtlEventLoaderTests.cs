@@ -44,14 +44,37 @@ namespace Caf.Etl.IntegrationTests
         }
 
         [Fact]
+        public async Task LoadNoReplace_RecordDoesNotExist_ReturnsNewRecord()
+        {
+            // ARRANGE
+            var datetime = DateTime.UtcNow;
+            DocumentClient client = new DocumentClient(
+                new Uri("https://localhost:8081"),
+                "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==");
+            var e = CosmosDBSqlApiArranger.GetEtlEventMock($"EtlEvent_{DateTime.UtcNow.ToString("o")}");
+
+            DocumentLoader sut = new DocumentLoader(
+                client,
+                "cafdb",
+                "items");
+
+            // ACT
+            ResourceResponse<Document> result = await sut.LoadNoReplace(e);
+
+            // ASSERT
+            Assert.True(result.StatusCode == HttpStatusCode.Created);
+            Assert.True(result.Resource.Timestamp > datetime);
+        }
+
+        [Fact]
         public async Task LoadReplace_RecordExists_ReturnsNewRecord()
         {
             // ARRANGE
+            var datetime = DateTime.UtcNow;
             DocumentClient client = new DocumentClient(
                 new Uri("https://localhost:8081"),
                 "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==");
             var e = CosmosDBSqlApiArranger.GetEtlEventMock("EtlEvent_2018-06-22T01:00:00.000000Z");
-            var datetime = DateTime.UtcNow;
 
             DocumentLoader sut = new DocumentLoader(
                 client,
