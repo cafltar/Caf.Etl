@@ -84,7 +84,7 @@ namespace Caf.Etl.Nodes.CosmosDBSqlApi.Load
         /// <param name="docs"></param>
         /// <returns></returns>
         public async Task<StoredProcedureResponse<bool>[]> LoadBulk(
-            List<IAmDocument> docs)
+            IEnumerable<IAmDocument> docs)
         {
             // TODO: Replace with BulkExecutor once it's netstandard2 complient
             List<Task<StoredProcedureResponse<bool>>> tasks =
