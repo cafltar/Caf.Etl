@@ -103,6 +103,7 @@ namespace Caf.Etl.Models.CosmosDBSqlApi.Measurement
         /// <param name="location"></param>
         /// <param name="measurementDateTime"></param>
         /// <param name="physicalQuantities"></param>
+        [JsonConstructor]
         public MeasurementV1(
             string partitionKey, string id, string type, string name,
             string schemaVersion, string metadataID, string _rid,

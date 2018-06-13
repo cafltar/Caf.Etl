@@ -41,6 +41,7 @@ namespace Caf.Etl.Models.CosmosDBSqlApi.Measurement
         /// <param name="qcResultCode"></param>
         /// <param name="submissionDateTime"></param>
         /// <param name="sourceID"></param>
+        [JsonConstructor]
         public PhysicalQuantityV2(
             double? value, string unit,
             DateTime submissionDateTime, string sourceID,

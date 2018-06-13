@@ -30,6 +30,7 @@ namespace Caf.Etl.Models.CosmosDBSqlApi.Measurement
         /// <param name="type"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
+        [JsonConstructor]
         public LocationV2(
             string type,
             double latitude,

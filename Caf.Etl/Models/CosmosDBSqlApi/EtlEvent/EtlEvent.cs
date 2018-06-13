@@ -79,6 +79,7 @@ namespace Caf.Etl.Models.CosmosDBSqlApi.EtlEvent
         /// <summary>
         /// Constructor
         /// </summary>
+        [JsonConstructor]
         public EtlEvent(
             string partitionKey, string id, string type, string name,
             string schema, string project, string _rid,
