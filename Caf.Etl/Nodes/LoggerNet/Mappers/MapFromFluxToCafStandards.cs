@@ -11,15 +11,78 @@ namespace Caf.Etl.Nodes.LoggerNet.Mappers
 {
     public class MapFromFluxDataTableToCafStandards : IMapper
     {
-        private readonly string stationsMap;
+        private readonly string stationMap;
         private readonly Dictionary<string, string> mapDataFieldsToMeasurementName;
-        private readonly Dictionary<string, string> mapStationNameToFieldID;
+        private readonly Dictionary<string, string> mapStationNameToFieldId;
 
         public MapFromFluxDataTableToCafStandards()
         {
-            // TODO: GODS MANN!  Fix this hardcoded garbage.
-            this.stationsMap = "{\"stations\":[{\"name\":\"LTAR_CookEast\",\"lat\":46.78152,\"lon\":-117.08205},{\"name\":\"LTAR_CookWest\",\"lat\":46.78404,\"lon\":-117.09083},{\"name\":\"LTAR_BoydNorth\",\"lat\":46.7551,\"lon\":-117.12605},{\"name\":\"LTAR_BoydSouth\",\"lat\":46.7503,\"lon\":-117.1285}]}";
-            this.mapDataFieldsToMeasurementName = new Dictionary<string, string>()
+            this.stationMap = getStationMapJson();
+            this.mapDataFieldsToMeasurementName =
+                getMapDataFieldsToMeasurementName();
+            this.mapStationNameToFieldId =
+                getMapStationNameToFieldId();
+        }
+
+        public MapFromFluxDataTableToCafStandards(string stationMapJsonString)
+        {
+            stationMap = stationMapJsonString;
+            this.mapDataFieldsToMeasurementName =
+                getMapDataFieldsToMeasurementName();
+            this.mapStationNameToFieldId =
+                getMapStationNameToFieldId();
+        }
+
+        public MapFromFluxDataTableToCafStandards(
+            string stationMapJsonString,
+            Dictionary<string, string> mapStationNameToFieldId)
+        {
+            stationMap = stationMapJsonString;
+            this.mapStationNameToFieldId = mapStationNameToFieldId;
+            this.mapDataFieldsToMeasurementName = 
+                this.getMapDataFieldsToMeasurementName();
+        }
+
+        public string GetFieldID(Metadata metadata)
+        {
+            return mapStationNameToFieldId[metadata.StationName];
+        }
+
+        public double GetLatFromStation(Metadata metadata)
+        {
+            var stations = JObject.Parse(stationMap);
+
+            double lat = stations.Property("stations")
+                .Values()
+                .Single(s => s.Value<string>("name") == metadata.StationName)
+                ["lat"].Value<double>();
+
+            return lat;
+        }
+
+        public double GetLonFromStation(Metadata metadata)
+        {
+            var stations = JObject.Parse(stationMap);
+            double lon = stations.Property("stations")
+                .Values()
+                .Single(s => s.Value<string>("name") == metadata.StationName)
+                ["lon"].Value<double>();
+
+            return lon;
+        }
+
+        public string GetMeasurementName(string dataField)
+        {
+            if(mapDataFieldsToMeasurementName.ContainsKey(dataField))
+            {
+                return mapDataFieldsToMeasurementName[dataField];
+            }
+            else { return null; }   
+        }
+
+        private Dictionary<string, string> getMapDataFieldsToMeasurementName()
+        {
+            return new Dictionary<string, string>()
             {
                 { "TIMESTAMP", "DateTime"},
                 { "RECORD", "RecordNumber"},
@@ -107,11 +170,11 @@ namespace Caf.Etl.Nodes.LoggerNet.Mappers
                 { "profile_tdr315_poreEC_Avg(5)", "ElectricConductivityPore120cmTsAvg"},
                 { "profile_tdr315_poreEC_Avg(6)", "ElectricConductivityPore150cmTsAvg"},
 
-                { "tdr31X_wc_Avg(1)", "VwcSoil5cmTsAvg"},
-                { "tdr31X_tmpr_Avg(1)", "TemperatureSoil5cmTsAvg"},
-                { "tdr31X_E_Avg(1)", "PermittivitySoil5cmTsAvg"},
-                { "tdr31X_bulkEC_Avg(1)", "ElectricConductivityBulkSoil5cmTsAvg"},
-                { "tdr31X_poreEC_Avg(1)", "ElectricConductivityPoreSoil5cmTsAvg"},
+                { "tdr31X_wc_Avg", "VwcSoil5cmTsAvg"},
+                { "tdr31X_tmpr_Avg", "TemperatureSoil5cmTsAvg"},
+                { "tdr31X_E_Avg", "PermittivitySoil5cmTsAvg"},
+                { "tdr31X_bulkEC_Avg", "ElectricConductivityBulkSoil5cmTsAvg"},
+                { "tdr31X_poreEC_Avg", "ElectricConductivityPoreSoil5cmTsAvg"},
                 { "profile_tdr31X_wc_Avg(1)", "Vwc15cmTsAvg"},
                 { "profile_tdr31X_wc_Avg(2)", "Vwc30cmTsAvg"},
                 { "profile_tdr31X_wc_Avg(3)", "Vwc60cmTsAvg"},
@@ -175,7 +238,10 @@ namespace Caf.Etl.Nodes.LoggerNet.Mappers
                 { "panel_tmpr_Avg", "TemperaturePanelTsAvg"},
                 { "batt_volt_Avg", "BatteryVoltageTsAvg"}
             };
-            this.mapStationNameToFieldID = new Dictionary<string, string>()
+        }
+        private Dictionary<string, string> getMapStationNameToFieldId()
+        {
+            return new Dictionary<string, string>()
             {
                 {"LTAR_CookEast", "CookEast" },
                 {"LTAR_CookWest", "CookWest" },
@@ -183,42 +249,9 @@ namespace Caf.Etl.Nodes.LoggerNet.Mappers
                 {"LTAR_BoydSouth", "BoydSouth" }
             };
         }
-
-        public string GetFieldID(Metadata metadata)
+        private string getStationMapJson()
         {
-            return mapStationNameToFieldID[metadata.StationName];
-        }
-
-        public double GetLatFromStation(Metadata metadata)
-        {
-            var stations = JObject.Parse(stationsMap);
-
-            double lat = stations.Property("stations")
-                .Values()
-                .Single(s => s.Value<string>("name") == metadata.StationName)
-                ["lat"].Value<double>();
-
-            return lat;
-        }
-
-        public double GetLonFromStation(Metadata metadata)
-        {
-            var stations = JObject.Parse(stationsMap);
-            double lon = stations.Property("stations")
-                .Values()
-                .Single(s => s.Value<string>("name") == metadata.StationName)
-                ["lon"].Value<double>();
-
-            return lon;
-        }
-
-        public string GetMeasurementName(string dataField)
-        {
-            if(mapDataFieldsToMeasurementName.ContainsKey(dataField))
-            {
-                return mapDataFieldsToMeasurementName[dataField];
-            }
-            else { return null; }   
+            return "{\"stations\":[{\"name\":\"LTAR_CookEast\",\"lat\":46.78152,\"lon\":-117.08205},{\"name\":\"LTAR_CookWest\",\"lat\":46.78404,\"lon\":-117.09083},{\"name\":\"LTAR_BoydNorth\",\"lat\":46.7551,\"lon\":-117.12605},{\"name\":\"LTAR_BoydSouth\",\"lat\":46.7503,\"lon\":-117.1285}]}";
         }
     }
 }

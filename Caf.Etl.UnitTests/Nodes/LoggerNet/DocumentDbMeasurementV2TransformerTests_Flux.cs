@@ -13,14 +13,44 @@ namespace Caf.Etl.Nodes.LoggerNet.Tests
     public class DocumentDbMeasurementV2TransformerTests_Flux
     {
         [Fact]
-        public void ToMeasurement_ValidData_ReturnCorrectMeasurements()
+        public void ToMeasurement_ValidDataV1_ReturnCorrectMeasurementsV2()
         {
             //# Arrange
             Mappers.MapFromFluxDataTableToCafStandards map = 
                 new Mappers.MapFromFluxDataTableToCafStandards();
             TOA5 toa5 = LoggerNetArranger.GetToa5FluxDerivedFromActualDataV1();
 
-            List<MeasurementV2> expected = LoggerNetArranger.GetMeasurementV2sDerivedFromActualData();
+            List<MeasurementV2> expected = 
+                LoggerNetArranger.GetMeasurementsV2DerivedFromActualDataV1();
+
+            DocumentDbMeasurementV2Transformer sut =
+                new DocumentDbMeasurementV2Transformer(
+                    map,
+                    "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json",
+                    "DocumentDbMeasurementTransformer",
+                    "Measurement",
+                    "CafMeteorologyEcTower",
+                    1800);
+
+            //# Act
+            var actual = sut.ToMeasurements(toa5);
+
+            //# Assert
+            Assert.Equal(expected.Count, actual.Count);
+            Assert.True(AreMeasurementsRoughlyEqual(expected, actual));
+        }
+
+        [Fact]
+        public void ToMeasurement_TestDataV2_ReturnCorrectMeasurementsV2()
+        {
+            // Arrange
+            Mappers.MapFromFluxDataTableToCafStandards map = 
+                new Mappers.MapFromFluxDataTableToCafStandards();
+
+            TOA5 toa5 = LoggerNetArranger.GetToa5FluxDerivedFromTestDataV2();
+
+            List<MeasurementV2> expected = 
+                LoggerNetArranger.GetMeasurementsV2DerivedFromTestDataV2();
 
             DocumentDbMeasurementV2Transformer sut =
                 new DocumentDbMeasurementV2Transformer(

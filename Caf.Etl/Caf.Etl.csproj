@@ -2,12 +2,13 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0</TargetFrameworks>
-    <PackageVersion>1.0.6</PackageVersion>
+    <PackageVersion>1.0.7</PackageVersion>
     <Title>CafEtl</Title>
     <Authors>Bryan Carlson</Authors>
     <Description>A simple ETL library for working with CAF LTAR related data</Description>
     <RepositoryUrl>https://github.com/caf-ltar/caf.etl</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
+    <Version>1.0.7</Version>
   </PropertyGroup>
 
   <ItemGroup>
