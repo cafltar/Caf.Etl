@@ -18,7 +18,7 @@ namespace Caf.Etl.Nodes.LoggerNet.Tests
             //# Arrange
             Mappers.MapFromFluxDataTableToCafStandards map = 
                 new Mappers.MapFromFluxDataTableToCafStandards();
-            TOA5 toa5 = LoggerNetArranger.GetToa5FluxDerivedFromActualData();
+            TOA5 toa5 = LoggerNetArranger.GetToa5FluxDerivedFromActualDataV1();
 
             List<MeasurementV2> expected = LoggerNetArranger.GetMeasurementV2sDerivedFromActualData();
 

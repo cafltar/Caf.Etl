@@ -75,10 +75,17 @@ namespace Caf.Etl.Nodes.LoggerNet.Extract
                 CsvReader csv = new CsvReader(sr);
                 csv.Configuration.HasHeaderRecord = true;
                 csv.Configuration.IgnoreQuotes = false;
+                csv.Configuration.HeaderValidated = null;
+                csv.Configuration.MissingFieldFound = null;
 
-
-                observations = csv.GetRecords<T>().ToList();
-
+                try
+                {
+                    observations = csv.GetRecords<T>().ToList();
+                }
+                catch(Exception e)
+                {
+                    throw new Exception("Error parsing observations.", e);
+                }
             }
 
             // Datetimes were in unknown timezone (most likely PST, or UTC-08), so convert to UTC
@@ -114,9 +121,6 @@ namespace Caf.Etl.Nodes.LoggerNet.Extract
                     new Regex(",(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))", 
                     RegexOptions.Compiled);
 
-                //string[] fieldNames = cleanHeaders(sr.ReadLine().Replace("\"", "")).Split(',');
-                //string[] units = sr.ReadLine().Replace("\"", "").Split(',');
-                //string[] processing = sr.ReadLine().Replace("\"", "").Split(',');
                 string[] fieldNames = csvSplit.Split(sr.ReadLine());
                 string[] units = csvSplit.Split(sr.ReadLine());
                 string[] processing = csvSplit.Split(sr.ReadLine());
@@ -144,7 +148,6 @@ namespace Caf.Etl.Nodes.LoggerNet.Extract
             TOA5 toa5 = new TOA5();
 
             toa5.Metadata = GetMetadata();
-            //List<Meteorology> obs = GetObservations<Meteorology>();
 
             toa5.Observations = GetObservations<T>().Cast<IObservation>().ToList();
 
@@ -185,6 +188,7 @@ namespace Caf.Etl.Nodes.LoggerNet.Extract
         private string cleanNulls(string fileContent)
         {
             string cleaned = fileContent.Replace("\"NAN\"", String.Empty);
+            cleaned = cleaned.Replace("NAN", String.Empty);
 
             return cleaned;
         }

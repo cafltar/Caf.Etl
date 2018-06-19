@@ -174,26 +174,43 @@ namespace Caf.Etl.Models.LoggerNet.TOA5.DataTables
         public double? cupvane_WD_csi_Std{ get; set; }
         /// <summary></summary>
         public double? Tsoil_Avg{ get; set; }
+        
+        public double? tdr31X_wc_Avg{ get; set; }
+        public double? tdr31X_tmpr_Avg{ get; set; }
+        public double? tdr31X_E_Avg{ get; set; }
+        public double? tdr31X_bulkEC_Avg{ get; set; }
+        public double? tdr31X_poreEC_Avg{ get; set; }
+
         /// <summary></summary>
         public double? tdr315_wc_Avg1{ get; set; }
+        public double? tdr31X_wc_Avg1 { get; set; }
         /// <summary></summary>
         public double? tdr315_wc_Avg2{ get; set; }
+        public double? tdr31X_wc_Avg2{ get; set; }
         /// <summary></summary>
         public double? tdr315_tmpr_Avg1{ get; set; }
+        public double? tdr31X_tmpr_Avg1{ get; set; }
         /// <summary></summary>
         public double? tdr315_tmpr_Avg2{ get; set; }
+        public double? tdr31X_tmpr_Avg2{ get; set; }
         /// <summary></summary>
         public double? tdr315_E_Avg1{ get; set; }
+        public double? tdr31X_E_Avg1{ get; set; }
         /// <summary></summary>
         public double? tdr315_E_Avg2{ get; set; }
+        public double? tdr31X_E_Avg2{ get; set; }
         /// <summary></summary>
         public double? tdr315_bulkEC_Avg1{ get; set; }
+        public double? tdr31X_bulkEC_Avg1{ get; set; }
         /// <summary></summary>
         public double? tdr315_bulkEC_Avg2{ get; set; }
+        public double? tdr31X_bulkEC_Avg2{ get; set; }
         /// <summary></summary>
         public double? tdr315_poreEC_Avg1{ get; set; }
+        public double? tdr31X_poreEC_Avg1{ get; set; }
         /// <summary></summary>
         public double? tdr315_poreEC_Avg2{ get; set; }
+        public double? tdr31X_poreEC_Avg2{ get; set; }
         /// <summary></summary>
         public double? shf_plate_avg{ get; set; }
         /// <summary></summary>
@@ -258,6 +275,36 @@ namespace Caf.Etl.Models.LoggerNet.TOA5.DataTables
         public double? profile_tdr315_poreEC_Avg5{ get; set; }
         /// <summary></summary>
         public double? profile_tdr315_poreEC_Avg6{ get; set; }
+        public double? profile_tdr31X_wc_Avg1{ get; set; }
+        public double? profile_tdr31X_wc_Avg2{ get; set; }
+        public double? profile_tdr31X_wc_Avg3{ get; set; }
+        public double? profile_tdr31X_wc_Avg4{ get; set; }
+        public double? profile_tdr31X_wc_Avg5{ get; set; }
+        public double? profile_tdr31X_wc_Avg6{ get; set; }
+        public double? profile_tdr31X_tmpr_Avg1{ get; set; }
+        public double? profile_tdr31X_tmpr_Avg2{ get; set; }
+        public double? profile_tdr31X_tmpr_Avg3{ get; set; }
+        public double? profile_tdr31X_tmpr_Avg4{ get; set; }
+        public double? profile_tdr31X_tmpr_Avg5{ get; set; }
+        public double? profile_tdr31X_tmpr_Avg6{ get; set; }
+        public double? profile_tdr31X_E_Avg1{ get; set; }
+        public double? profile_tdr31X_E_Avg2{ get; set; }
+        public double? profile_tdr31X_E_Avg3{ get; set; }
+        public double? profile_tdr31X_E_Avg4{ get; set; }
+        public double? profile_tdr31X_E_Avg5{ get; set; }
+        public double? profile_tdr31X_E_Avg6{ get; set; }
+        public double? profile_tdr31X_bulkEC_Avg1{ get; set; }
+        public double? profile_tdr31X_bulkEC_Avg2{ get; set; }
+        public double? profile_tdr31X_bulkEC_Avg3{ get; set; }
+        public double? profile_tdr31X_bulkEC_Avg4{ get; set; }
+        public double? profile_tdr31X_bulkEC_Avg5{ get; set; }
+        public double? profile_tdr31X_bulkEC_Avg6{ get; set; }
+        public double? profile_tdr31X_poreEC_Avg1{ get; set; }
+        public double? profile_tdr31X_poreEC_Avg2{ get; set; }
+        public double? profile_tdr31X_poreEC_Avg3{ get; set; }
+        public double? profile_tdr31X_poreEC_Avg4{ get; set; }
+        public double? profile_tdr31X_poreEC_Avg5{ get; set; }
+        public double? profile_tdr31X_poreEC_Avg6{ get; set; }
         /// <summary></summary>
         public double? upwnd_dist_intrst{ get; set; }
         /// <summary></summary>
@@ -499,7 +546,6 @@ namespace Caf.Etl.Models.LoggerNet.TOA5.DataTables
         /// <summary></summary>
         public double? buff_depth_Max{ get; set; }
 
-
         public override bool Equals(object obj)
         {
             return Equals(obj as Flux);
@@ -592,15 +638,25 @@ namespace Caf.Etl.Models.LoggerNet.TOA5.DataTables
                    EqualityComparer<double?>.Default.Equals(cupvane_WD_csi_Std, other.cupvane_WD_csi_Std) &&
                    EqualityComparer<double?>.Default.Equals(Tsoil_Avg, other.Tsoil_Avg) &&
                    EqualityComparer<double?>.Default.Equals(tdr315_wc_Avg1, other.tdr315_wc_Avg1) &&
+                   EqualityComparer<double?>.Default.Equals(tdr31X_wc_Avg1, other.tdr31X_wc_Avg1) &&
                    EqualityComparer<double?>.Default.Equals(tdr315_wc_Avg2, other.tdr315_wc_Avg2) &&
+                   EqualityComparer<double?>.Default.Equals(tdr31X_wc_Avg2, other.tdr31X_wc_Avg2) &&
                    EqualityComparer<double?>.Default.Equals(tdr315_tmpr_Avg1, other.tdr315_tmpr_Avg1) &&
+                   EqualityComparer<double?>.Default.Equals(tdr31X_tmpr_Avg1, other.tdr31X_tmpr_Avg1) &&
                    EqualityComparer<double?>.Default.Equals(tdr315_tmpr_Avg2, other.tdr315_tmpr_Avg2) &&
+                   EqualityComparer<double?>.Default.Equals(tdr31X_tmpr_Avg2, other.tdr31X_tmpr_Avg2) &&
                    EqualityComparer<double?>.Default.Equals(tdr315_E_Avg1, other.tdr315_E_Avg1) &&
+                   EqualityComparer<double?>.Default.Equals(tdr31X_E_Avg1, other.tdr31X_E_Avg1) &&
                    EqualityComparer<double?>.Default.Equals(tdr315_E_Avg2, other.tdr315_E_Avg2) &&
+                   EqualityComparer<double?>.Default.Equals(tdr31X_E_Avg2, other.tdr31X_E_Avg2) &&
                    EqualityComparer<double?>.Default.Equals(tdr315_bulkEC_Avg1, other.tdr315_bulkEC_Avg1) &&
+                   EqualityComparer<double?>.Default.Equals(tdr31X_bulkEC_Avg1, other.tdr31X_bulkEC_Avg1) &&
                    EqualityComparer<double?>.Default.Equals(tdr315_bulkEC_Avg2, other.tdr315_bulkEC_Avg2) &&
+                   EqualityComparer<double?>.Default.Equals(tdr31X_bulkEC_Avg2, other.tdr31X_bulkEC_Avg2) &&
                    EqualityComparer<double?>.Default.Equals(tdr315_poreEC_Avg1, other.tdr315_poreEC_Avg1) &&
+                   EqualityComparer<double?>.Default.Equals(tdr31X_poreEC_Avg1, other.tdr31X_poreEC_Avg1) &&
                    EqualityComparer<double?>.Default.Equals(tdr315_poreEC_Avg2, other.tdr315_poreEC_Avg2) &&
+                   EqualityComparer<double?>.Default.Equals(tdr31X_poreEC_Avg2, other.tdr31X_poreEC_Avg2) &&
                    EqualityComparer<double?>.Default.Equals(shf_plate_avg, other.shf_plate_avg) &&
                    EqualityComparer<double?>.Default.Equals(SHFP_1_SENS, other.SHFP_1_SENS) &&
                    EqualityComparer<double?>.Default.Equals(profile_tdr315_wc_Avg1, other.profile_tdr315_wc_Avg1) &&
@@ -633,6 +689,36 @@ namespace Caf.Etl.Models.LoggerNet.TOA5.DataTables
                    EqualityComparer<double?>.Default.Equals(profile_tdr315_poreEC_Avg4, other.profile_tdr315_poreEC_Avg4) &&
                    EqualityComparer<double?>.Default.Equals(profile_tdr315_poreEC_Avg5, other.profile_tdr315_poreEC_Avg5) &&
                    EqualityComparer<double?>.Default.Equals(profile_tdr315_poreEC_Avg6, other.profile_tdr315_poreEC_Avg6) &&
+                   EqualityComparer<double?>.Default.Equals(profile_tdr31X_wc_Avg1, other.profile_tdr31X_wc_Avg1) &&
+                   EqualityComparer<double?>.Default.Equals(profile_tdr31X_wc_Avg2, other.profile_tdr31X_wc_Avg2) &&
+                   EqualityComparer<double?>.Default.Equals(profile_tdr31X_wc_Avg3, other.profile_tdr31X_wc_Avg3) &&
+                   EqualityComparer<double?>.Default.Equals(profile_tdr31X_wc_Avg4, other.profile_tdr31X_wc_Avg4) &&
+                   EqualityComparer<double?>.Default.Equals(profile_tdr31X_wc_Avg5, other.profile_tdr31X_wc_Avg5) &&
+                   EqualityComparer<double?>.Default.Equals(profile_tdr31X_wc_Avg6, other.profile_tdr31X_wc_Avg6) &&
+                   EqualityComparer<double?>.Default.Equals(profile_tdr31X_tmpr_Avg1, other.profile_tdr31X_tmpr_Avg1) &&
+                   EqualityComparer<double?>.Default.Equals(profile_tdr31X_tmpr_Avg2, other.profile_tdr31X_tmpr_Avg2) &&
+                   EqualityComparer<double?>.Default.Equals(profile_tdr31X_tmpr_Avg3, other.profile_tdr31X_tmpr_Avg3) &&
+                   EqualityComparer<double?>.Default.Equals(profile_tdr31X_tmpr_Avg4, other.profile_tdr31X_tmpr_Avg4) &&
+                   EqualityComparer<double?>.Default.Equals(profile_tdr31X_tmpr_Avg5, other.profile_tdr31X_tmpr_Avg5) &&
+                   EqualityComparer<double?>.Default.Equals(profile_tdr31X_tmpr_Avg6, other.profile_tdr31X_tmpr_Avg6) &&
+                   EqualityComparer<double?>.Default.Equals(profile_tdr31X_E_Avg1, other.profile_tdr31X_E_Avg1) &&
+                   EqualityComparer<double?>.Default.Equals(profile_tdr31X_E_Avg2, other.profile_tdr31X_E_Avg2) &&
+                   EqualityComparer<double?>.Default.Equals(profile_tdr31X_E_Avg3, other.profile_tdr31X_E_Avg3) &&
+                   EqualityComparer<double?>.Default.Equals(profile_tdr31X_E_Avg4, other.profile_tdr31X_E_Avg4) &&
+                   EqualityComparer<double?>.Default.Equals(profile_tdr31X_E_Avg5, other.profile_tdr31X_E_Avg5) &&
+                   EqualityComparer<double?>.Default.Equals(profile_tdr31X_E_Avg6, other.profile_tdr31X_E_Avg6) &&
+                   EqualityComparer<double?>.Default.Equals(profile_tdr31X_bulkEC_Avg1, other.profile_tdr31X_bulkEC_Avg1) &&
+                   EqualityComparer<double?>.Default.Equals(profile_tdr31X_bulkEC_Avg2, other.profile_tdr31X_bulkEC_Avg2) &&
+                   EqualityComparer<double?>.Default.Equals(profile_tdr31X_bulkEC_Avg3, other.profile_tdr31X_bulkEC_Avg3) &&
+                   EqualityComparer<double?>.Default.Equals(profile_tdr31X_bulkEC_Avg4, other.profile_tdr31X_bulkEC_Avg4) &&
+                   EqualityComparer<double?>.Default.Equals(profile_tdr31X_bulkEC_Avg5, other.profile_tdr31X_bulkEC_Avg5) &&
+                   EqualityComparer<double?>.Default.Equals(profile_tdr31X_bulkEC_Avg6, other.profile_tdr31X_bulkEC_Avg6) &&
+                   EqualityComparer<double?>.Default.Equals(profile_tdr31X_poreEC_Avg1, other.profile_tdr31X_poreEC_Avg1) &&
+                   EqualityComparer<double?>.Default.Equals(profile_tdr31X_poreEC_Avg2, other.profile_tdr31X_poreEC_Avg2) &&
+                   EqualityComparer<double?>.Default.Equals(profile_tdr31X_poreEC_Avg3, other.profile_tdr31X_poreEC_Avg3) &&
+                   EqualityComparer<double?>.Default.Equals(profile_tdr31X_poreEC_Avg4, other.profile_tdr31X_poreEC_Avg4) &&
+                   EqualityComparer<double?>.Default.Equals(profile_tdr31X_poreEC_Avg5, other.profile_tdr31X_poreEC_Avg5) &&
+                   EqualityComparer<double?>.Default.Equals(profile_tdr31X_poreEC_Avg6, other.profile_tdr31X_poreEC_Avg6) &&
                    EqualityComparer<double?>.Default.Equals(upwnd_dist_intrst, other.upwnd_dist_intrst) &&
                    EqualityComparer<double?>.Default.Equals(FP_dist_intrst, other.FP_dist_intrst) &&
                    EqualityComparer<double?>.Default.Equals(FP_max, other.FP_max) &&
@@ -757,7 +843,7 @@ namespace Caf.Etl.Models.LoggerNet.TOA5.DataTables
 
         public override int GetHashCode()
         {
-            var hashCode = 989357532;
+            var hashCode = 617394300;
             hashCode = hashCode * -1521134295 + TIMESTAMP.GetHashCode();
             hashCode = hashCode * -1521134295 + RECORD.GetHashCode();
             hashCode = hashCode * -1521134295 + EqualityComparer<double?>.Default.GetHashCode(old_L);
@@ -842,15 +928,25 @@ namespace Caf.Etl.Models.LoggerNet.TOA5.DataTables
             hashCode = hashCode * -1521134295 + EqualityComparer<double?>.Default.GetHashCode(cupvane_WD_csi_Std);
             hashCode = hashCode * -1521134295 + EqualityComparer<double?>.Default.GetHashCode(Tsoil_Avg);
             hashCode = hashCode * -1521134295 + EqualityComparer<double?>.Default.GetHashCode(tdr315_wc_Avg1);
+            hashCode = hashCode * -1521134295 + EqualityComparer<double?>.Default.GetHashCode(tdr31X_wc_Avg1);
             hashCode = hashCode * -1521134295 + EqualityComparer<double?>.Default.GetHashCode(tdr315_wc_Avg2);
+            hashCode = hashCode * -1521134295 + EqualityComparer<double?>.Default.GetHashCode(tdr31X_wc_Avg2);
             hashCode = hashCode * -1521134295 + EqualityComparer<double?>.Default.GetHashCode(tdr315_tmpr_Avg1);
+            hashCode = hashCode * -1521134295 + EqualityComparer<double?>.Default.GetHashCode(tdr31X_tmpr_Avg1);
             hashCode = hashCode * -1521134295 + EqualityComparer<double?>.Default.GetHashCode(tdr315_tmpr_Avg2);
+            hashCode = hashCode * -1521134295 + EqualityComparer<double?>.Default.GetHashCode(tdr31X_tmpr_Avg2);
             hashCode = hashCode * -1521134295 + EqualityComparer<double?>.Default.GetHashCode(tdr315_E_Avg1);
+            hashCode = hashCode * -1521134295 + EqualityComparer<double?>.Default.GetHashCode(tdr31X_E_Avg1);
             hashCode = hashCode * -1521134295 + EqualityComparer<double?>.Default.GetHashCode(tdr315_E_Avg2);
+            hashCode = hashCode * -1521134295 + EqualityComparer<double?>.Default.GetHashCode(tdr31X_E_Avg2);
             hashCode = hashCode * -1521134295 + EqualityComparer<double?>.Default.GetHashCode(tdr315_bulkEC_Avg1);
+            hashCode = hashCode * -1521134295 + EqualityComparer<double?>.Default.GetHashCode(tdr31X_bulkEC_Avg1);
             hashCode = hashCode * -1521134295 + EqualityComparer<double?>.Default.GetHashCode(tdr315_bulkEC_Avg2);
+            hashCode = hashCode * -1521134295 + EqualityComparer<double?>.Default.GetHashCode(tdr31X_bulkEC_Avg2);
             hashCode = hashCode * -1521134295 + EqualityComparer<double?>.Default.GetHashCode(tdr315_poreEC_Avg1);
+            hashCode = hashCode * -1521134295 + EqualityComparer<double?>.Default.GetHashCode(tdr31X_poreEC_Avg1);
             hashCode = hashCode * -1521134295 + EqualityComparer<double?>.Default.GetHashCode(tdr315_poreEC_Avg2);
+            hashCode = hashCode * -1521134295 + EqualityComparer<double?>.Default.GetHashCode(tdr31X_poreEC_Avg2);
             hashCode = hashCode * -1521134295 + EqualityComparer<double?>.Default.GetHashCode(shf_plate_avg);
             hashCode = hashCode * -1521134295 + EqualityComparer<double?>.Default.GetHashCode(SHFP_1_SENS);
             hashCode = hashCode * -1521134295 + EqualityComparer<double?>.Default.GetHashCode(profile_tdr315_wc_Avg1);
@@ -883,6 +979,36 @@ namespace Caf.Etl.Models.LoggerNet.TOA5.DataTables
             hashCode = hashCode * -1521134295 + EqualityComparer<double?>.Default.GetHashCode(profile_tdr315_poreEC_Avg4);
             hashCode = hashCode * -1521134295 + EqualityComparer<double?>.Default.GetHashCode(profile_tdr315_poreEC_Avg5);
             hashCode = hashCode * -1521134295 + EqualityComparer<double?>.Default.GetHashCode(profile_tdr315_poreEC_Avg6);
+            hashCode = hashCode * -1521134295 + EqualityComparer<double?>.Default.GetHashCode(profile_tdr31X_wc_Avg1);
+            hashCode = hashCode * -1521134295 + EqualityComparer<double?>.Default.GetHashCode(profile_tdr31X_wc_Avg2);
+            hashCode = hashCode * -1521134295 + EqualityComparer<double?>.Default.GetHashCode(profile_tdr31X_wc_Avg3);
+            hashCode = hashCode * -1521134295 + EqualityComparer<double?>.Default.GetHashCode(profile_tdr31X_wc_Avg4);
+            hashCode = hashCode * -1521134295 + EqualityComparer<double?>.Default.GetHashCode(profile_tdr31X_wc_Avg5);
+            hashCode = hashCode * -1521134295 + EqualityComparer<double?>.Default.GetHashCode(profile_tdr31X_wc_Avg6);
+            hashCode = hashCode * -1521134295 + EqualityComparer<double?>.Default.GetHashCode(profile_tdr31X_tmpr_Avg1);
+            hashCode = hashCode * -1521134295 + EqualityComparer<double?>.Default.GetHashCode(profile_tdr31X_tmpr_Avg2);
+            hashCode = hashCode * -1521134295 + EqualityComparer<double?>.Default.GetHashCode(profile_tdr31X_tmpr_Avg3);
+            hashCode = hashCode * -1521134295 + EqualityComparer<double?>.Default.GetHashCode(profile_tdr31X_tmpr_Avg4);
+            hashCode = hashCode * -1521134295 + EqualityComparer<double?>.Default.GetHashCode(profile_tdr31X_tmpr_Avg5);
+            hashCode = hashCode * -1521134295 + EqualityComparer<double?>.Default.GetHashCode(profile_tdr31X_tmpr_Avg6);
+            hashCode = hashCode * -1521134295 + EqualityComparer<double?>.Default.GetHashCode(profile_tdr31X_E_Avg1);
+            hashCode = hashCode * -1521134295 + EqualityComparer<double?>.Default.GetHashCode(profile_tdr31X_E_Avg2);
+            hashCode = hashCode * -1521134295 + EqualityComparer<double?>.Default.GetHashCode(profile_tdr31X_E_Avg3);
+            hashCode = hashCode * -1521134295 + EqualityComparer<double?>.Default.GetHashCode(profile_tdr31X_E_Avg4);
+            hashCode = hashCode * -1521134295 + EqualityComparer<double?>.Default.GetHashCode(profile_tdr31X_E_Avg5);
+            hashCode = hashCode * -1521134295 + EqualityComparer<double?>.Default.GetHashCode(profile_tdr31X_E_Avg6);
+            hashCode = hashCode * -1521134295 + EqualityComparer<double?>.Default.GetHashCode(profile_tdr31X_bulkEC_Avg1);
+            hashCode = hashCode * -1521134295 + EqualityComparer<double?>.Default.GetHashCode(profile_tdr31X_bulkEC_Avg2);
+            hashCode = hashCode * -1521134295 + EqualityComparer<double?>.Default.GetHashCode(profile_tdr31X_bulkEC_Avg3);
+            hashCode = hashCode * -1521134295 + EqualityComparer<double?>.Default.GetHashCode(profile_tdr31X_bulkEC_Avg4);
+            hashCode = hashCode * -1521134295 + EqualityComparer<double?>.Default.GetHashCode(profile_tdr31X_bulkEC_Avg5);
+            hashCode = hashCode * -1521134295 + EqualityComparer<double?>.Default.GetHashCode(profile_tdr31X_bulkEC_Avg6);
+            hashCode = hashCode * -1521134295 + EqualityComparer<double?>.Default.GetHashCode(profile_tdr31X_poreEC_Avg1);
+            hashCode = hashCode * -1521134295 + EqualityComparer<double?>.Default.GetHashCode(profile_tdr31X_poreEC_Avg2);
+            hashCode = hashCode * -1521134295 + EqualityComparer<double?>.Default.GetHashCode(profile_tdr31X_poreEC_Avg3);
+            hashCode = hashCode * -1521134295 + EqualityComparer<double?>.Default.GetHashCode(profile_tdr31X_poreEC_Avg4);
+            hashCode = hashCode * -1521134295 + EqualityComparer<double?>.Default.GetHashCode(profile_tdr31X_poreEC_Avg5);
+            hashCode = hashCode * -1521134295 + EqualityComparer<double?>.Default.GetHashCode(profile_tdr31X_poreEC_Avg6);
             hashCode = hashCode * -1521134295 + EqualityComparer<double?>.Default.GetHashCode(upwnd_dist_intrst);
             hashCode = hashCode * -1521134295 + EqualityComparer<double?>.Default.GetHashCode(FP_dist_intrst);
             hashCode = hashCode * -1521134295 + EqualityComparer<double?>.Default.GetHashCode(FP_max);
