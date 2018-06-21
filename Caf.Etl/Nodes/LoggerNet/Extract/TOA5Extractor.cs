@@ -91,7 +91,10 @@ namespace Caf.Etl.Nodes.LoggerNet.Extract
             // Datetimes were in unknown timezone (most likely PST, or UTC-08), so convert to UTC
             foreach(IObservation obs in observations)
             {
-                obs.TIMESTAMP = new DateTime(obs.TIMESTAMP.AddHours((-1 * UtcOffset)).Ticks, DateTimeKind.Utc);
+                obs.TIMESTAMP = 
+                    new DateTime(
+                        obs.TIMESTAMP.AddHours((-1 * UtcOffset)).Ticks, 
+                        DateTimeKind.Utc);
             }
 
             return observations;

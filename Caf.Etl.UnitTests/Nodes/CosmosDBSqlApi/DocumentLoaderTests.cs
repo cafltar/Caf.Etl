@@ -31,8 +31,8 @@ namespace Caf.Etl.Nodes.CosmosDBSqlApi.Tests
 
             List<IAmDocument> docs = new List<IAmDocument>()
             {
-                new DocumentBase(){ PartitionKey = "a" },
-                new DocumentBase(){ PartitionKey = "a" }
+                new DocumentBase(){ partitionKey = "a" },
+                new DocumentBase(){ partitionKey = "a" }
             };
 
             // Act
@@ -58,8 +58,8 @@ namespace Caf.Etl.Nodes.CosmosDBSqlApi.Tests
 
             List<IAmDocument> docs = new List<IAmDocument>()
             {
-                new DocumentBase(){ PartitionKey = "a" },
-                new DocumentBase(){ PartitionKey = "b" }
+                new DocumentBase(){ partitionKey = "a" },
+                new DocumentBase(){ partitionKey = "b" }
             };
 
             // Act

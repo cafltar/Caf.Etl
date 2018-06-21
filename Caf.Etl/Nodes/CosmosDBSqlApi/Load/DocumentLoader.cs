@@ -37,9 +37,9 @@ namespace Caf.Etl.Nodes.CosmosDBSqlApi.Load
                     UriFactory.CreateDocumentUri(
                         databaseId, 
                         collectionId, 
-                        doc.Id),
+                        doc.id),
                     new RequestOptions {
-                        PartitionKey = new PartitionKey(doc.PartitionKey)
+                        PartitionKey = new PartitionKey(doc.partitionKey)
                     });
             }
             catch (DocumentClientException de)
@@ -68,7 +68,7 @@ namespace Caf.Etl.Nodes.CosmosDBSqlApi.Load
                 UriFactory.CreateDocumentUri(
                     databaseId,
                     collectionId,
-                    doc.Id),
+                    doc.id),
                 doc);
 
             return r;
@@ -87,15 +87,27 @@ namespace Caf.Etl.Nodes.CosmosDBSqlApi.Load
             IEnumerable<IAmDocument> docs)
         {
             // TODO: Replace with BulkExecutor once it's netstandard2 complient
-            List<Task<StoredProcedureResponse<bool>>> tasks =
-                new List<Task<StoredProcedureResponse<bool>>>();
-            var groupedDocs = docs.GroupBy(d => d.PartitionKey);
+            //List<Task<StoredProcedureResponse<bool>>> tasks =
+            //    new List<Task<StoredProcedureResponse<bool>>>();
+            var groupedDocs = docs.GroupBy(d => d.partitionKey);
+
+            List<StoredProcedureResponse<bool>> results = new List<StoredProcedureResponse<bool>>();
 
             foreach(var groupedDoc in groupedDocs)
             {
                 try
                 {
-                    tasks.Add(client.ExecuteStoredProcedureAsync<bool>(
+                    //tasks.Add(client.ExecuteStoredProcedureAsync<bool>(
+                    //        $"/dbs/{databaseId}/colls/{collectionId}/sprocs/bulkImport/",
+                    //        new RequestOptions
+                    //        {
+                    //            PartitionKey = 
+                    //                new PartitionKey(
+                    //                    groupedDoc.Key.ToString())
+                    //        },
+                    //        groupedDoc));
+
+                results.Add(await client.ExecuteStoredProcedureAsync<bool>(
                             $"/dbs/{databaseId}/colls/{collectionId}/sprocs/bulkImport/",
                             new RequestOptions
                             {
@@ -108,33 +120,33 @@ namespace Caf.Etl.Nodes.CosmosDBSqlApi.Load
                 catch(Exception e)
                 {
                     throw new Exception(
-                        "Error initializing tasks for bulk import", e);
+                        $"Error initializing tasks for bulk import on groupedDoc. {groupedDoc.Key.ToString()}:", e);
                 }
             }
 
-            StoredProcedureResponse<bool>[] result;
+            //StoredProcedureResponse<bool>[] result;
 
-            try
-            {
-                result = await Task.WhenAll(tasks);
-            }
-            catch(Exception e)
-            {
-                IEnumerable<Exception> exceptions = tasks
-                    .Where(t => t.Exception != null)
-                    .Select(t => t.Exception);
-                Exception exampleException = exceptions.FirstOrDefault();
-                string exceptionMessage =
-                    exampleException.InnerException != null
-                    ? exampleException.InnerException.Message
-                    : exampleException.Message;
+            //try
+            //{
+            //    result = await Task.WhenAll(tasks);
+            //}
+            //catch(Exception e)
+            //{
+            //    IEnumerable<Exception> exceptions = tasks
+            //        .Where(t => t.Exception != null)
+            //        .Select(t => t.Exception);
+            //    Exception exampleException = exceptions.FirstOrDefault();
+            //    string exceptionMessage =
+            //        exampleException.InnerException != null
+            //        ? exampleException.InnerException.Message
+            //        : exampleException.Message;
+            //
+            //    throw new Exception(
+            //        $"{exceptions.Count().ToString()} stored procedures failed out of a total of {tasks.Count()} sprocs for {docs.Count()} measurements. Example exception message from first exception: {exceptionMessage}", 
+            //        e);
+            //}
 
-                throw new Exception(
-                    $"{exceptions.Count().ToString()} stored procedures failed out of a total of {tasks.Count()} sprocs for {docs.Count()} measurements. Example exception message from first exception: {exceptionMessage}", 
-                    e);
-            }
-
-            return result;
+            return results.ToArray();
         }
     }
 }
