@@ -75,7 +75,7 @@ namespace Caf.Etl.Nodes.LoggerNet.Tests
             {
                 try
                 {
-                    var second = seconds.SingleOrDefault(m => m.id == first.id);
+                    var second = seconds.SingleOrDefault(m => m.Id == first.Id);
 
                     if (second == null)
                         return false;
@@ -96,7 +96,7 @@ namespace Caf.Etl.Nodes.LoggerNet.Tests
         {
             return first.AreaOfInterest == second.AreaOfInterest
                 && first.Location == second.Location
-                && first.partitionKey == second.partitionKey
+                && first.PartitionKey == second.PartitionKey
                 && first.PhysicalQuantities.Count == second.PhysicalQuantities.Count
                 && ArePhysicalQuantityV2RoughlyEqual(first.PhysicalQuantities[0],second.PhysicalQuantities[0])
                 && first.Project == second.Project

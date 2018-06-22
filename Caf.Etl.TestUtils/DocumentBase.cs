@@ -7,9 +7,9 @@ namespace Caf.Etl.TestUtils
 {
     public class DocumentBase : IAmDocument
     {
-        public string partitionKey { get; set; }
+        public string PartitionKey { get; set; }
 
-        public string id { get; set; }
+        public string Id { get; set; }
 
         public string Type { get; set; }
 

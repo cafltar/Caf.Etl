@@ -31,15 +31,15 @@ namespace Caf.Etl.Nodes.CosmosDBSqlApi.Tests
 
             List<IAmDocument> docs = new List<IAmDocument>()
             {
-                new DocumentBase(){ partitionKey = "a" },
-                new DocumentBase(){ partitionKey = "a" }
+                new DocumentBase(){ PartitionKey = "a" },
+                new DocumentBase(){ PartitionKey = "a" }
             };
 
             // Act
             var exception = await Record.ExceptionAsync(() => sut.LoadBulk(docs));
 
             // Assert
-            Assert.Contains("1 stored procedures failed out of a total of 1 sprocs for 2 measurements.", exception.Message);
+            Assert.Contains("Error initializing tasks for bulk import on groupedDoc a with 2 measurements.", exception.Message);
         }
 
         [Fact]
@@ -58,15 +58,16 @@ namespace Caf.Etl.Nodes.CosmosDBSqlApi.Tests
 
             List<IAmDocument> docs = new List<IAmDocument>()
             {
-                new DocumentBase(){ partitionKey = "a" },
-                new DocumentBase(){ partitionKey = "b" }
+                new DocumentBase(){ PartitionKey = "b" },
+                new DocumentBase(){ PartitionKey = "bb" }
             };
 
             // Act
             var exception = await Record.ExceptionAsync(() => sut.LoadBulk(docs));
 
             // Assert
-            Assert.Contains("2 stored procedures failed out of a total of 2 sprocs for 2 measurements.", exception.Message);
+            //Assert.Contains("2 stored procedures failed out of a total of 2 sprocs for 2 measurements.", exception.Message);
+            Assert.Contains("Error initializing tasks for bulk import on groupedDoc b with 1 measurements.", exception.Message);
         }
     }
 }

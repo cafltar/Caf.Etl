@@ -9,11 +9,11 @@ namespace Caf.Etl.Models.CosmosDBSqlApi
     {
         /// <summary></summary>
         [JsonProperty("partitionKey")]
-        string partitionKey { get; }
+        string PartitionKey { get; }
 
         /// <summary></summary>
         [JsonProperty("id")]
-        string id { get; }
+        string Id { get; }
 
         /// <summary></summary>
         [JsonProperty("type")]
