@@ -9,6 +9,7 @@ using Newtonsoft.Json.Linq;
 
 namespace Caf.Etl.Nodes.LoggerNet.Mappers
 {
+    [Obsolete("Use MapFromToa5DataTableCafStandards", false)]
     public class MapFromMeteorologyDataTableToCafStandards : IMapper
     {
         private readonly string stationsMap;

@@ -16,8 +16,8 @@ namespace Caf.Etl.Nodes.LoggerNet.Tests
         public void ToMeasurement_ValidDataFluxV1_ReturnCorrectMeasurementsV2()
         {
             //# Arrange
-            Mappers.MapFromFluxDataTableToCafStandards map = 
-                new Mappers.MapFromFluxDataTableToCafStandards();
+            Mappers.MapFromToa5DataTableToCafStandards map = 
+                new Mappers.MapFromToa5DataTableToCafStandards();
             TOA5 toa5 = LoggerNetArranger.GetToa5FluxDerivedFromActualDataV1();
 
             List<MeasurementV2> expected = 
@@ -45,8 +45,8 @@ namespace Caf.Etl.Nodes.LoggerNet.Tests
         {
             // TODO: Update to use: MapFromToa5DataTableToCafStandards
             // Arrange
-            Mappers.MapFromFluxDataTableToCafStandards map = 
-                new Mappers.MapFromFluxDataTableToCafStandards();
+            Mappers.MapFromToa5DataTableToCafStandards map = 
+                new Mappers.MapFromToa5DataTableToCafStandards();
 
             TOA5 toa5 = LoggerNetArranger.GetToa5FluxDerivedFromTestDataV2();
 
@@ -71,7 +71,7 @@ namespace Caf.Etl.Nodes.LoggerNet.Tests
         }
 
         [Fact]
-        public void ToMeasurement_TestDataMetV2_ReturnCorrectMeasurementsV2()
+        public void ToMeasurement_TestDataMeteorologyV2_ReturnCorrectMeasurementsV2()
         {
             // Arrange
             Mappers.MapFromToa5DataTableToCafStandards map =
