@@ -23,10 +23,18 @@ namespace Caf.Etl.Models.LoggerNet.TOA5
 
         public bool Equals(Variable other)
         {
-            return other != null &&
+
+            if (other != null &&
                    FieldName == other.FieldName &&
                    Units == other.Units &&
-                   Processing == other.Processing;
+                   Processing == other.Processing)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public override int GetHashCode()

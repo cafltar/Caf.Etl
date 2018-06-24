@@ -21,9 +21,16 @@ namespace Caf.Etl.Models.LoggerNet.TOA5
 
         public bool Equals(TOA5 other)
         {
-            return other != null &&
-                   EqualityComparer<Metadata>.Default.Equals(Metadata, other.Metadata) &&
-                   Observations.SequenceEqual(other.Observations);
+            if(other != null &&
+                   EqualityComparer<Metadata>.Default.Equals(Metadata, other.Metadata))
+            {
+                if(Observations.SequenceEqual(other.Observations))
+                {
+                    return true;
+                }
+                else { return false; }
+            }
+            else { return false; }
                    //EqualityComparer<List<IObservation>>.Default.Equals(Observations, other.Observations);
         }
 

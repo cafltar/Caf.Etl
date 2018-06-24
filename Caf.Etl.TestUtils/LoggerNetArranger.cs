@@ -8,7 +8,7 @@ namespace Caf.Etl.TestUtils
 {
     public static class LoggerNetArranger
     {
-        public static List<IObservation> GetObservationsDerivedFromActualDataV1()
+        public static List<IObservation> GetFluxObservationsDerivedFromActualDataV1()
         {
             List<IObservation> r = new List<IObservation>();
 
@@ -266,7 +266,7 @@ namespace Caf.Etl.TestUtils
             return r;
         }
 
-        public static List<IObservation> GetObservationsDerivedFromTestDataV2()
+        public static List<IObservation> GetFluxObservationsDerivedFromTestDataV2()
         {
             List<IObservation> r = new List<IObservation>();
 
@@ -504,6 +504,73 @@ namespace Caf.Etl.TestUtils
             r.Add(flux);
 
             return r;        
+        }
+
+        public static List<IObservation> GetMeteorologyObservationsDerivedFromTestDataV2()
+        {
+            List<IObservation> r = new List<IObservation>();
+
+            Meteorology met = new Meteorology()
+            {
+                TIMESTAMP = new DateTime(2018, 06, 15, 13, 45, 00),
+                RECORD = 0,
+                amb_tmpr_Avg = null,
+                rslt_wnd_spd = null,
+                wnd_dir_compass = null,
+                RH_Avg = null,
+                Precipitation_Tot = 0,
+                amb_press_Avg = null,
+                PAR_density_Avg = null,
+                batt_volt_Avg = 13.39749,
+                panel_tmpr_Avg = 24.75595,
+                std_wnd_dir = null,
+                VPD_air = null,
+                Rn_meas_Avg = 22857.77,
+                e_sat = null,
+                e = null,
+                tdr31X_wc_Avg = null,
+                tdr31X_tmpr_Avg = 0,
+                tdr31X_E_Avg = 0,
+                tdr31X_bulkEC_Avg = 0,
+                tdr31X_poreEC_Avg = 0,
+                Tsoil_Avg = -18129.55,
+                profile_tdr31X_wc_Avg1 = 0,
+                profile_tdr31X_wc_Avg2 = 0,
+                profile_tdr31X_wc_Avg3 = 0,
+                profile_tdr31X_wc_Avg4 = 0,
+                profile_tdr31X_wc_Avg5 = 0,
+                profile_tdr31X_wc_Avg6 = 0,
+                profile_tdr31X_tmpr_Avg1 = 0,
+                profile_tdr31X_tmpr_Avg2 = 0,
+                profile_tdr31X_tmpr_Avg3 = 0,
+                profile_tdr31X_tmpr_Avg4 = 0,
+                profile_tdr31X_tmpr_Avg5 = 0,
+                profile_tdr31X_tmpr_Avg6 = 0,
+                profile_tdr31X_E_Avg1 = 0,
+                profile_tdr31X_E_Avg2 = 0,
+                profile_tdr31X_E_Avg3 = 0,
+                profile_tdr31X_E_Avg4 = 0,
+                profile_tdr31X_E_Avg5 = 0,
+                profile_tdr31X_E_Avg6 = 0,
+                profile_tdr31X_bulkEC_Avg1 = 0,
+                profile_tdr31X_bulkEC_Avg2 = 0,
+                profile_tdr31X_bulkEC_Avg3 = 0,
+                profile_tdr31X_bulkEC_Avg4 = 0,
+                profile_tdr31X_bulkEC_Avg5 = 0,
+                profile_tdr31X_bulkEC_Avg6 = 0,
+                profile_tdr31X_poreEC_Avg1 = 0,
+                profile_tdr31X_poreEC_Avg2 = 0,
+                profile_tdr31X_poreEC_Avg3 = 0,
+                profile_tdr31X_poreEC_Avg4 = 0,
+                profile_tdr31X_poreEC_Avg5 = 0,
+                profile_tdr31X_poreEC_Avg6 = 0,
+                shf_plate_avg = 0,
+                SHFP_1_SENS = 66.47
+            };
+
+            r.Add(met);
+
+            return r;
         }
 
         public static TOA5 GetToa5FluxDerivedFromActualDataV1()
@@ -1028,7 +1095,7 @@ namespace Caf.Etl.TestUtils
         {
             TOA5 flux = new TOA5();
 
-            flux.Observations = GetObservationsDerivedFromTestDataV2();
+            flux.Observations = GetFluxObservationsDerivedFromTestDataV2();
             flux.Metadata = new Metadata()
             {
                 FileFormat = "TOA5",
@@ -1275,6 +1342,85 @@ namespace Caf.Etl.TestUtils
             return flux;
         }
 
+        public static TOA5 GetToa5MeteorologyDerivedFromTestDataV2()
+        {
+            TOA5 met = new TOA5();
+
+            met.Observations = GetMeteorologyObservationsDerivedFromTestDataV2();
+            met.Metadata = new Metadata()
+            {
+                FileFormat = "TOA5",
+                StationName = "LTAR_CookEast",
+                DataLoggerType = "CR3000",
+                SerialNumber = 11205,
+                OperatingSystemVersion = "CR3000.Std.28.02",
+                DataloggerProgramName = "CPU:default.cr3",
+                DataloggerProgramSignature = 64331,
+                TableName = "LTAR_Met",
+
+                Variables = new List<Variable>()
+                {
+                    new Variable() { FieldName = "TIMESTAMP", Units = "TS", Processing = "" },
+new Variable() { FieldName = "RECORD", Units = "RN", Processing = "" },
+new Variable() { FieldName = "amb_tmpr_Avg", Units = "C", Processing = "Avg" },
+new Variable() { FieldName = "rslt_wnd_spd", Units = "m/s", Processing = "Smp" },
+new Variable() { FieldName = "wnd_dir_compass", Units = "degrees", Processing = "Smp" },
+new Variable() { FieldName = "RH_Avg", Units = "%", Processing = "Avg" },
+new Variable() { FieldName = "Precipitation_Tot", Units = "mm", Processing = "Tot" },
+new Variable() { FieldName = "amb_press_Avg", Units = "kPa", Processing = "Avg" },
+new Variable() { FieldName = "PAR_density_Avg", Units = "umol/(s m^2)", Processing = "Avg" },
+new Variable() { FieldName = "batt_volt_Avg", Units = "V", Processing = "Avg" },
+new Variable() { FieldName = "panel_tmpr_Avg", Units = "C", Processing = "Avg" },
+new Variable() { FieldName = "std_wnd_dir", Units = "degrees", Processing = "Smp" },
+new Variable() { FieldName = "VPD_air", Units = "kpa", Processing = "Smp" },
+new Variable() { FieldName = "Rn_meas_Avg", Units = "W/m^2", Processing = "Avg" },
+new Variable() { FieldName = "e_sat", Units = "kPa", Processing = "Smp" },
+new Variable() { FieldName = "e", Units = "kPa", Processing = "Smp" },
+new Variable() { FieldName = "tdr31X_wc_Avg", Units = "%", Processing = "Avg" },
+new Variable() { FieldName = "tdr31X_tmpr_Avg", Units = "C", Processing = "Avg" },
+new Variable() { FieldName = "tdr31X_E_Avg", Units = "unitless", Processing = "Avg" },
+new Variable() { FieldName = "tdr31X_bulkEC_Avg", Units = "uS/cm", Processing = "Avg" },
+new Variable() { FieldName = "tdr31X_poreEC_Avg", Units = "uS/cm", Processing = "Avg" },
+new Variable() { FieldName = "Tsoil_Avg", Units = "C", Processing = "Avg" },
+new Variable() { FieldName = "profile_tdr31X_wc_Avg(1)", Units = "%", Processing = "Avg" },
+new Variable() { FieldName = "profile_tdr31X_wc_Avg(2)", Units = "%", Processing = "Avg" },
+new Variable() { FieldName = "profile_tdr31X_wc_Avg(3)", Units = "%", Processing = "Avg" },
+new Variable() { FieldName = "profile_tdr31X_wc_Avg(4)", Units = "%", Processing = "Avg" },
+new Variable() { FieldName = "profile_tdr31X_wc_Avg(5)", Units = "%", Processing = "Avg" },
+new Variable() { FieldName = "profile_tdr31X_wc_Avg(6)", Units = "%", Processing = "Avg" },
+new Variable() { FieldName = "profile_tdr31X_tmpr_Avg(1)", Units = "C", Processing = "Avg" },
+new Variable() { FieldName = "profile_tdr31X_tmpr_Avg(2)", Units = "C", Processing = "Avg" },
+new Variable() { FieldName = "profile_tdr31X_tmpr_Avg(3)", Units = "C", Processing = "Avg" },
+new Variable() { FieldName = "profile_tdr31X_tmpr_Avg(4)", Units = "C", Processing = "Avg" },
+new Variable() { FieldName = "profile_tdr31X_tmpr_Avg(5)", Units = "C", Processing = "Avg" },
+new Variable() { FieldName = "profile_tdr31X_tmpr_Avg(6)", Units = "C", Processing = "Avg" },
+new Variable() { FieldName = "profile_tdr31X_E_Avg(1)", Units = "unitless", Processing = "Avg" },
+new Variable() { FieldName = "profile_tdr31X_E_Avg(2)", Units = "unitless", Processing = "Avg" },
+new Variable() { FieldName = "profile_tdr31X_E_Avg(3)", Units = "unitless", Processing = "Avg" },
+new Variable() { FieldName = "profile_tdr31X_E_Avg(4)", Units = "unitless", Processing = "Avg" },
+new Variable() { FieldName = "profile_tdr31X_E_Avg(5)", Units = "unitless", Processing = "Avg" },
+new Variable() { FieldName = "profile_tdr31X_E_Avg(6)", Units = "unitless", Processing = "Avg" },
+new Variable() { FieldName = "profile_tdr31X_bulkEC_Avg(1)", Units = "uS/cm", Processing = "Avg" },
+new Variable() { FieldName = "profile_tdr31X_bulkEC_Avg(2)", Units = "uS/cm", Processing = "Avg" },
+new Variable() { FieldName = "profile_tdr31X_bulkEC_Avg(3)", Units = "uS/cm", Processing = "Avg" },
+new Variable() { FieldName = "profile_tdr31X_bulkEC_Avg(4)", Units = "uS/cm", Processing = "Avg" },
+new Variable() { FieldName = "profile_tdr31X_bulkEC_Avg(5)", Units = "uS/cm", Processing = "Avg" },
+new Variable() { FieldName = "profile_tdr31X_bulkEC_Avg(6)", Units = "uS/cm", Processing = "Avg" },
+new Variable() { FieldName = "profile_tdr31X_poreEC_Avg(1)", Units = "uS/cm", Processing = "Avg" },
+new Variable() { FieldName = "profile_tdr31X_poreEC_Avg(2)", Units = "uS/cm", Processing = "Avg" },
+new Variable() { FieldName = "profile_tdr31X_poreEC_Avg(3)", Units = "uS/cm", Processing = "Avg" },
+new Variable() { FieldName = "profile_tdr31X_poreEC_Avg(4)", Units = "uS/cm", Processing = "Avg" },
+new Variable() { FieldName = "profile_tdr31X_poreEC_Avg(5)", Units = "uS/cm", Processing = "Avg" },
+new Variable() { FieldName = "profile_tdr31X_poreEC_Avg(6)", Units = "uS/cm", Processing = "Avg" },
+new Variable() { FieldName = "shf_plate_avg", Units = "W/m^2", Processing = "Smp" },
+new Variable() { FieldName = "SHFP_1_SENS", Units = "uv/W/m^2", Processing = "Smp" },
+
+                }
+            };
+
+            return met;
+        }
+
         public static List<MeasurementV2> GetMeasurementsV2DerivedFromActualDataV1()
         {
             List<MeasurementV2> measurements = new List<MeasurementV2>();
@@ -1397,7 +1543,7 @@ namespace Caf.Etl.TestUtils
             return measurements;
         }
 
-        public static List<MeasurementV2> GetMeasurementsV2DerivedFromTestDataV2()
+        public static List<MeasurementV2> GetMeasurementsV2DerivedFromTestDataFluxV2()
         {
             List<MeasurementV2> measurements = new List<MeasurementV2>();
             measurements.Add(new MeasurementV2("CafMeteorologyEcTower_CookEast_PressureAirTsAvg", "CookEast_PressureAirTsAvg_Ts1800_2018-06-15T14:00:00.0000000Z", "Measurement", "PressureAirTsAvg", "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json", "CafMeteorologyEcTower","","","","",null,"CookEast", new LocationV2("Point", 46.78152, -117.08205), new DateTime(2018, 1, 8, 13, 30, 0), new List<PhysicalQuantityV2>() { new PhysicalQuantityV2(null, "kPa",DateTime.Now, "DocumentDbMeasurementTransformer")}, 1800));
@@ -1518,5 +1664,13 @@ namespace Caf.Etl.TestUtils
 
             return measurements;
         }
+
+        public static List<MeasurementV2> GetMeasurementsV2DerivedFromTestDataMeteorologyV2()
+        {
+            List<MeasurementV2> measurements = new List<MeasurementV2>();
+            
+            return measurements;
+        }
+
     }
 }
