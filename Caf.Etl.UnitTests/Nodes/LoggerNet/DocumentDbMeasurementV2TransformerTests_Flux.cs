@@ -10,7 +10,8 @@ using System.Linq;
 
 namespace Caf.Etl.Nodes.LoggerNet.Tests
 {
-    public class DocumentDbMeasurementV2TransformerTests_Flux
+    // TODO: Update after making changes to toa5-transformation-cosmosdb
+/*    public class DocumentDbMeasurementV2TransformerTests_Flux
     {
         [Fact]
         public void ToMeasurement_ValidDataFluxV1_ReturnCorrectMeasurementsV2()
@@ -152,4 +153,4 @@ namespace Caf.Etl.Nodes.LoggerNet.Tests
                 && first.Value == second.Value;
         }
     }
-}
+*/}

@@ -25,6 +25,9 @@
     <None Update="Nodes\LoggerNet\Assets\CookEastEcTower_Met_Raw_2017_10_24_0615.dat">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="Nodes\LoggerNet\Assets\CookEastEcTower_Met_Raw_2018_06_27_1315.dat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="Nodes\LoggerNet\Assets\CookEastEcTower_Met_Raw_TestTimeZone.dat">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
