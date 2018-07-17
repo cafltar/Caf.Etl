@@ -11,11 +11,11 @@ namespace Caf.Etl.Models.CosmosDBSqlApi.Measurement
     {
         /// <summary></summary>
         [JsonProperty("partitionKey")]
-        public string partitionKey { get; private set; }
+        public string PartitionKey { get; private set; }
 
         /// <summary></summary>
         [JsonProperty("id")]
-        public string id { get; private set; }
+        public string Id { get; private set; }
 
         /// <summary></summary>
         [JsonProperty("type")]
@@ -86,8 +86,8 @@ namespace Caf.Etl.Models.CosmosDBSqlApi.Measurement
             List<PhysicalQuantityV2> physicalQuantities,
             int? timestep)
         {
-            this.partitionKey = partitionKey;
-            this.id = id;
+            this.PartitionKey = partitionKey;
+            this.Id = id;
             Type = type;
             Name = name;
             Schema = schema;
@@ -118,8 +118,8 @@ namespace Caf.Etl.Models.CosmosDBSqlApi.Measurement
             List<PhysicalQuantityV2> physicalQuantities,
             int? timestep)
         {
-            partitionKey = $"{project}_{areaOfInterest}_{name}";
-            id = $"{areaOfInterest}_{name}_{dateTime.ToString("o")}";
+            PartitionKey = $"{project}_{areaOfInterest}_{name}";
+            Id = $"{areaOfInterest}_{name}_{dateTime.ToString("o")}";
             Type = type;
             Name = name;
             Schema = schema;
@@ -150,8 +150,8 @@ namespace Caf.Etl.Models.CosmosDBSqlApi.Measurement
             List<PhysicalQuantityV2> physicalQuantities,
             int? timestep)
         {
-            partitionKey = $"{project}_{areaOfInterest}_{name}";
-            id = $"{areaOfInterest}_{name}{(timestep != null ? ("_Ts" + timestep.ToString()) : "")}_{dateTime.ToString("o")}";
+            PartitionKey = $"{project}_{areaOfInterest}_{name}";
+            Id = $"{areaOfInterest}_{name}{(timestep != null ? ("_Ts" + timestep.ToString()) : "")}_{dateTime.ToString("o")}";
             Type = type;
             Name = name;
             Schema = schema;
@@ -176,8 +176,8 @@ namespace Caf.Etl.Models.CosmosDBSqlApi.Measurement
         public bool Equals(MeasurementV2 other)
         {
             return other != null &&
-                   partitionKey == other.partitionKey &&
-                   id == other.id &&
+                   PartitionKey == other.PartitionKey &&
+                   Id == other.Id &&
                    Type == other.Type &&
                    Name == other.Name &&
                    Schema == other.Schema &&
@@ -197,8 +197,8 @@ namespace Caf.Etl.Models.CosmosDBSqlApi.Measurement
         public override int GetHashCode()
         {
             var hashCode = -329364641;
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(partitionKey);
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(id);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(PartitionKey);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Id);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Type);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Name);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Schema);

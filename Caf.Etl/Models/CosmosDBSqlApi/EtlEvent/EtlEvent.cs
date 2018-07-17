@@ -12,11 +12,11 @@ namespace Caf.Etl.Models.CosmosDBSqlApi.EtlEvent
     {
         /// <summary></summary>
         [JsonProperty("partitionKey")]
-        public string partitionKey { get; private set; }
+        public string PartitionKey { get; private set; }
 
         /// <summary></summary>
         [JsonProperty("id")]
-        public string id { get; private set; }
+        public string Id { get; private set; }
 
         /// <summary></summary>
         [JsonProperty("type")]
@@ -88,8 +88,8 @@ namespace Caf.Etl.Models.CosmosDBSqlApi.EtlEvent
             DateTime dateTimeStart, DateTime dateTimeEnd,
             List<string> inputs, List<string> outputs, List<string> logs)
         {
-            this.partitionKey = partitionKey;
-            this.id = id;
+            this.PartitionKey = partitionKey;
+            this.Id = id;
             Type = type;
             Name = name;
             Schema = schema;
@@ -119,9 +119,9 @@ namespace Caf.Etl.Models.CosmosDBSqlApi.EtlEvent
             DateTime dateTimeStart, DateTime dateTimeEnd,
             List<string> inputs, List<string> outputs, List<string> logs)
         {
-            partitionKey = $"{type}_{name}";
+            this.PartitionKey = $"{type}_{name}";
             //id = $"{project}_{name}_{dateTimeStart.ToString("o")}";
-            id = Guid.NewGuid().ToString();
+            this.Id = Guid.NewGuid().ToString();
             Type = type;
             Name = name;
             Schema = schema;
@@ -149,9 +149,9 @@ namespace Caf.Etl.Models.CosmosDBSqlApi.EtlEvent
             string version, string source,
             DateTime dateTimeStart)
         {
-            partitionKey = $"{type}_{name}";
+            this.PartitionKey = $"{type}_{name}";
             //id = $"{project}_{name}_{dateTimeStart.ToString("o")}";
-            id = Guid.NewGuid().ToString();
+            this.Id = Guid.NewGuid().ToString();
             Type = type;
             Name = name;
             Schema = schema;

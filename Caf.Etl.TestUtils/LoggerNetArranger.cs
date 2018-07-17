@@ -8,7 +8,7 @@ namespace Caf.Etl.TestUtils
 {
     public static class LoggerNetArranger
     {
-        public static List<IObservation> GetObservationsDerivedFromActualDataV1()
+        public static List<IObservation> GetFluxObservationsDerivedFromActualDataV1()
         {
             List<IObservation> r = new List<IObservation>();
 
@@ -266,7 +266,7 @@ namespace Caf.Etl.TestUtils
             return r;
         }
 
-        public static List<IObservation> GetObservationsDerivedFromTestDataV2()
+        public static List<IObservation> GetFluxObservationsDerivedFromTestDataV2()
         {
             List<IObservation> r = new List<IObservation>();
 
@@ -504,6 +504,140 @@ namespace Caf.Etl.TestUtils
             r.Add(flux);
 
             return r;        
+        }
+
+        public static List<IObservation> GetMeteorologyObservationsDerivedFromTestDataV2()
+        {
+            List<IObservation> r = new List<IObservation>();
+
+            Meteorology met = new Meteorology()
+            {
+                TIMESTAMP = new DateTime(2018, 06, 15, 13, 45, 00),
+                RECORD = 0,
+                amb_tmpr_Avg = null,
+                rslt_wnd_spd = null,
+                wnd_dir_compass = null,
+                RH_Avg = null,
+                Precipitation_Tot = 0,
+                amb_press_Avg = null,
+                PAR_density_Avg = null,
+                batt_volt_Avg = 13.39749,
+                panel_tmpr_Avg = 24.75595,
+                std_wnd_dir = null,
+                VPD_air = null,
+                Rn_meas_Avg = 22857.77,
+                e_sat = null,
+                e = null,
+                tdr31X_wc_Avg = null,
+                tdr31X_tmpr_Avg = 0,
+                tdr31X_E_Avg = 0,
+                tdr31X_bulkEC_Avg = 0,
+                tdr31X_poreEC_Avg = 0,
+                Tsoil_Avg = -18129.55,
+                profile_tdr31X_wc_Avg1 = 0,
+                profile_tdr31X_wc_Avg2 = 0,
+                profile_tdr31X_wc_Avg3 = 0,
+                profile_tdr31X_wc_Avg4 = 0,
+                profile_tdr31X_wc_Avg5 = 0,
+                profile_tdr31X_wc_Avg6 = 0,
+                profile_tdr31X_tmpr_Avg1 = 0,
+                profile_tdr31X_tmpr_Avg2 = 0,
+                profile_tdr31X_tmpr_Avg3 = 0,
+                profile_tdr31X_tmpr_Avg4 = 0,
+                profile_tdr31X_tmpr_Avg5 = 0,
+                profile_tdr31X_tmpr_Avg6 = 0,
+                profile_tdr31X_E_Avg1 = 0,
+                profile_tdr31X_E_Avg2 = 0,
+                profile_tdr31X_E_Avg3 = 0,
+                profile_tdr31X_E_Avg4 = 0,
+                profile_tdr31X_E_Avg5 = 0,
+                profile_tdr31X_E_Avg6 = 0,
+                profile_tdr31X_bulkEC_Avg1 = 0,
+                profile_tdr31X_bulkEC_Avg2 = 0,
+                profile_tdr31X_bulkEC_Avg3 = 0,
+                profile_tdr31X_bulkEC_Avg4 = 0,
+                profile_tdr31X_bulkEC_Avg5 = 0,
+                profile_tdr31X_bulkEC_Avg6 = 0,
+                profile_tdr31X_poreEC_Avg1 = 0,
+                profile_tdr31X_poreEC_Avg2 = 0,
+                profile_tdr31X_poreEC_Avg3 = 0,
+                profile_tdr31X_poreEC_Avg4 = 0,
+                profile_tdr31X_poreEC_Avg5 = 0,
+                profile_tdr31X_poreEC_Avg6 = 0,
+                shf_plate_avg = 0,
+                SHFP_1_SENS = 66.47
+            };
+
+            r.Add(met);
+
+            return r;
+        }
+
+        public static List<IObservation> GetMeteorologyObservationsDerivedFromActualDataV2()
+        {
+            List<IObservation> r = new List<IObservation>();
+
+            Meteorology met = new Meteorology()
+            {
+                TIMESTAMP = new DateTime(2018, 06, 27, 13, 15, 00),
+                RECORD = 210,
+                amb_tmpr_Avg = 22.96937,
+                rslt_wnd_spd = 1.598681,
+                wnd_dir_compass = 284.8,
+                RH_Avg = 27.75771,
+                Precipitation_Tot = 0,
+                amb_press_Avg = 92.84725,
+                PAR_density_Avg = 1806.077,
+                batt_volt_Avg = 13.56527,
+                panel_tmpr_Avg = 27.82141,
+                std_wnd_dir = 30.24,
+                VPD_air = 2.033644,
+                Rn_meas_Avg = 612.901,
+                e_sat = 2.815406,
+                e = 0.7817625,
+                tdr31X_wc_Avg = null,
+                tdr31X_tmpr_Avg = 27.29888,
+                tdr31X_E_Avg = 6.797206,
+                tdr31X_bulkEC_Avg = 121.3464,
+                tdr31X_poreEC_Avg = 3491.408,
+                Tsoil_Avg = 23.89827,
+                profile_tdr31X_wc_Avg1 = null,
+                profile_tdr31X_wc_Avg2 = 18.43333,
+                profile_tdr31X_wc_Avg3 = null,
+                profile_tdr31X_wc_Avg4 = 34.7,
+                profile_tdr31X_wc_Avg5 = 35.66666,
+                profile_tdr31X_wc_Avg6 = null,
+                profile_tdr31X_tmpr_Avg1 = 27.7,
+                profile_tdr31X_tmpr_Avg2 = 18.23333,
+                profile_tdr31X_tmpr_Avg3 = 18.23333,
+                profile_tdr31X_tmpr_Avg4 = 14.8,
+                profile_tdr31X_tmpr_Avg5 = 13.9,
+                profile_tdr31X_tmpr_Avg6 = 13.9,
+                profile_tdr31X_E_Avg1 = 6.5,
+                profile_tdr31X_E_Avg2 = 9.8,
+                profile_tdr31X_E_Avg3 = 9.8,
+                profile_tdr31X_E_Avg4 = 20.13333,
+                profile_tdr31X_E_Avg5 = 20.93333,
+                profile_tdr31X_E_Avg6 = 20.93333,
+                profile_tdr31X_bulkEC_Avg1 = 109.3333,
+                profile_tdr31X_bulkEC_Avg2 = 152,
+                profile_tdr31X_bulkEC_Avg3 = 152,
+                profile_tdr31X_bulkEC_Avg4 = 637.6667,
+                profile_tdr31X_bulkEC_Avg5 = 755.3333,
+                profile_tdr31X_bulkEC_Avg6 = 755.3333,
+                profile_tdr31X_poreEC_Avg1 = 3498.667,
+                profile_tdr31X_poreEC_Avg2 = 2096,
+                profile_tdr31X_poreEC_Avg3 = 2096,
+                profile_tdr31X_poreEC_Avg4 = 3162,
+                profile_tdr31X_poreEC_Avg5 = 3568.667,
+                profile_tdr31X_poreEC_Avg6 = 3568.667,
+                shf_plate_avg = 104.54,
+                SHFP_1_SENS = 61.47
+            };
+
+            r.Add(met);
+
+            return r;
         }
 
         public static TOA5 GetToa5FluxDerivedFromActualDataV1()
@@ -1028,7 +1162,7 @@ namespace Caf.Etl.TestUtils
         {
             TOA5 flux = new TOA5();
 
-            flux.Observations = GetObservationsDerivedFromTestDataV2();
+            flux.Observations = GetFluxObservationsDerivedFromTestDataV2();
             flux.Metadata = new Metadata()
             {
                 FileFormat = "TOA5",
@@ -1275,6 +1409,163 @@ namespace Caf.Etl.TestUtils
             return flux;
         }
 
+        public static TOA5 GetToa5MeteorologyDerivedFromTestDataV2()
+        {
+            TOA5 met = new TOA5();
+
+            met.Observations = GetMeteorologyObservationsDerivedFromTestDataV2();
+            met.Metadata = new Metadata()
+            {
+                FileFormat = "TOA5",
+                StationName = "LTAR_CookEast",
+                DataLoggerType = "CR3000",
+                SerialNumber = 11205,
+                OperatingSystemVersion = "CR3000.Std.28.02",
+                DataloggerProgramName = "CPU:default.cr3",
+                DataloggerProgramSignature = 64331,
+                TableName = "LTAR_Met",
+
+                Variables = new List<Variable>()
+                {
+                    new Variable() { FieldName = "TIMESTAMP", Units = "TS", Processing = "" },
+new Variable() { FieldName = "RECORD", Units = "RN", Processing = "" },
+new Variable() { FieldName = "amb_tmpr_Avg", Units = "C", Processing = "Avg" },
+new Variable() { FieldName = "rslt_wnd_spd", Units = "m/s", Processing = "Smp" },
+new Variable() { FieldName = "wnd_dir_compass", Units = "degrees", Processing = "Smp" },
+new Variable() { FieldName = "RH_Avg", Units = "%", Processing = "Avg" },
+new Variable() { FieldName = "Precipitation_Tot", Units = "mm", Processing = "Tot" },
+new Variable() { FieldName = "amb_press_Avg", Units = "kPa", Processing = "Avg" },
+new Variable() { FieldName = "PAR_density_Avg", Units = "umol/(s m^2)", Processing = "Avg" },
+new Variable() { FieldName = "batt_volt_Avg", Units = "V", Processing = "Avg" },
+new Variable() { FieldName = "panel_tmpr_Avg", Units = "C", Processing = "Avg" },
+new Variable() { FieldName = "std_wnd_dir", Units = "degrees", Processing = "Smp" },
+new Variable() { FieldName = "VPD_air", Units = "kpa", Processing = "Smp" },
+new Variable() { FieldName = "Rn_meas_Avg", Units = "W/m^2", Processing = "Avg" },
+new Variable() { FieldName = "e_sat", Units = "kPa", Processing = "Smp" },
+new Variable() { FieldName = "e", Units = "kPa", Processing = "Smp" },
+new Variable() { FieldName = "tdr31X_wc_Avg", Units = "%", Processing = "Avg" },
+new Variable() { FieldName = "tdr31X_tmpr_Avg", Units = "C", Processing = "Avg" },
+new Variable() { FieldName = "tdr31X_E_Avg", Units = "unitless", Processing = "Avg" },
+new Variable() { FieldName = "tdr31X_bulkEC_Avg", Units = "uS/cm", Processing = "Avg" },
+new Variable() { FieldName = "tdr31X_poreEC_Avg", Units = "uS/cm", Processing = "Avg" },
+new Variable() { FieldName = "Tsoil_Avg", Units = "C", Processing = "Avg" },
+new Variable() { FieldName = "profile_tdr31X_wc_Avg(1)", Units = "%", Processing = "Avg" },
+new Variable() { FieldName = "profile_tdr31X_wc_Avg(2)", Units = "%", Processing = "Avg" },
+new Variable() { FieldName = "profile_tdr31X_wc_Avg(3)", Units = "%", Processing = "Avg" },
+new Variable() { FieldName = "profile_tdr31X_wc_Avg(4)", Units = "%", Processing = "Avg" },
+new Variable() { FieldName = "profile_tdr31X_wc_Avg(5)", Units = "%", Processing = "Avg" },
+new Variable() { FieldName = "profile_tdr31X_wc_Avg(6)", Units = "%", Processing = "Avg" },
+new Variable() { FieldName = "profile_tdr31X_tmpr_Avg(1)", Units = "C", Processing = "Avg" },
+new Variable() { FieldName = "profile_tdr31X_tmpr_Avg(2)", Units = "C", Processing = "Avg" },
+new Variable() { FieldName = "profile_tdr31X_tmpr_Avg(3)", Units = "C", Processing = "Avg" },
+new Variable() { FieldName = "profile_tdr31X_tmpr_Avg(4)", Units = "C", Processing = "Avg" },
+new Variable() { FieldName = "profile_tdr31X_tmpr_Avg(5)", Units = "C", Processing = "Avg" },
+new Variable() { FieldName = "profile_tdr31X_tmpr_Avg(6)", Units = "C", Processing = "Avg" },
+new Variable() { FieldName = "profile_tdr31X_E_Avg(1)", Units = "unitless", Processing = "Avg" },
+new Variable() { FieldName = "profile_tdr31X_E_Avg(2)", Units = "unitless", Processing = "Avg" },
+new Variable() { FieldName = "profile_tdr31X_E_Avg(3)", Units = "unitless", Processing = "Avg" },
+new Variable() { FieldName = "profile_tdr31X_E_Avg(4)", Units = "unitless", Processing = "Avg" },
+new Variable() { FieldName = "profile_tdr31X_E_Avg(5)", Units = "unitless", Processing = "Avg" },
+new Variable() { FieldName = "profile_tdr31X_E_Avg(6)", Units = "unitless", Processing = "Avg" },
+new Variable() { FieldName = "profile_tdr31X_bulkEC_Avg(1)", Units = "uS/cm", Processing = "Avg" },
+new Variable() { FieldName = "profile_tdr31X_bulkEC_Avg(2)", Units = "uS/cm", Processing = "Avg" },
+new Variable() { FieldName = "profile_tdr31X_bulkEC_Avg(3)", Units = "uS/cm", Processing = "Avg" },
+new Variable() { FieldName = "profile_tdr31X_bulkEC_Avg(4)", Units = "uS/cm", Processing = "Avg" },
+new Variable() { FieldName = "profile_tdr31X_bulkEC_Avg(5)", Units = "uS/cm", Processing = "Avg" },
+new Variable() { FieldName = "profile_tdr31X_bulkEC_Avg(6)", Units = "uS/cm", Processing = "Avg" },
+new Variable() { FieldName = "profile_tdr31X_poreEC_Avg(1)", Units = "uS/cm", Processing = "Avg" },
+new Variable() { FieldName = "profile_tdr31X_poreEC_Avg(2)", Units = "uS/cm", Processing = "Avg" },
+new Variable() { FieldName = "profile_tdr31X_poreEC_Avg(3)", Units = "uS/cm", Processing = "Avg" },
+new Variable() { FieldName = "profile_tdr31X_poreEC_Avg(4)", Units = "uS/cm", Processing = "Avg" },
+new Variable() { FieldName = "profile_tdr31X_poreEC_Avg(5)", Units = "uS/cm", Processing = "Avg" },
+new Variable() { FieldName = "profile_tdr31X_poreEC_Avg(6)", Units = "uS/cm", Processing = "Avg" },
+new Variable() { FieldName = "shf_plate_avg", Units = "W/m^2", Processing = "Smp" },
+new Variable() { FieldName = "SHFP_1_SENS", Units = "uv/W/m^2", Processing = "Smp" },
+
+                }
+            };
+
+            return met;
+        }
+
+        public static TOA5 GetToa5MeteorologyDerivedFromActualDataV2()
+        {
+            TOA5 met = new TOA5();
+
+            met.Observations = GetMeteorologyObservationsDerivedFromActualDataV2();
+            met.Metadata = new Metadata()
+            {
+                FileFormat = "TOA5",
+                StationName = "LTAR_CookEast",
+                DataLoggerType = "CR3000",
+                SerialNumber = 6503,
+                OperatingSystemVersion = "CR3000.Std.31.09",
+                DataloggerProgramName = "CPU:default.cr3",
+                DataloggerProgramSignature = 64331,
+                TableName = "LTAR_Met",
+
+                Variables = new List<Variable>()
+                {
+                    new Variable() { FieldName = "TIMESTAMP", Units = "TS", Processing = "" },
+                    new Variable() { FieldName = "RECORD", Units = "RN", Processing = "" },
+                    new Variable() { FieldName = "amb_tmpr_Avg", Units = "C", Processing = "Avg" },
+                    new Variable() { FieldName = "rslt_wnd_spd", Units = "m/s", Processing = "Smp" },
+                    new Variable() { FieldName = "wnd_dir_compass", Units = "degrees", Processing = "Smp" },
+                    new Variable() { FieldName = "RH_Avg", Units = "%", Processing = "Avg" },
+                    new Variable() { FieldName = "Precipitation_Tot", Units = "mm", Processing = "Tot" },
+                    new Variable() { FieldName = "amb_press_Avg", Units = "kPa", Processing = "Avg" },
+                    new Variable() { FieldName = "PAR_density_Avg", Units = "umol/(s m^2)", Processing = "Avg" },
+                    new Variable() { FieldName = "batt_volt_Avg", Units = "V", Processing = "Avg" },
+                    new Variable() { FieldName = "panel_tmpr_Avg", Units = "C", Processing = "Avg" },
+                    new Variable() { FieldName = "std_wnd_dir", Units = "degrees", Processing = "Smp" },
+                    new Variable() { FieldName = "VPD_air", Units = "kpa", Processing = "Smp" },
+                    new Variable() { FieldName = "Rn_meas_Avg", Units = "W/m^2", Processing = "Avg" },
+                    new Variable() { FieldName = "e_sat", Units = "kPa", Processing = "Smp" },
+                    new Variable() { FieldName = "e", Units = "kPa", Processing = "Smp" },
+                    new Variable() { FieldName = "tdr31X_wc_Avg", Units = "%", Processing = "Avg" },
+                    new Variable() { FieldName = "tdr31X_tmpr_Avg", Units = "C", Processing = "Avg" },
+                    new Variable() { FieldName = "tdr31X_E_Avg", Units = "unitless", Processing = "Avg" },
+                    new Variable() { FieldName = "tdr31X_bulkEC_Avg", Units = "uS/cm", Processing = "Avg" },
+                    new Variable() { FieldName = "tdr31X_poreEC_Avg", Units = "uS/cm", Processing = "Avg" },
+                    new Variable() { FieldName = "Tsoil_Avg", Units = "C", Processing = "Avg" },
+                    new Variable() { FieldName = "profile_tdr31X_wc_Avg(1)", Units = "%", Processing = "Avg" },
+                    new Variable() { FieldName = "profile_tdr31X_wc_Avg(2)", Units = "%", Processing = "Avg" },
+                    new Variable() { FieldName = "profile_tdr31X_wc_Avg(3)", Units = "%", Processing = "Avg" },
+                    new Variable() { FieldName = "profile_tdr31X_wc_Avg(4)", Units = "%", Processing = "Avg" },
+                    new Variable() { FieldName = "profile_tdr31X_wc_Avg(5)", Units = "%", Processing = "Avg" },
+                    new Variable() { FieldName = "profile_tdr31X_wc_Avg(6)", Units = "%", Processing = "Avg" },
+                    new Variable() { FieldName = "profile_tdr31X_tmpr_Avg(1)", Units = "C", Processing = "Avg" },
+                    new Variable() { FieldName = "profile_tdr31X_tmpr_Avg(2)", Units = "C", Processing = "Avg" },
+                    new Variable() { FieldName = "profile_tdr31X_tmpr_Avg(3)", Units = "C", Processing = "Avg" },
+                    new Variable() { FieldName = "profile_tdr31X_tmpr_Avg(4)", Units = "C", Processing = "Avg" },
+                    new Variable() { FieldName = "profile_tdr31X_tmpr_Avg(5)", Units = "C", Processing = "Avg" },
+                    new Variable() { FieldName = "profile_tdr31X_tmpr_Avg(6)", Units = "C", Processing = "Avg" },
+                    new Variable() { FieldName = "profile_tdr31X_E_Avg(1)", Units = "unitless", Processing = "Avg" },
+                    new Variable() { FieldName = "profile_tdr31X_E_Avg(2)", Units = "unitless", Processing = "Avg" },
+                    new Variable() { FieldName = "profile_tdr31X_E_Avg(3)", Units = "unitless", Processing = "Avg" },
+                    new Variable() { FieldName = "profile_tdr31X_E_Avg(4)", Units = "unitless", Processing = "Avg" },
+                    new Variable() { FieldName = "profile_tdr31X_E_Avg(5)", Units = "unitless", Processing = "Avg" },
+                    new Variable() { FieldName = "profile_tdr31X_E_Avg(6)", Units = "unitless", Processing = "Avg" },
+                    new Variable() { FieldName = "profile_tdr31X_bulkEC_Avg(1)", Units = "uS/cm", Processing = "Avg" },
+                    new Variable() { FieldName = "profile_tdr31X_bulkEC_Avg(2)", Units = "uS/cm", Processing = "Avg" },
+                    new Variable() { FieldName = "profile_tdr31X_bulkEC_Avg(3)", Units = "uS/cm", Processing = "Avg" },
+                    new Variable() { FieldName = "profile_tdr31X_bulkEC_Avg(4)", Units = "uS/cm", Processing = "Avg" },
+                    new Variable() { FieldName = "profile_tdr31X_bulkEC_Avg(5)", Units = "uS/cm", Processing = "Avg" },
+                    new Variable() { FieldName = "profile_tdr31X_bulkEC_Avg(6)", Units = "uS/cm", Processing = "Avg" },
+                    new Variable() { FieldName = "profile_tdr31X_poreEC_Avg(1)", Units = "uS/cm", Processing = "Avg" },
+                    new Variable() { FieldName = "profile_tdr31X_poreEC_Avg(2)", Units = "uS/cm", Processing = "Avg" },
+                    new Variable() { FieldName = "profile_tdr31X_poreEC_Avg(3)", Units = "uS/cm", Processing = "Avg" },
+                    new Variable() { FieldName = "profile_tdr31X_poreEC_Avg(4)", Units = "uS/cm", Processing = "Avg" },
+                    new Variable() { FieldName = "profile_tdr31X_poreEC_Avg(5)", Units = "uS/cm", Processing = "Avg" },
+                    new Variable() { FieldName = "profile_tdr31X_poreEC_Avg(6)", Units = "uS/cm", Processing = "Avg" },
+                    new Variable() { FieldName = "shf_plate_avg", Units = "W/m^2", Processing = "Smp" },
+                    new Variable() { FieldName = "SHFP_1_SENS", Units = "uv/W/m^2", Processing = "Smp" }
+                }
+            };
+
+            return met;
+        }
+
         public static List<MeasurementV2> GetMeasurementsV2DerivedFromActualDataV1()
         {
             List<MeasurementV2> measurements = new List<MeasurementV2>();
@@ -1397,7 +1688,7 @@ namespace Caf.Etl.TestUtils
             return measurements;
         }
 
-        public static List<MeasurementV2> GetMeasurementsV2DerivedFromTestDataV2()
+        public static List<MeasurementV2> GetMeasurementsV2DerivedFromTestDataFluxV2()
         {
             List<MeasurementV2> measurements = new List<MeasurementV2>();
             measurements.Add(new MeasurementV2("CafMeteorologyEcTower_CookEast_PressureAirTsAvg", "CookEast_PressureAirTsAvg_Ts1800_2018-06-15T14:00:00.0000000Z", "Measurement", "PressureAirTsAvg", "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json", "CafMeteorologyEcTower","","","","",null,"CookEast", new LocationV2("Point", 46.78152, -117.08205), new DateTime(2018, 1, 8, 13, 30, 0), new List<PhysicalQuantityV2>() { new PhysicalQuantityV2(null, "kPa",DateTime.Now, "DocumentDbMeasurementTransformer")}, 1800));
@@ -1518,5 +1809,64 @@ namespace Caf.Etl.TestUtils
 
             return measurements;
         }
+
+        public static List<MeasurementV2> GetMeasurementsV2DerivedFromActualDataMeteorologyV2()
+        {
+            List<MeasurementV2> measurements = new List<MeasurementV2>();
+            measurements.Add(new MeasurementV2("CafMeteorologyEcTower_CookEast_PressureAirTsAvg", "CookEast_PressureAirTsAvg_Ts900_2018-06-27T13:15:00.0000000Z", "Measurement", "PressureAirTsAvg", "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json", "CafMeteorologyEcTower", "", "", "", "", null, "CookEast", new LocationV2("Point", 46.78152, -117.08205), new DateTime(2018, 1, 8, 13, 30, 0), new List<PhysicalQuantityV2>() { new PhysicalQuantityV2(92.84725, "kPa", DateTime.Now, "DocumentDbMeasurementTransformer") }, 900));
+            measurements.Add(new MeasurementV2("CafMeteorologyEcTower_CookEast_TemperatureAirTsAvg", "CookEast_TemperatureAirTsAvg_Ts900_2018-06-27T13:15:00.0000000Z", "Measurement", "TemperatureAirTsAvg", "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json", "CafMeteorologyEcTower", "", "", "", "", null, "CookEast", new LocationV2("Point", 46.78152, -117.08205), new DateTime(2018, 1, 8, 13, 30, 0), new List<PhysicalQuantityV2>() { new PhysicalQuantityV2(22.96937, "C", DateTime.Now, "DocumentDbMeasurementTransformer") }, 900));
+            measurements.Add(new MeasurementV2("CafMeteorologyEcTower_CookEast_BatteryVoltageTsAvg", "CookEast_BatteryVoltageTsAvg_Ts900_2018-06-27T13:15:00.0000000Z", "Measurement", "BatteryVoltageTsAvg", "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json", "CafMeteorologyEcTower", "", "", "", "", null, "CookEast", new LocationV2("Point", 46.78152, -117.08205), new DateTime(2018, 1, 8, 13, 30, 0), new List<PhysicalQuantityV2>() { new PhysicalQuantityV2(13.56527, "V", DateTime.Now, "DocumentDbMeasurementTransformer") }, 900));
+            measurements.Add(new MeasurementV2("CafMeteorologyEcTower_CookEast_VaporPressureTsAvg", "CookEast_VaporPressureTsAvg_Ts900_2018-06-27T13:15:00.0000000Z", "Measurement", "VaporPressureTsAvg", "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json", "CafMeteorologyEcTower", "", "", "", "", null, "CookEast", new LocationV2("Point", 46.78152, -117.08205), new DateTime(2018, 1, 8, 13, 30, 0), new List<PhysicalQuantityV2>() { new PhysicalQuantityV2(0.7817625, "kPa", DateTime.Now, "DocumentDbMeasurementTransformer") }, 900));
+            measurements.Add(new MeasurementV2("CafMeteorologyEcTower_CookEast_VaporPressureSaturationTsAvg", "CookEast_VaporPressureSaturationTsAvg_Ts900_2018-06-27T13:15:00.0000000Z", "Measurement", "VaporPressureSaturationTsAvg", "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json", "CafMeteorologyEcTower", "", "", "", "", null, "CookEast", new LocationV2("Point", 46.78152, -117.08205), new DateTime(2018, 1, 8, 13, 30, 0), new List<PhysicalQuantityV2>() { new PhysicalQuantityV2(2.815406, "kPa", DateTime.Now, "DocumentDbMeasurementTransformer") }, 900));
+            measurements.Add(new MeasurementV2("CafMeteorologyEcTower_CookEast_TemperaturePanelTsAvg", "CookEast_TemperaturePanelTsAvg_Ts900_2018-06-27T13:15:00.0000000Z", "Measurement", "TemperaturePanelTsAvg", "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json", "CafMeteorologyEcTower", "", "", "", "", null, "CookEast", new LocationV2("Point", 46.78152, -117.08205), new DateTime(2018, 1, 8, 13, 30, 0), new List<PhysicalQuantityV2>() { new PhysicalQuantityV2(27.82141, "C", DateTime.Now, "DocumentDbMeasurementTransformer") }, 900));
+            measurements.Add(new MeasurementV2("CafMeteorologyEcTower_CookEast_ParDensityTsAvg", "CookEast_ParDensityTsAvg_Ts900_2018-06-27T13:15:00.0000000Z", "Measurement", "ParDensityTsAvg", "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json", "CafMeteorologyEcTower", "", "", "", "", null, "CookEast", new LocationV2("Point", 46.78152, -117.08205), new DateTime(2018, 1, 8, 13, 30, 0), new List<PhysicalQuantityV2>() { new PhysicalQuantityV2(1806.077, "umol/(s m^2)", DateTime.Now, "DocumentDbMeasurementTransformer") }, 900));
+            measurements.Add(new MeasurementV2("CafMeteorologyEcTower_CookEast_PrecipitationTsAccum", "CookEast_PrecipitationTsAccum_Ts900_2018-06-27T13:15:00.0000000Z", "Measurement", "PrecipitationTsAccum", "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json", "CafMeteorologyEcTower", "", "", "", "", null, "CookEast", new LocationV2("Point", 46.78152, -117.08205), new DateTime(2018, 1, 8, 13, 30, 0), new List<PhysicalQuantityV2>() { new PhysicalQuantityV2(0, "mm", DateTime.Now, "DocumentDbMeasurementTransformer") }, 900));
+            measurements.Add(new MeasurementV2("CafMeteorologyEcTower_CookEast_ElectricConductivityBulkSoil15cmTsAvg", "CookEast_ElectricConductivityBulkSoil15cmTsAvg_Ts900_2018-06-27T13:15:00.0000000Z", "Measurement", "ElectricConductivityBulkSoil15cmTsAvg", "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json", "CafMeteorologyEcTower", "", "", "", "", null, "CookEast", new LocationV2("Point", 46.78152, -117.08205), new DateTime(2018, 1, 8, 13, 30, 0), new List<PhysicalQuantityV2>() { new PhysicalQuantityV2(109.3333, "uS/cm", DateTime.Now, "DocumentDbMeasurementTransformer") }, 900));
+            measurements.Add(new MeasurementV2("CafMeteorologyEcTower_CookEast_ElectricConductivityBulkSoil30cmTsAvg", "CookEast_ElectricConductivityBulkSoil30cmTsAvg_Ts900_2018-06-27T13:15:00.0000000Z", "Measurement", "ElectricConductivityBulkSoil30cmTsAvg", "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json", "CafMeteorologyEcTower", "", "", "", "", null, "CookEast", new LocationV2("Point", 46.78152, -117.08205), new DateTime(2018, 1, 8, 13, 30, 0), new List<PhysicalQuantityV2>() { new PhysicalQuantityV2(152, "uS/cm", DateTime.Now, "DocumentDbMeasurementTransformer") }, 900));
+            measurements.Add(new MeasurementV2("CafMeteorologyEcTower_CookEast_ElectricConductivityBulkSoil60cmTsAvg", "CookEast_ElectricConductivityBulkSoil60cmTsAvg_Ts900_2018-06-27T13:15:00.0000000Z", "Measurement", "ElectricConductivityBulkSoil60cmTsAvg", "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json", "CafMeteorologyEcTower", "", "", "", "", null, "CookEast", new LocationV2("Point", 46.78152, -117.08205), new DateTime(2018, 1, 8, 13, 30, 0), new List<PhysicalQuantityV2>() { new PhysicalQuantityV2(152, "uS/cm", DateTime.Now, "DocumentDbMeasurementTransformer") }, 900));
+            measurements.Add(new MeasurementV2("CafMeteorologyEcTower_CookEast_ElectricConductivityBulkSoil90cmTsAvg", "CookEast_ElectricConductivityBulkSoil90cmTsAvg_Ts900_2018-06-27T13:15:00.0000000Z", "Measurement", "ElectricConductivityBulkSoil90cmTsAvg", "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json", "CafMeteorologyEcTower", "", "", "", "", null, "CookEast", new LocationV2("Point", 46.78152, -117.08205), new DateTime(2018, 1, 8, 13, 30, 0), new List<PhysicalQuantityV2>() { new PhysicalQuantityV2(637.6667, "uS/cm", DateTime.Now, "DocumentDbMeasurementTransformer") }, 900));
+            measurements.Add(new MeasurementV2("CafMeteorologyEcTower_CookEast_ElectricConductivityBulkSoil120cmTsAvg", "CookEast_ElectricConductivityBulkSoil120cmTsAvg_Ts900_2018-06-27T13:15:00.0000000Z", "Measurement", "ElectricConductivityBulkSoil120cmTsAvg", "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json", "CafMeteorologyEcTower", "", "", "", "", null, "CookEast", new LocationV2("Point", 46.78152, -117.08205), new DateTime(2018, 1, 8, 13, 30, 0), new List<PhysicalQuantityV2>() { new PhysicalQuantityV2(755.3333, "uS/cm", DateTime.Now, "DocumentDbMeasurementTransformer") }, 900));
+            measurements.Add(new MeasurementV2("CafMeteorologyEcTower_CookEast_ElectricConductivityBulkSoil150cmTsAvg", "CookEast_ElectricConductivityBulkSoil150cmTsAvg_Ts900_2018-06-27T13:15:00.0000000Z", "Measurement", "ElectricConductivityBulkSoil150cmTsAvg", "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json", "CafMeteorologyEcTower", "", "", "", "", null, "CookEast", new LocationV2("Point", 46.78152, -117.08205), new DateTime(2018, 1, 8, 13, 30, 0), new List<PhysicalQuantityV2>() { new PhysicalQuantityV2(755.3333, "uS/cm", DateTime.Now, "DocumentDbMeasurementTransformer") }, 900));
+            measurements.Add(new MeasurementV2("CafMeteorologyEcTower_CookEast_PermittivitySoil15cmTsAvg", "CookEast_PermittivitySoil15cmTsAvg_Ts900_2018-06-27T13:15:00.0000000Z", "Measurement", "PermittivitySoil15cmTsAvg", "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json", "CafMeteorologyEcTower", "", "", "", "", null, "CookEast", new LocationV2("Point", 46.78152, -117.08205), new DateTime(2018, 1, 8, 13, 30, 0), new List<PhysicalQuantityV2>() { new PhysicalQuantityV2(6.5, "unitless", DateTime.Now, "DocumentDbMeasurementTransformer") }, 900));
+            measurements.Add(new MeasurementV2("CafMeteorologyEcTower_CookEast_PermittivitySoil30cmTsAvg", "CookEast_PermittivitySoil30cmTsAvg_Ts900_2018-06-27T13:15:00.0000000Z", "Measurement", "PermittivitySoil30cmTsAvg", "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json", "CafMeteorologyEcTower", "", "", "", "", null, "CookEast", new LocationV2("Point", 46.78152, -117.08205), new DateTime(2018, 1, 8, 13, 30, 0), new List<PhysicalQuantityV2>() { new PhysicalQuantityV2(9.8, "unitless", DateTime.Now, "DocumentDbMeasurementTransformer") }, 900));
+            measurements.Add(new MeasurementV2("CafMeteorologyEcTower_CookEast_PermittivitySoil60cmTsAvg", "CookEast_PermittivitySoil60cmTsAvg_Ts900_2018-06-27T13:15:00.0000000Z", "Measurement", "PermittivitySoil60cmTsAvg", "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json", "CafMeteorologyEcTower", "", "", "", "", null, "CookEast", new LocationV2("Point", 46.78152, -117.08205), new DateTime(2018, 1, 8, 13, 30, 0), new List<PhysicalQuantityV2>() { new PhysicalQuantityV2(9.8, "unitless", DateTime.Now, "DocumentDbMeasurementTransformer") }, 900));
+            measurements.Add(new MeasurementV2("CafMeteorologyEcTower_CookEast_PermittivitySoil90cmTsAvg", "CookEast_PermittivitySoil90cmTsAvg_Ts900_2018-06-27T13:15:00.0000000Z", "Measurement", "PermittivitySoil90cmTsAvg", "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json", "CafMeteorologyEcTower", "", "", "", "", null, "CookEast", new LocationV2("Point", 46.78152, -117.08205), new DateTime(2018, 1, 8, 13, 30, 0), new List<PhysicalQuantityV2>() { new PhysicalQuantityV2(20.13333, "unitless", DateTime.Now, "DocumentDbMeasurementTransformer") }, 900));
+            measurements.Add(new MeasurementV2("CafMeteorologyEcTower_CookEast_PermittivitySoil120cmTsAvg", "CookEast_PermittivitySoil120cmTsAvg_Ts900_2018-06-27T13:15:00.0000000Z", "Measurement", "PermittivitySoil120cmTsAvg", "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json", "CafMeteorologyEcTower", "", "", "", "", null, "CookEast", new LocationV2("Point", 46.78152, -117.08205), new DateTime(2018, 1, 8, 13, 30, 0), new List<PhysicalQuantityV2>() { new PhysicalQuantityV2(20.93333, "unitless", DateTime.Now, "DocumentDbMeasurementTransformer") }, 900));
+            measurements.Add(new MeasurementV2("CafMeteorologyEcTower_CookEast_PermittivitySoil150cmTsAvg", "CookEast_PermittivitySoil150cmTsAvg_Ts900_2018-06-27T13:15:00.0000000Z", "Measurement", "PermittivitySoil150cmTsAvg", "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json", "CafMeteorologyEcTower", "", "", "", "", null, "CookEast", new LocationV2("Point", 46.78152, -117.08205), new DateTime(2018, 1, 8, 13, 30, 0), new List<PhysicalQuantityV2>() { new PhysicalQuantityV2(20.93333, "unitless", DateTime.Now, "DocumentDbMeasurementTransformer") }, 900));
+            measurements.Add(new MeasurementV2("CafMeteorologyEcTower_CookEast_ElectricConductivityPoreSoil15cmTsAvg", "CookEast_ElectricConductivityPoreSoil15cmTsAvg_Ts900_2018-06-27T13:15:00.0000000Z", "Measurement", "ElectricConductivityPoreSoil15cmTsAvg", "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json", "CafMeteorologyEcTower", "", "", "", "", null, "CookEast", new LocationV2("Point", 46.78152, -117.08205), new DateTime(2018, 1, 8, 13, 30, 0), new List<PhysicalQuantityV2>() { new PhysicalQuantityV2(3498.667, "uS/cm", DateTime.Now, "DocumentDbMeasurementTransformer") }, 900));
+            measurements.Add(new MeasurementV2("CafMeteorologyEcTower_CookEast_ElectricConductivityPoreSoil30cmTsAvg", "CookEast_ElectricConductivityPoreSoil30cmTsAvg_Ts900_2018-06-27T13:15:00.0000000Z", "Measurement", "ElectricConductivityPoreSoil30cmTsAvg", "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json", "CafMeteorologyEcTower", "", "", "", "", null, "CookEast", new LocationV2("Point", 46.78152, -117.08205), new DateTime(2018, 1, 8, 13, 30, 0), new List<PhysicalQuantityV2>() { new PhysicalQuantityV2(2096, "uS/cm", DateTime.Now, "DocumentDbMeasurementTransformer") }, 900));
+            measurements.Add(new MeasurementV2("CafMeteorologyEcTower_CookEast_ElectricConductivityPoreSoil60cmTsAvg", "CookEast_ElectricConductivityPoreSoil60cmTsAvg_Ts900_2018-06-27T13:15:00.0000000Z", "Measurement", "ElectricConductivityPoreSoil60cmTsAvg", "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json", "CafMeteorologyEcTower", "", "", "", "", null, "CookEast", new LocationV2("Point", 46.78152, -117.08205), new DateTime(2018, 1, 8, 13, 30, 0), new List<PhysicalQuantityV2>() { new PhysicalQuantityV2(2096, "uS/cm", DateTime.Now, "DocumentDbMeasurementTransformer") }, 900));
+            measurements.Add(new MeasurementV2("CafMeteorologyEcTower_CookEast_ElectricConductivityPoreSoil90cmTsAvg", "CookEast_ElectricConductivityPoreSoil90cmTsAvg_Ts900_2018-06-27T13:15:00.0000000Z", "Measurement", "ElectricConductivityPoreSoil90cmTsAvg", "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json", "CafMeteorologyEcTower", "", "", "", "", null, "CookEast", new LocationV2("Point", 46.78152, -117.08205), new DateTime(2018, 1, 8, 13, 30, 0), new List<PhysicalQuantityV2>() { new PhysicalQuantityV2(3162, "uS/cm", DateTime.Now, "DocumentDbMeasurementTransformer") }, 900));
+            measurements.Add(new MeasurementV2("CafMeteorologyEcTower_CookEast_ElectricConductivityPoreSoil120cmTsAvg", "CookEast_ElectricConductivityPoreSoil120cmTsAvg_Ts900_2018-06-27T13:15:00.0000000Z", "Measurement", "ElectricConductivityPoreSoil120cmTsAvg", "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json", "CafMeteorologyEcTower", "", "", "", "", null, "CookEast", new LocationV2("Point", 46.78152, -117.08205), new DateTime(2018, 1, 8, 13, 30, 0), new List<PhysicalQuantityV2>() { new PhysicalQuantityV2(3568.667, "uS/cm", DateTime.Now, "DocumentDbMeasurementTransformer") }, 900));
+            measurements.Add(new MeasurementV2("CafMeteorologyEcTower_CookEast_ElectricConductivityPoreSoil150cmTsAvg", "CookEast_ElectricConductivityPoreSoil150cmTsAvg_Ts900_2018-06-27T13:15:00.0000000Z", "Measurement", "ElectricConductivityPoreSoil150cmTsAvg", "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json", "CafMeteorologyEcTower", "", "", "", "", null, "CookEast", new LocationV2("Point", 46.78152, -117.08205), new DateTime(2018, 1, 8, 13, 30, 0), new List<PhysicalQuantityV2>() { new PhysicalQuantityV2(3568.667, "uS/cm", DateTime.Now, "DocumentDbMeasurementTransformer") }, 900));
+            measurements.Add(new MeasurementV2("CafMeteorologyEcTower_CookEast_TemperatureSoil15cmTsAvg", "CookEast_TemperatureSoil15cmTsAvg_Ts900_2018-06-27T13:15:00.0000000Z", "Measurement", "TemperatureSoil15cmTsAvg", "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json", "CafMeteorologyEcTower", "", "", "", "", null, "CookEast", new LocationV2("Point", 46.78152, -117.08205), new DateTime(2018, 1, 8, 13, 30, 0), new List<PhysicalQuantityV2>() { new PhysicalQuantityV2(27.7, "C", DateTime.Now, "DocumentDbMeasurementTransformer") }, 900));
+            measurements.Add(new MeasurementV2("CafMeteorologyEcTower_CookEast_TemperatureSoil30cmTsAvg", "CookEast_TemperatureSoil30cmTsAvg_Ts900_2018-06-27T13:15:00.0000000Z", "Measurement", "TemperatureSoil30cmTsAvg", "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json", "CafMeteorologyEcTower", "", "", "", "", null, "CookEast", new LocationV2("Point", 46.78152, -117.08205), new DateTime(2018, 1, 8, 13, 30, 0), new List<PhysicalQuantityV2>() { new PhysicalQuantityV2(18.23333, "C", DateTime.Now, "DocumentDbMeasurementTransformer") }, 900));
+            measurements.Add(new MeasurementV2("CafMeteorologyEcTower_CookEast_TemperatureSoil60cmTsAvg", "CookEast_TemperatureSoil60cmTsAvg_Ts900_2018-06-27T13:15:00.0000000Z", "Measurement", "TemperatureSoil60cmTsAvg", "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json", "CafMeteorologyEcTower", "", "", "", "", null, "CookEast", new LocationV2("Point", 46.78152, -117.08205), new DateTime(2018, 1, 8, 13, 30, 0), new List<PhysicalQuantityV2>() { new PhysicalQuantityV2(18.23333, "C", DateTime.Now, "DocumentDbMeasurementTransformer") }, 900));
+            measurements.Add(new MeasurementV2("CafMeteorologyEcTower_CookEast_TemperatureSoil90cmTsAvg", "CookEast_TemperatureSoil90cmTsAvg_Ts900_2018-06-27T13:15:00.0000000Z", "Measurement", "TemperatureSoil90cmTsAvg", "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json", "CafMeteorologyEcTower", "", "", "", "", null, "CookEast", new LocationV2("Point", 46.78152, -117.08205), new DateTime(2018, 1, 8, 13, 30, 0), new List<PhysicalQuantityV2>() { new PhysicalQuantityV2(14.8, "C", DateTime.Now, "DocumentDbMeasurementTransformer") }, 900));
+            measurements.Add(new MeasurementV2("CafMeteorologyEcTower_CookEast_TemperatureSoil120cmTsAvg", "CookEast_TemperatureSoil120cmTsAvg_Ts900_2018-06-27T13:15:00.0000000Z", "Measurement", "TemperatureSoil120cmTsAvg", "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json", "CafMeteorologyEcTower", "", "", "", "", null, "CookEast", new LocationV2("Point", 46.78152, -117.08205), new DateTime(2018, 1, 8, 13, 30, 0), new List<PhysicalQuantityV2>() { new PhysicalQuantityV2(13.9, "C", DateTime.Now, "DocumentDbMeasurementTransformer") }, 900));
+            measurements.Add(new MeasurementV2("CafMeteorologyEcTower_CookEast_TemperatureSoil150cmTsAvg", "CookEast_TemperatureSoil150cmTsAvg_Ts900_2018-06-27T13:15:00.0000000Z", "Measurement", "TemperatureSoil150cmTsAvg", "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json", "CafMeteorologyEcTower", "", "", "", "", null, "CookEast", new LocationV2("Point", 46.78152, -117.08205), new DateTime(2018, 1, 8, 13, 30, 0), new List<PhysicalQuantityV2>() { new PhysicalQuantityV2(13.9, "C", DateTime.Now, "DocumentDbMeasurementTransformer") }, 900));
+            measurements.Add(new MeasurementV2("CafMeteorologyEcTower_CookEast_VwcSoil15cmTsAvg", "CookEast_VwcSoil15cmTsAvg_Ts900_2018-06-27T13:15:00.0000000Z", "Measurement", "VwcSoil15cmTsAvg", "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json", "CafMeteorologyEcTower", "", "", "", "", null, "CookEast", new LocationV2("Point", 46.78152, -117.08205), new DateTime(2018, 1, 8, 13, 30, 0), new List<PhysicalQuantityV2>() { new PhysicalQuantityV2(null, "%", DateTime.Now, "DocumentDbMeasurementTransformer") }, 900));
+            measurements.Add(new MeasurementV2("CafMeteorologyEcTower_CookEast_VwcSoil30cmTsAvg", "CookEast_VwcSoil30cmTsAvg_Ts900_2018-06-27T13:15:00.0000000Z", "Measurement", "VwcSoil30cmTsAvg", "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json", "CafMeteorologyEcTower", "", "", "", "", null, "CookEast", new LocationV2("Point", 46.78152, -117.08205), new DateTime(2018, 1, 8, 13, 30, 0), new List<PhysicalQuantityV2>() { new PhysicalQuantityV2(18.43333, "%", DateTime.Now, "DocumentDbMeasurementTransformer") }, 900));
+            measurements.Add(new MeasurementV2("CafMeteorologyEcTower_CookEast_VwcSoil60cmTsAvg", "CookEast_VwcSoil60cmTsAvg_Ts900_2018-06-27T13:15:00.0000000Z", "Measurement", "VwcSoil60cmTsAvg", "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json", "CafMeteorologyEcTower", "", "", "", "", null, "CookEast", new LocationV2("Point", 46.78152, -117.08205), new DateTime(2018, 1, 8, 13, 30, 0), new List<PhysicalQuantityV2>() { new PhysicalQuantityV2(null, "%", DateTime.Now, "DocumentDbMeasurementTransformer") }, 900));
+            measurements.Add(new MeasurementV2("CafMeteorologyEcTower_CookEast_VwcSoil90cmTsAvg", "CookEast_VwcSoil90cmTsAvg_Ts900_2018-06-27T13:15:00.0000000Z", "Measurement", "VwcSoil90cmTsAvg", "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json", "CafMeteorologyEcTower", "", "", "", "", null, "CookEast", new LocationV2("Point", 46.78152, -117.08205), new DateTime(2018, 1, 8, 13, 30, 0), new List<PhysicalQuantityV2>() { new PhysicalQuantityV2(34.7, "%", DateTime.Now, "DocumentDbMeasurementTransformer") }, 900));
+            measurements.Add(new MeasurementV2("CafMeteorologyEcTower_CookEast_VwcSoil120cmTsAvg", "CookEast_VwcSoil120cmTsAvg_Ts900_2018-06-27T13:15:00.0000000Z", "Measurement", "VwcSoil120cmTsAvg", "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json", "CafMeteorologyEcTower", "", "", "", "", null, "CookEast", new LocationV2("Point", 46.78152, -117.08205), new DateTime(2018, 1, 8, 13, 30, 0), new List<PhysicalQuantityV2>() { new PhysicalQuantityV2(35.66666, "%", DateTime.Now, "DocumentDbMeasurementTransformer") }, 900));
+            measurements.Add(new MeasurementV2("CafMeteorologyEcTower_CookEast_VwcSoil150cmTsAvg", "CookEast_VwcSoil150cmTsAvg_Ts900_2018-06-27T13:15:00.0000000Z", "Measurement", "VwcSoil150cmTsAvg", "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json", "CafMeteorologyEcTower", "", "", "", "", null, "CookEast", new LocationV2("Point", 46.78152, -117.08205), new DateTime(2018, 1, 8, 13, 30, 0), new List<PhysicalQuantityV2>() { new PhysicalQuantityV2(null, "%", DateTime.Now, "DocumentDbMeasurementTransformer") }, 900));
+            measurements.Add(new MeasurementV2("CafMeteorologyEcTower_CookEast_RelativeHumidityTsAvg", "CookEast_RelativeHumidityTsAvg_Ts900_2018-06-27T13:15:00.0000000Z", "Measurement", "RelativeHumidityTsAvg", "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json", "CafMeteorologyEcTower", "", "", "", "", null, "CookEast", new LocationV2("Point", 46.78152, -117.08205), new DateTime(2018, 1, 8, 13, 30, 0), new List<PhysicalQuantityV2>() { new PhysicalQuantityV2(27.75771, "%", DateTime.Now, "DocumentDbMeasurementTransformer") }, 900));
+            measurements.Add(new MeasurementV2("CafMeteorologyEcTower_CookEast_RadiationNetTsAvg", "CookEast_RadiationNetTsAvg_Ts900_2018-06-27T13:15:00.0000000Z", "Measurement", "RadiationNetTsAvg", "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json", "CafMeteorologyEcTower", "", "", "", "", null, "CookEast", new LocationV2("Point", 46.78152, -117.08205), new DateTime(2018, 1, 8, 13, 30, 0), new List<PhysicalQuantityV2>() { new PhysicalQuantityV2(612.901, "W/m^2", DateTime.Now, "DocumentDbMeasurementTransformer") }, 900));
+            measurements.Add(new MeasurementV2("CafMeteorologyEcTower_CookEast_WindSpeedTsResultant", "CookEast_WindSpeedTsResultant_Ts900_2018-06-27T13:15:00.0000000Z", "Measurement", "WindSpeedTsResultant", "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json", "CafMeteorologyEcTower", "", "", "", "", null, "CookEast", new LocationV2("Point", 46.78152, -117.08205), new DateTime(2018, 1, 8, 13, 30, 0), new List<PhysicalQuantityV2>() { new PhysicalQuantityV2(1.598681, "m/s", DateTime.Now, "DocumentDbMeasurementTransformer") }, 900));
+            measurements.Add(new MeasurementV2("CafMeteorologyEcTower_CookEast_HeatFluxSoilTsAvg", "CookEast_HeatFluxSoilTsAvg_Ts900_2018-06-27T13:15:00.0000000Z", "Measurement", "HeatFluxSoilTsAvg", "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json", "CafMeteorologyEcTower", "", "", "", "", null, "CookEast", new LocationV2("Point", 46.78152, -117.08205), new DateTime(2018, 1, 8, 13, 30, 0), new List<PhysicalQuantityV2>() { new PhysicalQuantityV2(104.54, "W/m^2", DateTime.Now, "DocumentDbMeasurementTransformer") }, 900));
+            measurements.Add(new MeasurementV2("CafMeteorologyEcTower_CookEast_WindDirectionTsStdDev", "CookEast_WindDirectionTsStdDev_Ts900_2018-06-27T13:15:00.0000000Z", "Measurement", "WindDirectionTsStdDev", "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json", "CafMeteorologyEcTower", "", "", "", "", null, "CookEast", new LocationV2("Point", 46.78152, -117.08205), new DateTime(2018, 1, 8, 13, 30, 0), new List<PhysicalQuantityV2>() { new PhysicalQuantityV2(30.24, "degrees", DateTime.Now, "DocumentDbMeasurementTransformer") }, 900));
+            measurements.Add(new MeasurementV2("CafMeteorologyEcTower_CookEast_ElectricConductivityBulkSoil5cmTsAvg", "CookEast_ElectricConductivityBulkSoil5cmTsAvg_Ts900_2018-06-27T13:15:00.0000000Z", "Measurement", "ElectricConductivityBulkSoil5cmTsAvg", "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json", "CafMeteorologyEcTower", "", "", "", "", null, "CookEast", new LocationV2("Point", 46.78152, -117.08205), new DateTime(2018, 1, 8, 13, 30, 0), new List<PhysicalQuantityV2>() { new PhysicalQuantityV2(121.3464, "uS/cm", DateTime.Now, "DocumentDbMeasurementTransformer") }, 900));
+            measurements.Add(new MeasurementV2("CafMeteorologyEcTower_CookEast_PermittivitySoil5cmTsAvg", "CookEast_PermittivitySoil5cmTsAvg_Ts900_2018-06-27T13:15:00.0000000Z", "Measurement", "PermittivitySoil5cmTsAvg", "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json", "CafMeteorologyEcTower", "", "", "", "", null, "CookEast", new LocationV2("Point", 46.78152, -117.08205), new DateTime(2018, 1, 8, 13, 30, 0), new List<PhysicalQuantityV2>() { new PhysicalQuantityV2(6.797206, "unitless", DateTime.Now, "DocumentDbMeasurementTransformer") }, 900));
+            measurements.Add(new MeasurementV2("CafMeteorologyEcTower_CookEast_ElectricConductivityPoreSoil5cmTsAvg", "CookEast_ElectricConductivityPoreSoil5cmTsAvg_Ts900_2018-06-27T13:15:00.0000000Z", "Measurement", "ElectricConductivityPoreSoil5cmTsAvg", "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json", "CafMeteorologyEcTower", "", "", "", "", null, "CookEast", new LocationV2("Point", 46.78152, -117.08205), new DateTime(2018, 1, 8, 13, 30, 0), new List<PhysicalQuantityV2>() { new PhysicalQuantityV2(3491.408, "uS/cm", DateTime.Now, "DocumentDbMeasurementTransformer") }, 900));
+            measurements.Add(new MeasurementV2("CafMeteorologyEcTower_CookEast_TemperatureSoil5cmTsAvg", "CookEast_TemperatureSoil5cmTsAvg_Ts900_2018-06-27T13:15:00.0000000Z", "Measurement", "TemperatureSoil5cmTsAvg", "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json", "CafMeteorologyEcTower", "", "", "", "", null, "CookEast", new LocationV2("Point", 46.78152, -117.08205), new DateTime(2018, 1, 8, 13, 30, 0), new List<PhysicalQuantityV2>() { new PhysicalQuantityV2(27.29888, "C", DateTime.Now, "DocumentDbMeasurementTransformer") }, 900));
+            measurements.Add(new MeasurementV2("CafMeteorologyEcTower_CookEast_VwcSoil5cmTsAvg", "CookEast_VwcSoil5cmTsAvg_Ts900_2018-06-27T13:15:00.0000000Z", "Measurement", "VwcSoil5cmTsAvg", "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json", "CafMeteorologyEcTower", "", "", "", "", null, "CookEast", new LocationV2("Point", 46.78152, -117.08205), new DateTime(2018, 1, 8, 13, 30, 0), new List<PhysicalQuantityV2>() { new PhysicalQuantityV2(null, "%", DateTime.Now, "DocumentDbMeasurementTransformer") }, 900));
+            measurements.Add(new MeasurementV2("CafMeteorologyEcTower_CookEast_TemperatureSoilTsAvg", "CookEast_TemperatureSoilTsAvg_Ts900_2018-06-27T13:15:00.0000000Z", "Measurement", "TemperatureSoilTsAvg", "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json", "CafMeteorologyEcTower", "", "", "", "", null, "CookEast", new LocationV2("Point", 46.78152, -117.08205), new DateTime(2018, 1, 8, 13, 30, 0), new List<PhysicalQuantityV2>() { new PhysicalQuantityV2(23.89827, "C", DateTime.Now, "DocumentDbMeasurementTransformer") }, 900));
+            measurements.Add(new MeasurementV2("CafMeteorologyEcTower_CookEast_VaporPressureDeficitAirTsAvg", "CookEast_VaporPressureDeficitAirTsAvg_Ts900_2018-06-27T13:15:00.0000000Z", "Measurement", "VaporPressureDeficitAirTsAvg", "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json", "CafMeteorologyEcTower", "", "", "", "", null, "CookEast", new LocationV2("Point", 46.78152, -117.08205), new DateTime(2018, 1, 8, 13, 30, 0), new List<PhysicalQuantityV2>() { new PhysicalQuantityV2(2.033644, "kpa", DateTime.Now, "DocumentDbMeasurementTransformer") }, 900));
+            measurements.Add(new MeasurementV2("CafMeteorologyEcTower_CookEast_WindDirectionCompassTsAvg", "CookEast_WindDirectionCompassTsAvg_Ts900_2018-06-27T13:15:00.0000000Z", "Measurement", "WindDirectionCompassTsAvg", "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json", "CafMeteorologyEcTower", "", "", "", "", null, "CookEast", new LocationV2("Point", 46.78152, -117.08205), new DateTime(2018, 1, 8, 13, 30, 0), new List<PhysicalQuantityV2>() { new PhysicalQuantityV2(284.8, "degrees", DateTime.Now, "DocumentDbMeasurementTransformer") }, 900));
+            
+            return measurements;
+        }
+
     }
 }

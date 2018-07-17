@@ -5,24 +5,31 @@ using Caf.Etl.Models.LoggerNet.TOA5;
 using System;
 using Caf.Etl.Models.LoggerNet.TOA5.DataTables;
 using System.Linq;
+using Caf.Etl.TestUtils;
 
 namespace Caf.Etl.Nodes.LoggerNet.Tests
 {
     public class TOA5ExtractorTests_Meteorology
     {
-        private readonly string pathToFileWithValidContent;
-        private readonly string pathToFileToTestTimeZone;
+        private readonly string pathToFileWithValidContentV2;
+        private readonly string pathToFileToTestTimeZoneV2;
+        private readonly string pathToFileWithTestLoggerOutputV2;
+        private readonly string pathToFileWithActualLoggerOutputV2;
 
         public TOA5ExtractorTests_Meteorology()
         {
-            pathToFileWithValidContent = 
+            pathToFileWithValidContentV2 = 
                 @"Nodes/LoggerNet/Assets/CookEastEcTower_Met_Raw_2017_06_20_1115.dat";
-            pathToFileToTestTimeZone = 
+            pathToFileToTestTimeZoneV2 = 
                 @"Nodes/LoggerNet/Assets/CookEastEcTower_Met_Raw_TestTimeZone.dat";
+            pathToFileWithTestLoggerOutputV2 =
+                @"Nodes/LoggerNet/Assets/TOA5_11205.LTAR_Met_0_2018_06_15_1345.dat";
+            pathToFileWithActualLoggerOutputV2 =
+                @"Nodes/LoggerNet/Assets/CookEastEcTower_Met_Raw_2018_06_27_1315.dat";
         }
 
         [Fact]
-        public void FilePathConstructor_ValidContent_SetsData()
+        public void FilePathConstructor_ValidContentV1_SetsData()
         {
             //# Arrange 
             string expectedFileName = 
@@ -30,7 +37,7 @@ namespace Caf.Etl.Nodes.LoggerNet.Tests
             int expectedContentLength = 710;
 
             //# Act
-            TOA5Extractor sut = new TOA5Extractor(pathToFileWithValidContent);
+            TOA5Extractor sut = new TOA5Extractor(pathToFileWithValidContentV2);
 
             //# Assert
             Assert.Equal(expectedFileName, sut.FileName);
@@ -38,7 +45,7 @@ namespace Caf.Etl.Nodes.LoggerNet.Tests
         }
 
         [Fact]
-        public void GetObservations_ValidContent_ReturnsCorrectObservations()
+        public void GetObservations_ValidContentV1_ReturnsCorrectObservations()
         {
             //# Arrange
             List<IObservation> actualObservations = new List<IObservation>();
@@ -62,7 +69,7 @@ namespace Caf.Etl.Nodes.LoggerNet.Tests
             };
 
             //# Act
-            TOA5Extractor sut = new TOA5Extractor(pathToFileWithValidContent);
+            TOA5Extractor sut = new TOA5Extractor(pathToFileWithValidContentV2);
             actualObservations = sut.GetObservations<Meteorology>().Cast<IObservation>().ToList();
 
             //# Assert
@@ -80,7 +87,7 @@ namespace Caf.Etl.Nodes.LoggerNet.Tests
         }
         
         [Fact]
-        public void GetMetadata_ValidContent_ReturnsCorrectMetadata()
+        public void GetMetadata_ValidContentV1_ReturnsCorrectMetadata()
         {
             //# Arrange
             Metadata actualMetadata = new Metadata();
@@ -185,7 +192,7 @@ namespace Caf.Etl.Nodes.LoggerNet.Tests
             };
 
             //# Act
-            TOA5Extractor sut = new TOA5Extractor(pathToFileWithValidContent);
+            TOA5Extractor sut = new TOA5Extractor(pathToFileWithValidContentV2);
             actualMetadata = sut.GetMetadata();
 
             //# Assert
@@ -206,13 +213,45 @@ namespace Caf.Etl.Nodes.LoggerNet.Tests
         }
 
         [Fact]
-        public void GetObservations_AdjustedTimezone_ReturnsCorrectTimes()
+        public void GetTOA5_TestContentV2_ReturnsCorrectTOA5()
+        {
+            // Arrange
+            TOA5 expected =
+                LoggerNetArranger.GetToa5MeteorologyDerivedFromTestDataV2();
+            TOA5Extractor sut = new TOA5Extractor(
+                pathToFileWithTestLoggerOutputV2);
+
+            // Act
+            TOA5 actual = sut.GetTOA5<Meteorology>();
+
+            // Assert
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void GetTOA5_ActualContentV2_ReturnsCorrectTOA5()
+        {
+            // Arrange
+            TOA5 expected =
+                LoggerNetArranger.GetToa5MeteorologyDerivedFromActualDataV2();
+            TOA5Extractor sut = new TOA5Extractor(
+                pathToFileWithActualLoggerOutputV2);
+
+            // Act
+            TOA5 actual = sut.GetTOA5<Meteorology>();
+
+            // Assert
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void GetObservations_AdjustedTimezoneV1_ReturnsCorrectTimes()
         {
             //# Arrange
             List<IObservation> actualObservations = new List<IObservation>();
 
             //# Act
-            TOA5Extractor sut = new TOA5Extractor(pathToFileToTestTimeZone, -8);
+            TOA5Extractor sut = new TOA5Extractor(pathToFileToTestTimeZoneV2, -8);
             actualObservations = sut.GetObservations<Meteorology>().Cast<IObservation>().ToList();
 
             //# Assert
@@ -222,7 +261,7 @@ namespace Caf.Etl.Nodes.LoggerNet.Tests
         }
 
         [Fact]
-        public void GetObservations_ContentWithNAN_DoesNotErrorSetsNull()
+        public void GetObservations_ContentWithNanV1_DoesNotErrorSetsNull()
         {
             // Arrange
             string dataPath = @"Nodes/LoggerNet/Assets/CookEastEcTower_Met_Raw_2017_10_24_0615.dat";

@@ -37,9 +37,9 @@ namespace Caf.Etl.Nodes.CosmosDBSqlApi.Load
                     UriFactory.CreateDocumentUri(
                         databaseId, 
                         collectionId, 
-                        doc.id),
+                        doc.Id),
                     new RequestOptions {
-                        PartitionKey = new PartitionKey(doc.partitionKey)
+                        PartitionKey = new PartitionKey(doc.PartitionKey)
                     });
             }
             catch (DocumentClientException de)
@@ -68,7 +68,7 @@ namespace Caf.Etl.Nodes.CosmosDBSqlApi.Load
                 UriFactory.CreateDocumentUri(
                     databaseId,
                     collectionId,
-                    doc.id),
+                    doc.Id),
                 doc);
 
             return r;
@@ -89,7 +89,7 @@ namespace Caf.Etl.Nodes.CosmosDBSqlApi.Load
             // TODO: Replace with BulkExecutor once it's netstandard2 complient
             //List<Task<StoredProcedureResponse<bool>>> tasks =
             //    new List<Task<StoredProcedureResponse<bool>>>();
-            var groupedDocs = docs.GroupBy(d => d.partitionKey);
+            var groupedDocs = docs.GroupBy(d => d.PartitionKey);
 
             List<StoredProcedureResponse<bool>> results = new List<StoredProcedureResponse<bool>>();
 
@@ -120,7 +120,7 @@ namespace Caf.Etl.Nodes.CosmosDBSqlApi.Load
                 catch(Exception e)
                 {
                     throw new Exception(
-                        $"Error initializing tasks for bulk import on groupedDoc. {groupedDoc.Key.ToString()}:", e);
+                        $"Error initializing tasks for bulk import on groupedDoc {groupedDoc.Key.ToString()} with {groupedDoc.Count().ToString()} measurements.", e);
                 }
             }
 

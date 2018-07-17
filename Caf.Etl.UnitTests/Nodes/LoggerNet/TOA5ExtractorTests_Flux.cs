@@ -27,7 +27,7 @@ namespace Caf.Etl.Nodes.LoggerNet.Tests
         {
             //# Arrange
             List<IObservation> expectedObservations = 
-                LoggerNetArranger.GetObservationsDerivedFromActualDataV1();
+                LoggerNetArranger.GetFluxObservationsDerivedFromActualDataV1();
             List<IObservation> actualObservations = new List<IObservation>();
             TOA5Extractor sut = new TOA5Extractor(pathToFileWithValidContentV1);
 
@@ -45,7 +45,7 @@ namespace Caf.Etl.Nodes.LoggerNet.Tests
         {
             //# Arrange
             List<IObservation> expectedObservations = 
-                LoggerNetArranger.GetObservationsDerivedFromTestDataV2();
+                LoggerNetArranger.GetFluxObservationsDerivedFromTestDataV2();
             List<IObservation> actualObservations = new List<IObservation>();
             TOA5Extractor sut = new TOA5Extractor(pathToFileWithTestLoggerOutputV2);
 
@@ -63,7 +63,7 @@ namespace Caf.Etl.Nodes.LoggerNet.Tests
         {
             TOA5Extractor sut = new TOA5Extractor(pathToFileWithValidContentV1);
             List<IObservation> expectedObservations = 
-                LoggerNetArranger.GetObservationsDerivedFromActualDataV1();
+                LoggerNetArranger.GetFluxObservationsDerivedFromActualDataV1();
 
             TOA5 fluxTable = sut.GetTOA5<Flux>();
 
