@@ -120,7 +120,8 @@ namespace Caf.Etl.Models.CosmosDBSqlApi.EtlEvent
             List<string> inputs, List<string> outputs, List<string> logs)
         {
             partitionKey = $"{type}_{name}";
-            id = $"{project}_{name}_{dateTimeStart.ToString("o")}";
+            //id = $"{project}_{name}_{dateTimeStart.ToString("o")}";
+            id = Guid.NewGuid().ToString();
             Type = type;
             Name = name;
             Schema = schema;
@@ -149,7 +150,8 @@ namespace Caf.Etl.Models.CosmosDBSqlApi.EtlEvent
             DateTime dateTimeStart)
         {
             partitionKey = $"{type}_{name}";
-            id = $"{project}_{name}_{dateTimeStart.ToString("o")}";
+            //id = $"{project}_{name}_{dateTimeStart.ToString("o")}";
+            id = Guid.NewGuid().ToString();
             Type = type;
             Name = name;
             Schema = schema;
