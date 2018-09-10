@@ -1,5 +1,5 @@
-using Caf.Etl.Models.Manual.Tidy;
-using Caf.Etl.Models.Manual.Tidy.DataTables;
+using Caf.Etl.Models.Manual.TidyData;
+using Caf.Etl.Models.Manual.TidyData.DataTables;
 using Caf.Etl.Nodes.Manual.Extract;
 using Caf.Etl.TestUtils;
 using System;
@@ -70,14 +70,14 @@ namespace Caf.Etl.UnitTests.Nodes.Manual
             TidyCsvExtractor sut = new TidyCsvExtractor(
                 pathToFileWithValidDataSlimV1,
                 pathToFileWithValidDictionaryV1);
-            DataSet expected = new DataSet()
+            TidyData expected = new TidyData()
             {
                 Metadata = ManualArranger.GetMetadataDerivedFromActualDataV1(),
                 Observations = ManualArranger.GetObservationsDerivedFromActualDataV1()
             };
 
             // Act
-            DataSet actual = sut.Extract<HandHarvestYieldV1>();
+            TidyData actual = sut.Extract<HandHarvestYieldV1>();
 
             // Assert
             Assert.Equal(expected, actual);

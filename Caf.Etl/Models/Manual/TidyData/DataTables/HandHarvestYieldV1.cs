@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Caf.Etl.Models.Manual.Tidy.DataTables
+namespace Caf.Etl.Models.Manual.TidyData.DataTables
 {
     public class HandHarvestYieldV1 : IObservation, IEquatable<HandHarvestYieldV1>
     {

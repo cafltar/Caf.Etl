@@ -1,5 +1,5 @@
-﻿using Caf.Etl.Models.Manual.Tidy;
-using Caf.Etl.Models.Manual.Tidy.DataTables;
+﻿using Caf.Etl.Models.Manual.TidyData;
+using Caf.Etl.Models.Manual.TidyData.DataTables;
 using System;
 using System.Collections.Generic;
 using System.Text;

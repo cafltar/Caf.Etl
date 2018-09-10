@@ -1,4 +1,4 @@
-﻿using Caf.Etl.Models.Manual.Tidy;
+﻿using Caf.Etl.Models.Manual.TidyData;
 using CsvHelper;
 using System;
 using System.Collections.Generic;
@@ -29,9 +29,9 @@ namespace Caf.Etl.Nodes.Manual.Extract
                 throw new ArgumentException("Dictionary file not found");
         }
 
-        public DataSet Extract<T>() where T : IObservation
+        public TidyData Extract<T>() where T : IObservation
         {
-            DataSet dataSet = new DataSet();
+            TidyData dataSet = new TidyData();
             dataSet.Metadata = ExtractMetadata();
             dataSet.Observations = ExtractObservations<T>()
                 .Cast<IObservation>().ToList();

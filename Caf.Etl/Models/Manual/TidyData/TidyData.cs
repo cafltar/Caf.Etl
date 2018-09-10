@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Caf.Etl.Models.Manual.Tidy
+namespace Caf.Etl.Models.Manual.TidyData
 {
-    public class DataSet : IEquatable<DataSet>
+    public class TidyData : IEquatable<TidyData>
     {
         public Metadata Metadata { get; set; }
 
@@ -13,10 +13,10 @@ namespace Caf.Etl.Models.Manual.Tidy
 
         public override bool Equals(object obj)
         {
-            return Equals(obj as DataSet);
+            return Equals(obj as TidyData);
         }
 
-        public bool Equals(DataSet other)
+        public bool Equals(TidyData other)
         {
             return other != null &&
                    EqualityComparer<Metadata>.Default.Equals(Metadata, other.Metadata) &&
@@ -32,12 +32,12 @@ namespace Caf.Etl.Models.Manual.Tidy
             return hashCode;
         }
 
-        public static bool operator ==(DataSet set1, DataSet set2)
+        public static bool operator ==(TidyData set1, TidyData set2)
         {
-            return EqualityComparer<DataSet>.Default.Equals(set1, set2);
+            return EqualityComparer<TidyData>.Default.Equals(set1, set2);
         }
 
-        public static bool operator !=(DataSet set1, DataSet set2)
+        public static bool operator !=(TidyData set1, TidyData set2)
         {
             return !(set1 == set2);
         }

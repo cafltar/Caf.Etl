@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Caf.Etl.Models.Manual.Tidy
+namespace Caf.Etl.Models.Manual.TidyData
 {
     public class Metadata : IEquatable<Metadata>
     {
