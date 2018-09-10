@@ -20,10 +20,10 @@ namespace Caf.Etl.UnitTests.Nodes.Manual
         public void TidyExtractor_InvalidFilePaths_ThrowsArgumentException()
         {
             // Arrange
-            TidyCsvExtractor sut;
+            TidyDataCsvExtractor sut;
 
             // Act and Assert
-            Assert.Throws<ArgumentException>(() => sut  = new TidyCsvExtractor(
+            Assert.Throws<ArgumentException>(() => sut  = new TidyDataCsvExtractor(
                 @"Nodes/Manual/Assets/foo.csv",
                 pathToFileWithValidDictionaryV1));
         }
@@ -32,7 +32,7 @@ namespace Caf.Etl.UnitTests.Nodes.Manual
         public void ExtractMetadata_ValidData_ReturnsExpected()
         {
             // Arrange
-            TidyCsvExtractor sut = new TidyCsvExtractor(
+            TidyDataCsvExtractor sut = new TidyDataCsvExtractor(
                 pathToFileWithValidDataSlimV1,
                 pathToFileWithValidDictionaryV1);
             Metadata expected = 
@@ -49,7 +49,7 @@ namespace Caf.Etl.UnitTests.Nodes.Manual
         public void ExtractObservations_ValidData_ReturnsExpected()
         {
             // Arrange
-            TidyCsvExtractor sut = new TidyCsvExtractor(
+            TidyDataCsvExtractor sut = new TidyDataCsvExtractor(
                 pathToFileWithValidDataSlimV1,
                 pathToFileWithValidDictionaryV1);
             List<IObservation> expected =
@@ -67,7 +67,7 @@ namespace Caf.Etl.UnitTests.Nodes.Manual
         public void Extract_ValidData_ReturnsExpected()
         {
             // Arrange
-            TidyCsvExtractor sut = new TidyCsvExtractor(
+            TidyDataCsvExtractor sut = new TidyDataCsvExtractor(
                 pathToFileWithValidDataSlimV1,
                 pathToFileWithValidDictionaryV1);
             TidyData expected = new TidyData()

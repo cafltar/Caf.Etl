@@ -1,4 +1,5 @@
-﻿using Caf.Etl.Models.CosmosDBSqlApi.Measurement;
+﻿using Caf.Etl.Models.CosmosDBSqlApi.Core;
+using Caf.Etl.Models.CosmosDBSqlApi.Measurement;
 using Caf.Etl.Models.LtarDataPortal.CORe;
 using System;
 using System.Collections.Generic;

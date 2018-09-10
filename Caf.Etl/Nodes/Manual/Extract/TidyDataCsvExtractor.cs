@@ -9,12 +9,12 @@ using System.Text;
 namespace Caf.Etl.Nodes.Manual.Extract
 {
     // TODO: Create a sister class for streaming data?
-    public class TidyCsvExtractor
+    public class TidyDataCsvExtractor
     {
         public string DataFilePath { get; private set; }
         public string DictionaryFilePath { get; private set; }
 
-        public TidyCsvExtractor(
+        public TidyDataCsvExtractor(
             string dataFilePath,
             string dataDictionaryPath)
         {

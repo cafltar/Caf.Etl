@@ -1,12 +1,13 @@
 ﻿using Caf.Etl.Nodes.LoggerNet.Transform;
 using System.Collections.Generic;
 using Xunit;
-using Caf.Etl.Models.CosmosDBSqlApi.Measurement;
+using Caf.Etl.Models.CosmosDBSqlApi.Core;
 using Caf.Etl.Models.LoggerNet.TOA5;
 using System;
 using Caf.Etl.Models.LoggerNet.TOA5.DataTables;
 using Caf.Etl.TestUtils;
 using System.Linq;
+using Caf.Etl.Models.CosmosDBSqlApi.Measurement;
 
 namespace Caf.Etl.Nodes.LoggerNet.Tests
 {
