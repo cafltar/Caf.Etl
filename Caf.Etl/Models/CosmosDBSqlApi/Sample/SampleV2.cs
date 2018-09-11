@@ -1,4 +1,5 @@
 ﻿using Caf.Etl.Models.CosmosDBSqlApi.Core;
+using Caf.Etl.Models.CosmosDBSqlApi.Measurement;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -6,8 +7,28 @@ using System.Text;
 
 namespace Caf.Etl.Models.CosmosDBSqlApi.Sample
 {
-    public class Sample : IAmDocument
+    public class SampleV2 : IAmDocument
     {
+        /// <summary></summary>
+        [JsonProperty("_rid")]
+        public string _rid { get; private set; }
+
+        /// <summary></summary>
+        [JsonProperty("_self")]
+        public string _self { get; private set; }
+
+        /// <summary></summary>
+        [JsonProperty("_etag")]
+        public string _etag { get; private set; }
+
+        /// <summary></summary>
+        [JsonProperty("_attachments")]
+        public string _attachments { get; private set; }
+
+        /// <summary></summary>
+        [JsonProperty("_ts")]
+        public int? _ts { get; private set; }
+
         /// <summary></summary>
         [JsonProperty("partitionKey")]
         public string PartitionKey { get; private set; }
@@ -44,27 +65,7 @@ namespace Caf.Etl.Models.CosmosDBSqlApi.Sample
         [JsonProperty("dateTime")]
         public DateTime DateTime { get; private set; }
 
-        /// <summary></summary>
-        [JsonProperty("_rid")]
-        public string _rid { get; private set; }
-
-        /// <summary></summary>
-        [JsonProperty("_self")]
-        public string _self { get; private set; }
-
-        /// <summary></summary>
-        [JsonProperty("_etag")]
-        public string _etag { get; private set; }
-
-        /// <summary></summary>
-        [JsonProperty("_attachments")]
-        public string _attachments { get; private set; }
-
-        /// <summary></summary>
-        [JsonProperty("_ts")]
-        public int? _ts { get; private set; }
-
-        
-
+        [JsonProperty("measurements")]
+        public List<MeasurementV2> Measurements { get; set; }
     }
 }

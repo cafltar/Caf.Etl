@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Caf.Etl.Models.CosmosDBSqlApi.Core
+namespace Caf.Etl.Models.CosmosDBSqlApi.Measurement
 {
     /// <summary></summary>
     public class PhysicalQuantityV2 : IEquatable<PhysicalQuantityV2>
