@@ -11,59 +11,59 @@ namespace Caf.Etl.Models.CosmosDBSqlApi.Sample
     {
         /// <summary></summary>
         [JsonProperty("_rid")]
-        public string _rid { get; private set; }
+        public string _rid { get; set; }
 
         /// <summary></summary>
         [JsonProperty("_self")]
-        public string _self { get; private set; }
+        public string _self { get; set; }
 
         /// <summary></summary>
         [JsonProperty("_etag")]
-        public string _etag { get; private set; }
+        public string _etag { get; set; }
 
         /// <summary></summary>
         [JsonProperty("_attachments")]
-        public string _attachments { get; private set; }
+        public string _attachments { get; set; }
 
         /// <summary></summary>
         [JsonProperty("_ts")]
-        public int? _ts { get; private set; }
+        public int? _ts { get; set; }
 
         /// <summary></summary>
         [JsonProperty("partitionKey")]
-        public string PartitionKey { get; private set; }
+        public string PartitionKey { get; set; }
 
         /// <summary></summary>
         [JsonProperty("id")]
-        public string Id { get; private set; }
+        public string Id { get; set; }
 
         /// <summary></summary>
         [JsonProperty("type")]
-        public string Type { get; private set; }
+        public string Type { get; set; }
 
         /// <summary></summary>
         [JsonProperty("name")]
-        public string Name { get; private set; }
+        public string Name { get; set; }
 
         /// <summary></summary>
         [JsonProperty("schema")]
-        public string Schema { get; private set; }
+        public string Schema { get; set; }
 
         /// <summary></summary>
         [JsonProperty("project")]
-        public string Project { get; private set; }
+        public string Project { get; set; }
 
         /// <summary></summary>
         [JsonProperty("areaOfInterest")]
-        public string AreaOfInterest { get; private set; }
+        public string AreaOfInterest { get; set; }
 
         /// <summary></summary>
         [JsonProperty("location")]
-        public LocationV2 Location { get; private set; }
+        public LocationV2 Location { get; set; }
 
         /// <summary></summary>
         [JsonProperty("dateTime")]
-        public DateTime DateTime { get; private set; }
+        public DateTime DateTime { get; set; }
 
         [JsonProperty("measurements")]
         public List<MeasurementV2> Measurements { get; set; }

@@ -70,11 +70,8 @@ namespace Caf.Etl.UnitTests.Nodes.Manual
             TidyDataCsvExtractor sut = new TidyDataCsvExtractor(
                 pathToFileWithValidDataSlimV1,
                 pathToFileWithValidDictionaryV1);
-            TidyData expected = new TidyData()
-            {
-                Metadata = ManualArranger.GetMetadataDerivedFromActualDataV1(),
-                Observations = ManualArranger.GetObservationsDerivedFromActualDataV1()
-            };
+            TidyData expected = ManualArranger
+                .GetTidyDataDerivedFromActualDataV1();
 
             // Act
             TidyData actual = sut.Extract<HandHarvestYieldV1>();

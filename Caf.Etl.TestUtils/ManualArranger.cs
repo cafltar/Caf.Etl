@@ -1,4 +1,7 @@
-﻿using Caf.Etl.Models.Manual.TidyData;
+﻿using Caf.Etl.Models.CosmosDBSqlApi.Core;
+using Caf.Etl.Models.CosmosDBSqlApi.Measurement;
+using Caf.Etl.Models.CosmosDBSqlApi.Sample;
+using Caf.Etl.Models.Manual.TidyData;
 using Caf.Etl.Models.Manual.TidyData.DataTables;
 using System;
 using System.Collections.Generic;
@@ -58,6 +61,78 @@ namespace Caf.Etl.TestUtils
             };
 
             return obs;
+        }
+
+        public static TidyData GetTidyDataDerivedFromActualDataV1()
+        {
+            TidyData tidy = new TidyData()
+            {
+                Metadata = GetMetadataDerivedFromActualDataV1(),
+                Observations = GetObservationsDerivedFromActualDataV1()
+            };
+
+            return tidy;
+        }
+
+        public static List<SampleV2> GeHandHarvestSampleDerivedFromActualDataV1()
+        {
+            List<SampleV2> samples = new List<SampleV2>()
+            {
+                new VegetationSample()
+                {
+                    PartitionKey = "VegetationSample_CookEast_GridPointSurvey",
+                    Id = "cf13gpsw_0_5-a",
+                    Type = "VegetationSample",
+                    Name = "GridPointSurvey",
+                    Schema = "http://files.cafltar.org/data/schema/documentDb/v2/sample.json",
+                    Project = "CookEastCropHandHarvest",
+                    AreaOfInterest = "CookEast",
+                    Location = new LocationV2("Point", 46.77873, -117.08751),
+                    DateTime = new DateTime(2013),
+                    PlantName = "SW",
+                    Measurements = new List<MeasurementV2>()
+                    {
+                        new MeasurementV2(
+                            "Measurement",
+                            "GrainMassWet", null, null, null, null,
+                            new DateTime(2013),
+                            new List<PhysicalQuantityV2>()
+                            {
+                                new PhysicalQuantityV2(
+                                    461, "g", DateTime.UtcNow, "")
+                            }, null),
+                        new MeasurementV2(
+                            "Measurement",
+                            "GrainProteinConcentration", null, null, null, null,
+                            new DateTime(2013),
+                            new List<PhysicalQuantityV2>()
+                            {
+                                new PhysicalQuantityV2(
+                                    11.9, "%", DateTime.UtcNow, "")
+                            }, null),
+                        new MeasurementV2(
+                            "Measurement",
+                            "GrainStarchConcentration", null, null, null, null,
+                            new DateTime(2013),
+                            new List<PhysicalQuantityV2>()
+                            {
+                                new PhysicalQuantityV2(
+                                    72, "%", DateTime.UtcNow, "")
+                            }, null),
+                        new MeasurementV2(
+                            "Measurement",
+                            "GrainGlutenConcentration", null, null, null, null,
+                            new DateTime(2013),
+                            new List<PhysicalQuantityV2>()
+                            {
+                                new PhysicalQuantityV2(
+                                    30.1, "%", DateTime.UtcNow, "")
+                            }, null),
+                    }
+                }
+            };
+
+            return samples;
         }
     }
 }
