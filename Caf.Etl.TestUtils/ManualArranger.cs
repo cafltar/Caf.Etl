@@ -15,6 +15,9 @@ namespace Caf.Etl.TestUtils
         {
             Metadata m = new Metadata();
 
+            m.FilenameDictionary = "L1_Aggregated2013-2016_DataDictionary_20180625.csv";
+            m.FilenameData = "L1_Aggregated2013-2016_20180625_slim.csv";
+
             m.Variables = new List<Variable>()
             {
                 new Variable() { FieldName = "HarvestYear", Units = "unitless", Description = "Year crop was harvested" },

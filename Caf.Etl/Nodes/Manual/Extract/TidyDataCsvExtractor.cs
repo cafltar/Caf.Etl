@@ -43,6 +43,9 @@ namespace Caf.Etl.Nodes.Manual.Extract
         {
             Metadata m = new Metadata();
 
+            m.FilenameData = Path.GetFileName(this.DataFilePath);
+            m.FilenameDictionary = Path.GetFileName(this.DictionaryFilePath);
+
             // TODO: Convert this to streamreader
             using (var sr = new StringReader(
                 File.ReadAllText(DictionaryFilePath)))

@@ -19,11 +19,11 @@ namespace Caf.Etl.UnitTests.Nodes.Manual
         {
             // Arrange
 
-            CosmosDBSqlApiSampleV2Transformer sut = 
-                new CosmosDBSqlApiSampleV2Transformer(
-                    new MapFromTidyDataToSampleV2(),
+            CosmosDBSqlApiSampleV2Transformer<HandHarvestYieldV1> sut = 
+                new CosmosDBSqlApiSampleV2Transformer<HandHarvestYieldV1>(
+                    new MapFromHandHarvestYieldV1ToVegetationSample(),
                     "http://files.cafltar.org/data/schema/documentDb/v2/sample.json",
-                    "",
+                    "mockEtlId",
                     "CookEastCropHandHarvest",
                     "VegetationSample");
 
