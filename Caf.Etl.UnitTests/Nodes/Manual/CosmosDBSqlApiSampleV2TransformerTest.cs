@@ -19,25 +19,32 @@ namespace Caf.Etl.UnitTests.Nodes.Manual
         {
             // Arrange
 
-            CosmosDBSqlApiSampleV2Transformer<HandHarvestYieldV1> sut = 
-                new CosmosDBSqlApiSampleV2Transformer<HandHarvestYieldV1>(
-                    new MapFromHandHarvestYieldV1ToVegetationSample(),
-                    "http://files.cafltar.org/data/schema/documentDb/v2/sample.json",
-                    "mockEtlId",
-                    "CookEastCropHandHarvest",
-                    "VegetationSample");
+            CosmosDBSqlApiSampleV2Transformer
+                <HandHarvestYieldV1, VegetationSample> sut = 
+                new CosmosDBSqlApiSampleV2Transformer
+                    <HandHarvestYieldV1, VegetationSample>(
+                        new MapFromHandHarvestYieldV1ToVegetationSample(),
+                        "http://files.cafltar.org/data/schema/documentDb/v2/sample.json",
+                        "",
+                        "CookEastCropHandHarvest",
+                        "CookEast",
+                        "VegetationSample");
 
-            TidyData tidyData = 
+            TidyData tidyData =
                 ManualArranger.GetTidyDataDerivedFromActualDataV1();
 
-            List<SampleV2> expected = 
+            List<VegetationSample> expected = 
                 ManualArranger.GeHandHarvestSampleDerivedFromActualDataV1();
             
             // Act
-            List<SampleV2> actual = sut.Transform(tidyData);
+            List<VegetationSample> actual = new List<VegetationSample>() {
+                sut.Transform(tidyData).First()
+            };
 
             // Assert
-            Assert.Equal(expected, actual);
+            Assert.Equal(expected.Count, actual.Count);
+            Assert.True(ComparerUtil.AreVegetationSamplesRoughlyEqual(
+                expected, actual));
         }
     }
 }

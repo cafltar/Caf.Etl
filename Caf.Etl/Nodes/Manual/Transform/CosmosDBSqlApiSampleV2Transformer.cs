@@ -12,10 +12,11 @@ using System.Text;
 namespace Caf.Etl.Nodes.Manual.Transform
 {
     // TODO: U = SampleV2, so I can make this generic (VegetationSample, SoilSample)
-    public class CosmosDBSqlApiSampleV2Transformer<T> 
+    public class CosmosDBSqlApiSampleV2Transformer<T, U> 
         where T : IObservation
+        where U : SampleV2
     {
-        private IMap<T> Map { get; }
+        private IMap<T, U> Map { get; }
         private string Schema { get; }
         private string EtlEventId { get; }
         private string Project { get; }
@@ -23,7 +24,7 @@ namespace Caf.Etl.Nodes.Manual.Transform
         private string DocumentType { get; }
 
         public CosmosDBSqlApiSampleV2Transformer(
-            IMap<T> map,
+            IMap<T, U> map,
             string schema,
             string etlEventId,
             string project,
@@ -38,31 +39,21 @@ namespace Caf.Etl.Nodes.Manual.Transform
             DocumentType = documentType;
         }
 
-        public List<SampleV2> Transform(TidyData tidyData)
+        public List<U> Transform(TidyData tidyData)
         {
-            List<SampleV2> samples = new List<SampleV2>();
+            List<U> samples = new List<U>();
 
             foreach(T observation in tidyData.Observations)
             {
-                // TODO: Change SampleV2 to VegetationSample (or make this function more generic)
-                // TODO: add sample.Crop and sample.HarvestYear
-                SampleV2 sample = new SampleV2();
-                sample.Id = Map.GetSampleId(observation);
+                U sample = Map.GetSample(observation);
                 sample.Type = DocumentType;
-                sample.Name = Map.GetSampleName(observation);
                 sample.Project = Project;
                 sample.AreaOfInterest = AreaOfInterest;
-                sample.Location = Map.GetLocation(observation);
-                sample.DateTime = Map.GetDateTimeSample(observation);
                 sample.PartitionKey =
                     $"{sample.Type}_{sample.AreaOfInterest}_{sample.Name}";
-                
-                //if(observation.GetType() == typeof(HandHarvestYieldV1))
-                //{
-                //    sample.PlantName = 
-                //        (MapFromHandHarvestYieldV1ToVegetationSample)Map.GetPlantName(observation);
-                //}
-                
+                sample.Schema = Schema;
+                sample.Measurements = new List<MeasurementV2>();
+
                 foreach(Variable variable in tidyData.Metadata.Variables)
                 {
                     // Create MeasurementV2s
@@ -73,6 +64,9 @@ namespace Caf.Etl.Nodes.Manual.Transform
                             variable,
                             observation,
                             tidyData.Metadata);
+
+                    if(measurement != null)
+                        sample.Measurements.Add(measurement);
                 }
 
                 samples.Add(sample);
@@ -103,17 +97,17 @@ namespace Caf.Etl.Nodes.Manual.Transform
             {
                 return null;
             }
-
+        
             string measurementName = Map.GetMeasurementName(variable.FieldName);
             // Check if variable is in list to be mapped
             if (String.IsNullOrEmpty(measurementName))
             {
                 return null;
             }
-
-            DateTime measurementDateTime = 
+        
+            DateTime? measurementDateTime = 
                 Map.GetDateTimeMeasurement(observation);
-
+        
             List<PhysicalQuantityV2> physicalQuantities = 
                 new List<PhysicalQuantityV2>()
                 {
@@ -123,18 +117,13 @@ namespace Caf.Etl.Nodes.Manual.Transform
                         DateTime.UtcNow, 
                         EtlEventId)
                 };
-
+        
             MeasurementV2 m = new MeasurementV2(
                 "Measurement",
                 measurementName,
-                null,
-                null,
-                null,
-                null,
                 measurementDateTime,
-                physicalQuantities,
-                null);
-
+                physicalQuantities);
+        
             return m;
         }
     }

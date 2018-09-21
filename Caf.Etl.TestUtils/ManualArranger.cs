@@ -77,9 +77,9 @@ namespace Caf.Etl.TestUtils
             return tidy;
         }
 
-        public static List<SampleV2> GeHandHarvestSampleDerivedFromActualDataV1()
+        public static List<VegetationSample> GeHandHarvestSampleDerivedFromActualDataV1()
         {
-            List<SampleV2> samples = new List<SampleV2>()
+            List<VegetationSample> samples = new List<VegetationSample>()
             {
                 new VegetationSample()
                 {
@@ -91,46 +91,65 @@ namespace Caf.Etl.TestUtils
                     Project = "CookEastCropHandHarvest",
                     AreaOfInterest = "CookEast",
                     Location = new LocationV2("Point", 46.77873, -117.08751),
-                    DateTime = new DateTime(2013),
+                    DateTime = null,
                     PlantName = "SW",
+                    HarvestYear = 2013,
                     Measurements = new List<MeasurementV2>()
                     {
                         new MeasurementV2(
                             "Measurement",
-                            "GrainMassWet", null, null, null, null,
-                            new DateTime(2013),
+                            "GrainMassWet",
+                            null,
                             new List<PhysicalQuantityV2>()
                             {
                                 new PhysicalQuantityV2(
                                     461, "g", DateTime.UtcNow, "")
-                            }, null),
+                            }),
                         new MeasurementV2(
                             "Measurement",
-                            "GrainProteinConcentration", null, null, null, null,
-                            new DateTime(2013),
+                            "YieldWet",
+                            null,
+                            new List<PhysicalQuantityV2>()
+                            {
+                                new PhysicalQuantityV2(
+                                    230.5, "g/m^2", DateTime.UtcNow, "")
+                            }),
+                        new MeasurementV2(
+                            "Measurement",
+                            "GrainProteinConcentration",
+                            null,
                             new List<PhysicalQuantityV2>()
                             {
                                 new PhysicalQuantityV2(
                                     11.9, "%", DateTime.UtcNow, "")
-                            }, null),
+                            }),
                         new MeasurementV2(
                             "Measurement",
-                            "GrainStarchConcentration", null, null, null, null,
-                            new DateTime(2013),
+                            "GrainMoistureConcentration",
+                            null,
+                            new List<PhysicalQuantityV2>()
+                            {
+                                new PhysicalQuantityV2(
+                                    7.6, "%", DateTime.UtcNow, "")
+                            }),
+                        new MeasurementV2(
+                            "Measurement",
+                            "GrainStarchConcentration",
+                            null,
                             new List<PhysicalQuantityV2>()
                             {
                                 new PhysicalQuantityV2(
                                     72, "%", DateTime.UtcNow, "")
-                            }, null),
+                            }),
                         new MeasurementV2(
                             "Measurement",
-                            "GrainGlutenConcentration", null, null, null, null,
-                            new DateTime(2013),
+                            "GrainGlutenConcentration",
+                            null,
                             new List<PhysicalQuantityV2>()
                             {
                                 new PhysicalQuantityV2(
                                     30.1, "%", DateTime.UtcNow, "")
-                            }, null),
+                            }),
                     }
                 }
             };

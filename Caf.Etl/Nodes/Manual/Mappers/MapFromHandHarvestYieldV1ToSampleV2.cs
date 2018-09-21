@@ -1,4 +1,5 @@
 ﻿using Caf.Etl.Models.CosmosDBSqlApi.Core;
+using Caf.Etl.Models.CosmosDBSqlApi.Sample;
 using Caf.Etl.Models.Manual.TidyData;
 using Caf.Etl.Models.Manual.TidyData.DataTables;
 using Caf.Etl.Nodes.Manual.Core;
@@ -8,7 +9,8 @@ using System.Text;
 
 namespace Caf.Etl.Nodes.Manual.Mappers
 {
-    public class MapFromHandHarvestYieldV1ToVegetationSample : IMap<HandHarvestYieldV1>
+    public class MapFromHandHarvestYieldV1ToVegetationSample : 
+        IMap<HandHarvestYieldV1, VegetationSample>
     {
         private Dictionary<string, string> mapDataFieldsToMeasurementName;
 
@@ -37,13 +39,13 @@ namespace Caf.Etl.Nodes.Manual.Mappers
         {
             return observation.HarvestYear;
         }
-        public DateTime GetDateTimeSample(HandHarvestYieldV1 observation)
+        public DateTime? GetDateTimeSample(HandHarvestYieldV1 observation)
         {
-            throw new NotImplementedException();
+            return null;
         }
-        public DateTime GetDateTimeMeasurement(HandHarvestYieldV1 observation)
+        public DateTime? GetDateTimeMeasurement(HandHarvestYieldV1 observation)
         {
-            throw new NotImplementedException();
+            return null;
         }
         public string GetMeasurementName(string dataField)
         {
@@ -70,6 +72,20 @@ namespace Caf.Etl.Nodes.Manual.Mappers
                 { "Starch", "GrainStarchConcentration" },
                 { "WGlutDM", "GrainGlutenConcentration" }
             };
+        }
+
+        public VegetationSample GetSample(HandHarvestYieldV1 observation)
+        {
+            VegetationSample sample = new VegetationSample();
+            sample.Id = GetSampleId(observation);
+            sample.Name = GetSampleName(observation);
+            sample.Location = GetLocation(observation);
+            sample.DateTime = GetDateTimeSample(observation);
+
+            sample.HarvestYear = GetHarvestYear(observation);
+            sample.PlantName = GetPlantName(observation);
+
+            return sample;
         }
     }
 }

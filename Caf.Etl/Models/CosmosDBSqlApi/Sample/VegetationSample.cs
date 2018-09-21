@@ -10,5 +10,9 @@ namespace Caf.Etl.Models.CosmosDBSqlApi.Sample
         /// <summary></summary>
         [JsonProperty("plantName")]
         public string PlantName { get; set; }
+
+        /// <summary></summary>
+        [JsonProperty("harvestYear")]
+        public int? HarvestYear { get; set; }
     }
 }
