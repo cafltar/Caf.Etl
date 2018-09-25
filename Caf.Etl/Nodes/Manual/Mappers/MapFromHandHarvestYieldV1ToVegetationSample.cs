@@ -85,6 +85,14 @@ namespace Caf.Etl.Nodes.Manual.Mappers
             sample.HarvestYear = GetHarvestYear(observation);
             sample.PlantName = GetPlantName(observation);
 
+            if (sample.Id == null)
+                return null;
+            if (sample.HarvestYear == null && sample.DateTime == null)
+                return null;
+            if (sample.PlantName == null)
+                return null;
+            
+
             return sample;
         }
     }

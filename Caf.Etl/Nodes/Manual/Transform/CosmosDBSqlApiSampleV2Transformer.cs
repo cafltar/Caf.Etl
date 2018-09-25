@@ -45,7 +45,12 @@ namespace Caf.Etl.Nodes.Manual.Transform
 
             foreach(T observation in tidyData.Observations)
             {
+                // Maps class specific data, returns null if not able to map
                 U sample = Map.GetSample(observation);
+
+                if (sample == null)
+                    continue;
+
                 sample.Type = DocumentType;
                 sample.Project = Project;
                 sample.AreaOfInterest = AreaOfInterest;

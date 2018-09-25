@@ -40,6 +40,9 @@
     <None Update="Nodes\Manual\Assets\L1_Aggregated2013-2016_20180625_slim.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="Nodes\Manual\Assets\L1_Aggregated2013-2016_20180625_nulls.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="Nodes\Manual\Assets\L1_Aggregated2013-2016_DataDictionary_20180625.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

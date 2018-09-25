@@ -46,5 +46,31 @@ namespace Caf.Etl.UnitTests.Nodes.Manual
             Assert.True(ComparerUtil.AreVegetationSamplesRoughlyEqual(
                 expected, actual));
         }
+
+        [Fact]
+        public void Transform_NullID2_DoesNotCreateSampleAndNoErrors()
+        {
+            CosmosDBSqlApiSampleV2Transformer
+                <HandHarvestYieldV1, VegetationSample> sut = 
+                new CosmosDBSqlApiSampleV2Transformer
+                    <HandHarvestYieldV1, VegetationSample>(
+                        new MapFromHandHarvestYieldV1ToVegetationSample(),
+                        "http://files.cafltar.org/data/schema/documentDb/v2/sample.json",
+                        "",
+                        "CookEastCropHandHarvest",
+                        "CookEast",
+                        "VegetationSample");
+
+            TidyData tidyData =
+                ManualArranger.GetTidyDataWithNullsV1();
+
+            int expectedCount = 3;
+
+            // Act
+            List<VegetationSample> actual = sut.Transform(tidyData);
+
+            // Assert
+            Assert.Equal(expectedCount, actual.Count);
+        }
     }
 }
