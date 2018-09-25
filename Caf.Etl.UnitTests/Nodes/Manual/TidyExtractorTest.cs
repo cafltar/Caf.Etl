@@ -13,6 +13,8 @@ namespace Caf.Etl.UnitTests.Nodes.Manual
     {
         string pathToFileWithValidDataSlimV1 =
                 @"Nodes/Manual/Assets/L1_Aggregated2013-2016_20180625_slim.csv";
+        string pathToFileWithNullsV1 =
+                @"Nodes/Manual/Assets/L1_Aggregated2013-2016_20180625_nulls.csv";
         string pathToFileWithValidDictionaryV1 =
                 @"Nodes/Manual/Assets/L1_Aggregated2013-2016_DataDictionary_20180625.csv";
 
@@ -78,6 +80,22 @@ namespace Caf.Etl.UnitTests.Nodes.Manual
 
             // Assert
             Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void Extract_Nulls_ReturnsAllValues()
+        {
+            // Arrange
+            TidyDataCsvExtractor sut = new TidyDataCsvExtractor(
+                pathToFileWithNullsV1,
+                pathToFileWithValidDictionaryV1);
+            int expectedDocs = 10;
+
+            // Act
+            TidyData actual = sut.Extract<HandHarvestYieldV1>();
+
+            // Assert
+            Assert.Equal(expectedDocs, actual.Observations.Count);
         }
     }
 }

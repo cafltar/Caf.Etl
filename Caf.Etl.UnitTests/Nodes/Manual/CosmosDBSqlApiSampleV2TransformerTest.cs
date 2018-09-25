@@ -64,7 +64,7 @@ namespace Caf.Etl.UnitTests.Nodes.Manual
             TidyData tidyData =
                 ManualArranger.GetTidyDataWithNullsV1();
 
-            int expectedCount = 3;
+            int expectedCount = 4;
 
             // Act
             List<VegetationSample> actual = sut.Transform(tidyData);

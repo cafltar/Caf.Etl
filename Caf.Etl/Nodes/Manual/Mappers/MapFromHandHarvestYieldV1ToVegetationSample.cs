@@ -30,6 +30,9 @@ namespace Caf.Etl.Nodes.Manual.Mappers
         }
         public LocationV2 GetLocation(HandHarvestYieldV1 observation)
         {
+            if (observation.Latitude == null || observation.Longitude == null)
+                return null;
+
             return new LocationV2(
                 "Point",
                 Convert.ToDouble(observation.Latitude),
@@ -90,6 +93,8 @@ namespace Caf.Etl.Nodes.Manual.Mappers
             if (sample.HarvestYear == null && sample.DateTime == null)
                 return null;
             if (sample.PlantName == null)
+                return null;
+            if (sample.Location == null)
                 return null;
             
 

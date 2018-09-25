@@ -36,17 +36,19 @@ namespace Caf.Etl.IntegrationTests
         public ManualTidyDataToCosmosDBSqlApiTests()
             :base()
         {
+            JsonSerializerSettings serializerSettings = new JsonSerializerSettings
+            {
+                NullValueHandling = NullValueHandling.Ignore
+            };
+
             client = new DocumentClient(
                 new Uri(
                     "https://localhost:8081"),
                     "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==",
-                    new JsonSerializerSettings
-                    {
-                        NullValueHandling = NullValueHandling.Ignore
-                    });
+                    serializerSettings);
 
             // Setup, deletes all Measurements
-            deleteAllDocuments(getAllMeasurements().ToList<IAmDocument>());
+            deleteAllDocuments(getAllVegetationSamples().ToList<IAmDocument>());
             deleteAllDocuments(getAllEtlEvents().ToList<IAmDocument>());
         }
 
@@ -82,16 +84,9 @@ namespace Caf.Etl.IntegrationTests
             // Act
             TidyData extracted = extractor.Extract<HandHarvestYieldV1>();
             List<VegetationSample> transformed = transformer.Transform(extracted);
-            //StoredProcedureResponse<bool>[] results = await loader.LoadBulk(transformed);
+            StoredProcedureResponse<bool>[] results = await loader.LoadBulk(transformed);
 
-            List<ResourceResponse<Document>> results = new List<ResourceResponse<Document>>();
-            foreach(VegetationSample sample in transformed)
-            {
-                ResourceResponse<Document> result = await loader.LoadNoReplace(sample);
-                results.Add(result);
-            }
-
-            // Assert
+            Assert.Equal(13, transformed.Count);
             Assert.NotEmpty(results);
         }
 
@@ -103,6 +98,15 @@ namespace Caf.Etl.IntegrationTests
                     new FeedOptions { EnableCrossPartitionQuery = true })
                     .Where(m => m.Type == "Measurement");
             return measurements;
+        }
+        private IQueryable<VegetationSample> getAllVegetationSamples()
+        {
+            IQueryable<VegetationSample> vegSamples =
+                client.CreateDocumentQuery<VegetationSample>(
+                    UriFactory.CreateDocumentCollectionUri("cafdb", "items"),
+                    new FeedOptions { EnableCrossPartitionQuery = true })
+                    .Where(m => m.Type == "VegetationSample");
+            return vegSamples;
         }
         private IQueryable<MeasurementV2> getAllEtlEvents()
         {

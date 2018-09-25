@@ -1,5 +1,6 @@
 ﻿using Caf.Etl.Models.CosmosDBSqlApi.Core;
 using Caf.Etl.Models.CosmosDBSqlApi.Measurement;
+using Microsoft.Azure.Documents;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
