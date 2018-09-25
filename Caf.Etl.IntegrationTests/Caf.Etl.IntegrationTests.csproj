@@ -20,4 +20,13 @@
     <ProjectReference Include="..\Caf.Etl\Caf.Etl.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Assets\Manual\L1_Aggregated2013-2016_20180625_slim.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\Manual\L1_Aggregated2013-2016_DataDictionary_20180625.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
