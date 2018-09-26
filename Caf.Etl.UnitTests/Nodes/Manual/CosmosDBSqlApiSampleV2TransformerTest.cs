@@ -15,7 +15,7 @@ namespace Caf.Etl.UnitTests.Nodes.Manual
     public class CosmosDBSqlApiSampleV2TransformerTest
     {
         [Fact]
-        public void Transform_ValidData_ReturnsExpected()
+        public void Transform_ValidDataHandHarvestYieldV1_ReturnsExpected()
         {
             // Arrange
 
@@ -48,7 +48,7 @@ namespace Caf.Etl.UnitTests.Nodes.Manual
         }
 
         [Fact]
-        public void Transform_NullID2_DoesNotCreateSampleAndNoErrors()
+        public void Transform_NullValuesHandHarvestYieldV1_DoesNotCreateSampleAndNoErrors()
         {
             CosmosDBSqlApiSampleV2Transformer
                 <HandHarvestYieldV1, VegetationSample> sut = 

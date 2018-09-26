@@ -88,15 +88,11 @@ namespace Caf.Etl.Nodes.Manual.Mappers
             sample.HarvestYear = GetHarvestYear(observation);
             sample.PlantName = GetPlantName(observation);
 
-            if (sample.Id == null)
-                return null;
-            if (sample.HarvestYear == null && sample.DateTime == null)
-                return null;
-            if (sample.PlantName == null)
-                return null;
-            if (sample.Location == null)
-                return null;
-            
+            if (sample.Id == null |
+                (sample.HarvestYear == null && sample.DateTime == null) |
+                sample.PlantName == null |
+                sample.Location == null)
+                throw new ArgumentNullException();
 
             return sample;
         }

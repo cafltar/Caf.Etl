@@ -26,10 +26,14 @@ namespace Caf.Etl.IntegrationTests
     /// </summary>
     public class ManualTidyDataToCosmosDBSqlApiTests
     {
-        string pathToFileWithValidDataSlimV1 =
-                @"Assets/Manual/L1_Aggregated2013-2016_20180625_slim.csv";
-        string pathToFileWithValidDictionaryV1 =
-                @"Assets/Manual/L1_Aggregated2013-2016_DataDictionary_20180625.csv";
+        string pathToFileWithValidHandHarvestYieldV1Data =
+            @"Assets/Manual/L1_Aggregated2013-2016_20180625_slim.csv";
+        string pathToFileWithValidHandHarvestYieldV1Dictionary =
+            @"Assets/Manual/L1_Aggregated2013-2016_DataDictionary_20180625.csv";
+        string pathToFileWithValidSoilGridPointSurveyV1Data =
+            @"Assets/Manual/soilCore1998To2015ShallowDeepMergedByHorizon_20180925_slim.csv";
+        string pathToFileWithValidSoilGridPointSurveyV1Dictionary =
+            @"Assets/Manual/soilCore1998To2015ShallowDeepMergedByHorizon_Dictionary_20180925.csv";
 
         private DocumentClient client;
 
@@ -53,12 +57,12 @@ namespace Caf.Etl.IntegrationTests
         }
 
         [Fact]
-        public async Task VegetationSampleToCosmos_ActualData_CreatesExpectedRecords()
+        public async Task HandHarvestYieldV1ToCosmos_ActualData_CreatesExpectedRecords()
         {
             // Arrange
             var extractor = new TidyDataCsvExtractor(
-                pathToFileWithValidDataSlimV1,
-                pathToFileWithValidDictionaryV1);
+                pathToFileWithValidHandHarvestYieldV1Data,
+                pathToFileWithValidHandHarvestYieldV1Dictionary);
             EtlEvent etlEvent = new EtlEvent(
                 "EtlEvent",
                 "LocalProcess",
@@ -87,6 +91,44 @@ namespace Caf.Etl.IntegrationTests
             StoredProcedureResponse<bool>[] results = await loader.LoadBulk(transformed);
 
             Assert.Equal(13, transformed.Count);
+            Assert.NotEmpty(results);
+        }
+
+        [Fact]
+        public async Task SoilGridPointSurveyV1ToCosmos_ActualData_CreatesExpectedRecords()
+        {
+            // Arrange
+            var extractor = new TidyDataCsvExtractor(
+                pathToFileWithValidSoilGridPointSurveyV1Data,
+                pathToFileWithValidSoilGridPointSurveyV1Dictionary);
+            EtlEvent etlEvent = new EtlEvent(
+                "EtlEvent",
+                "LocalProcess",
+                "http://files.cafltar.org/data/schema/documentDb/v2/etlEvent.json",
+                "CookEastSoilGridPointSurvey",
+                "0.1",
+                "",
+                DateTime.UtcNow);
+            var transformer = new CosmosDBSqlApiSampleV2Transformer
+                    <SoilGridPointSurveyV1,SoilSample>(
+                new MapFromSoilGridPointSurveyToSoilSample(),
+                "http://files.cafltar.org/data/schema/documentDb/v2/sample.json",
+                etlEvent.Id,
+                "CookEastSoilGridPointSurvey",
+                "CookEast",
+                "SoilSample");
+
+            var loader = new DocumentLoader(
+                client,
+                "cafdb",
+                "items");
+
+            // Act
+            TidyData extracted = extractor.Extract<SoilGridPointSurveyV1>();
+            List<SoilSample> transformed = transformer.Transform(extracted);
+            StoredProcedureResponse<bool>[] results = await loader.LoadBulk(transformed);
+
+            Assert.Equal(29, transformed.Count);
             Assert.NotEmpty(results);
         }
 

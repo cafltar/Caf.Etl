@@ -30,6 +30,12 @@
     <None Update="Assets\Manual\L1_Aggregated2013-2016_DataDictionary_20180625.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="Assets\Manual\soilCore1998To2015ShallowDeepMergedByHorizon_20180925_slim.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\Manual\soilCore1998To2015ShallowDeepMergedByHorizon_Dictionary_20180925.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
