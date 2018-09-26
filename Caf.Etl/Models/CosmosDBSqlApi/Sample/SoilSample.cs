@@ -9,11 +9,11 @@ namespace Caf.Etl.Models.CosmosDBSqlApi.Sample
     {
         /// <summary></summary>
         [JsonProperty("depthTop")]
-        public int DepthTop { get; set; }
+        public double DepthTop { get; set; }
         
         /// <summary></summary>
         [JsonProperty("depthBottom")]
-        public int DepthBottom { get; set; }
+        public double DepthBottom { get; set; }
 
         /// <summary></summary>
         [JsonProperty("yearSampled")]

@@ -51,14 +51,14 @@ namespace Caf.Etl.Nodes.Manual.Mappers
         {
             return null;
         }
-        public int GetDepthTop(SoilGridPointSurveyV1 observation)
+        public double GetDepthTop(SoilGridPointSurveyV1 observation)
         {
             if(observation.TopDepth == null)
                 throw new ArgumentNullException();
 
             return observation.TopDepth.GetValueOrDefault();
         }
-        public int GetDepthBottom(SoilGridPointSurveyV1 observation)
+        public double GetDepthBottom(SoilGridPointSurveyV1 observation)
         {
             if(observation.BottomDepth == null)
                 throw new ArgumentNullException();

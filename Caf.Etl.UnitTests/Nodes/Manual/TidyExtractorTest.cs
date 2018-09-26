@@ -13,6 +13,8 @@ namespace Caf.Etl.UnitTests.Nodes.Manual
     {
         string pathToFileWithValidDataSlimV1 =
                 @"Nodes/Manual/Assets/L1_Aggregated2013-2016_20180625_slim.csv";
+        string pathToFileWithValidDataSlimNullV1 =
+                @"Nodes/Manual/Assets/L1_Aggregated2013-2016_20180625_slim_null.csv";
         string pathToFileWithNullsV1 =
                 @"Nodes/Manual/Assets/L1_Aggregated2013-2016_20180625_nulls.csv";
         string pathToFileWithValidDictionaryV1 =

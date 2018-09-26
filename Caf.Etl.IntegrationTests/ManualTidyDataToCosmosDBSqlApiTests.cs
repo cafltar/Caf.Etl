@@ -53,6 +53,7 @@ namespace Caf.Etl.IntegrationTests
 
             // Setup, deletes all Measurements
             deleteAllDocuments(getAllVegetationSamples().ToList<IAmDocument>());
+            deleteAllDocuments(getAllSoilSamples().ToList<IAmDocument>());
             deleteAllDocuments(getAllEtlEvents().ToList<IAmDocument>());
         }
 
@@ -148,6 +149,15 @@ namespace Caf.Etl.IntegrationTests
                     UriFactory.CreateDocumentCollectionUri("cafdb", "items"),
                     new FeedOptions { EnableCrossPartitionQuery = true })
                     .Where(m => m.Type == "VegetationSample");
+            return vegSamples;
+        }
+        private IQueryable<VegetationSample> getAllSoilSamples()
+        {
+            IQueryable<VegetationSample> vegSamples =
+                client.CreateDocumentQuery<VegetationSample>(
+                    UriFactory.CreateDocumentCollectionUri("cafdb", "items"),
+                    new FeedOptions { EnableCrossPartitionQuery = true })
+                    .Where(m => m.Type == "SoilSample");
             return vegSamples;
         }
         private IQueryable<MeasurementV2> getAllEtlEvents()

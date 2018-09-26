@@ -48,7 +48,7 @@ namespace Caf.Etl.UnitTests.Nodes.Manual
         }
 
         [Fact]
-        public void Transform_NullValuesHandHarvestYieldV1_DoesNotCreateSampleAndNoErrors()
+        public void Transform_NullValuesHandHarvestYieldV1_ThrowsArgumentNullException()
         {
             CosmosDBSqlApiSampleV2Transformer
                 <HandHarvestYieldV1, VegetationSample> sut = 
@@ -64,13 +64,11 @@ namespace Caf.Etl.UnitTests.Nodes.Manual
             TidyData tidyData =
                 ManualArranger.GetTidyDataWithNullsV1();
 
-            int expectedCount = 4;
-
             // Act
-            List<VegetationSample> actual = sut.Transform(tidyData);
+            Action act = () => sut.Transform(tidyData);
 
             // Assert
-            Assert.Equal(expectedCount, actual.Count);
+            Assert.Throws<ArgumentNullException>(act);
         }
     }
 }

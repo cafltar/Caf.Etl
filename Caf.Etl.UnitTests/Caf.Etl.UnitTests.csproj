@@ -37,6 +37,9 @@
     <None Update="Nodes\LoggerNet\Assets\TOA5_11205.LTAR_Met_0_2018_06_15_1345.dat">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="Nodes\Manual\Assets\L1_Aggregated2013-2016_20180625_slim_null.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="Nodes\Manual\Assets\L1_Aggregated2013-2016_20180625_slim.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
