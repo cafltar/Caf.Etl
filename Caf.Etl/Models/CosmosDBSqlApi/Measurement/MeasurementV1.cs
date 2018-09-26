@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Caf.Etl.Models.CosmosDBSqlApi;
+using Caf.Etl.Models.CosmosDBSqlApi.Core;
 using Newtonsoft.Json;
 
 namespace Caf.Etl.Models.CosmosDBSqlApi.Measurement

@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Caf.Etl.Models.LoggerNet.TOA5;
-using Caf.Etl.Models.CosmosDBSqlApi.Measurement;
+using Caf.Etl.Models.CosmosDBSqlApi.Core;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Reflection;
 using Caf.Etl.Nodes.LoggerNet.Core;
+using Caf.Etl.Models.CosmosDBSqlApi.Measurement;
 
 namespace Caf.Etl.Nodes.LoggerNet.Transform
 {

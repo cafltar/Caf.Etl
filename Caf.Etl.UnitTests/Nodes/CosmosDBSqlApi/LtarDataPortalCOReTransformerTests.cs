@@ -1,11 +1,12 @@
 using System;
 using Xunit;
 using Caf.Etl.Nodes.CosmosDBSqlApi.Extract;
-using Caf.Etl.Models.CosmosDBSqlApi.Measurement;
+using Caf.Etl.Models.CosmosDBSqlApi.Core;
 using System.Collections.Generic;
 using Caf.Etl.Nodes.CosmosDBSqlApi.Transform;
 using Caf.Etl.Models.LtarDataPortal.CORe;
 using System.Globalization;
+using Caf.Etl.Models.CosmosDBSqlApi.Measurement;
 
 namespace Caf.Etl.Nodes.CosmosDBSqlApi.Tests
 {

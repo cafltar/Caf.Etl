@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Caf.Etl.Models.CosmosDBSqlApi.Core;
 using Newtonsoft.Json;
 
 namespace Caf.Etl.Models.CosmosDBSqlApi.Measurement
@@ -7,7 +8,7 @@ namespace Caf.Etl.Models.CosmosDBSqlApi.Measurement
     /// <summary>
     /// Dto class for data as described by json-schema located in schema\v2\measurement.json or http://files.cafltar.org/data/schema/documentDb/v2/measurement.json
     /// </summary>
-    public class MeasurementV2 : IEquatable<MeasurementV2>, IAmDocument
+    public class MeasurementV2 : IAmDocument, IEquatable<MeasurementV2>
     {
         /// <summary></summary>
         [JsonProperty("partitionKey")]
@@ -63,7 +64,7 @@ namespace Caf.Etl.Models.CosmosDBSqlApi.Measurement
 
         /// <summary></summary>
         [JsonProperty("dateTime")]
-        public DateTime DateTime { get; private set; }
+        public DateTime? DateTime { get; private set; }
 
         /// <summary></summary>
         [JsonProperty("physicalQuantities")]
@@ -82,7 +83,7 @@ namespace Caf.Etl.Models.CosmosDBSqlApi.Measurement
             string schema, string project, string rid,
             string self, string etag, string attachments,
             int? ts, string areaOfInterest, LocationV2 location,
-            DateTime dateTime,
+            DateTime? dateTime,
             List<PhysicalQuantityV2> physicalQuantities,
             int? timestep)
         {
@@ -102,6 +103,30 @@ namespace Caf.Etl.Models.CosmosDBSqlApi.Measurement
             DateTime = dateTime;
             PhysicalQuantities = physicalQuantities;
             TimestepSec = timestep;
+        }
+
+        public MeasurementV2(
+            string type, 
+            string name, 
+            DateTime? dateTime,
+            List<PhysicalQuantityV2> physicalQuantities)
+        {
+            this.PartitionKey = null;
+            this.Id = null;
+            Type = type;
+            Name = name;
+            Schema = null;
+            Project = null;
+            this._rid = null;
+            this._self = null;
+            this._etag = null;
+            this._attachments = null;
+            this._ts = null;
+            AreaOfInterest = null;
+            Location = null;
+            DateTime = dateTime;
+            PhysicalQuantities = physicalQuantities;
+            TimestepSec = null;
         }
 
         /// <summary>
@@ -189,14 +214,14 @@ namespace Caf.Etl.Models.CosmosDBSqlApi.Measurement
                    EqualityComparer<int?>.Default.Equals(_ts, other._ts) &&
                    AreaOfInterest == other.AreaOfInterest &&
                    EqualityComparer<LocationV2>.Default.Equals(Location, other.Location) &&
-                   DateTime == other.DateTime &&
+                   EqualityComparer<DateTime?>.Default.Equals(DateTime, other.DateTime) &&
                    EqualityComparer<List<PhysicalQuantityV2>>.Default.Equals(PhysicalQuantities, other.PhysicalQuantities) &&
                    EqualityComparer<int?>.Default.Equals(TimestepSec, other.TimestepSec);
         }
 
         public override int GetHashCode()
         {
-            var hashCode = -329364641;
+            var hashCode = 1400233727;
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(PartitionKey);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Id);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Type);
@@ -210,7 +235,7 @@ namespace Caf.Etl.Models.CosmosDBSqlApi.Measurement
             hashCode = hashCode * -1521134295 + EqualityComparer<int?>.Default.GetHashCode(_ts);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(AreaOfInterest);
             hashCode = hashCode * -1521134295 + EqualityComparer<LocationV2>.Default.GetHashCode(Location);
-            hashCode = hashCode * -1521134295 + DateTime.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<DateTime?>.Default.GetHashCode(DateTime);
             hashCode = hashCode * -1521134295 + EqualityComparer<List<PhysicalQuantityV2>>.Default.GetHashCode(PhysicalQuantities);
             hashCode = hashCode * -1521134295 + EqualityComparer<int?>.Default.GetHashCode(TimestepSec);
             return hashCode;
@@ -225,7 +250,5 @@ namespace Caf.Etl.Models.CosmosDBSqlApi.Measurement
         {
             return !(v1 == v2);
         }
-
-
     }
 }
