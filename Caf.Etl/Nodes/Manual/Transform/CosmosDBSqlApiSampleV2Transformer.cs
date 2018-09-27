@@ -81,6 +81,7 @@ namespace Caf.Etl.Nodes.Manual.Transform
         }
 
         // TODO: Much of this is copy/pasted from DocumentDbMeasurementV2Transformer, consider move logic to a shared class
+        // WARNING: This assumes one physicalQuantity per Measurement -- it returns null Measurement on first PhysicalQuantity with value of null
         private MeasurementV2 CreateMeasurementFromVariable(
             Variable variable, 
             T observation, 
@@ -94,11 +95,10 @@ namespace Caf.Etl.Nodes.Manual.Transform
                         .Replace("(", "")
                         .Replace(")", ""))
                 .GetValue(observation, null);
-            // Ensure value is a number
+            // Ensure value is a number, don't create Measurement on null value (assumes Measurement only has one PhysicalQuantity)
             if(!(value is double? 
                 || value is decimal? 
-                || value is int?
-                || value is null))
+                || value is int?))
             {
                 return null;
             }

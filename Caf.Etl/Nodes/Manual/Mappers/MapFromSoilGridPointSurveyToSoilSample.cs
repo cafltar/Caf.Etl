@@ -25,7 +25,7 @@ namespace Caf.Etl.Nodes.Manual.Mappers
             if (observation.ID2 == null)
                 throw new ArgumentNullException();
 
-            string id = $"CF_{GetYear(observation)}_GP{observation.ID2}_{GetDepthTop(observation)}-{GetDepthBottom(observation)}";
+            string id = $"CF_{GetYear(observation)}_GP{observation.ID2:D3}_{GetDepthTop(observation)}-{GetDepthBottom(observation)}";
 
             return id;
         }
@@ -72,6 +72,13 @@ namespace Caf.Etl.Nodes.Manual.Mappers
 
             return observation.Year.GetValueOrDefault();
         }
+        public string GetHorizon(SoilGridPointSurveyV1 observation)
+        {
+            if (observation.Horizon == null)
+                throw new ArgumentNullException();
+
+            return observation.Horizon;
+        }
 
         public string GetMeasurementName(string dataField)
         {
@@ -89,16 +96,16 @@ namespace Caf.Etl.Nodes.Manual.Mappers
                 { "BulkDensity", "BulkDensity" },
                 { "dC13", "d13CVpdb" },
                 { "dC13AcidWashed", "d13CVpdbAcidWashed" },
-                { "TNConc", "TotalNitrogenConcentration" },
-                { "TNConcAcidWashed", "TotalNitrogenConcentrationAcidWashed" }, 
-                { "TCConc", "TotalCarbonConcentration" },
-                { "TCConcAcidWashed", "TotalCarbonConcentrationAcidWashed" }, 
-                { "TocConc", "TotalOrganicCarbonConcentration" },
+                { "TNConc", "TotalNitrogenPercent" },
+                { "TNConcAcidWashed", "TotalNitrogenPercentAcidWashed" }, 
+                { "TCConc", "TotalCarbonPercent" },
+                { "TCConcAcidWashed", "TotalCarbonPercentAcidWashed" }, 
+                { "TocConc", "TotalOrganicCarbonPercent" },
                 { "TocStock", "TotalOrganicCarbonStock" },
-                { "TicConc", "TotalInorganicCarbonConcentration" },
+                { "TicConc", "TotalInorganicCarbonPercent" },
                 { "TicStock", "TotalInorganicCarbonStock" },
                 { "TNStock", "TotalNitrogenStock" },
-                { "pH", "pH" }
+                { "pH", "pH1To1" }
             };
         }
 
@@ -113,6 +120,7 @@ namespace Caf.Etl.Nodes.Manual.Mappers
             sample.DepthTop = GetDepthTop(observation);
             sample.DepthBottom = GetDepthBottom(observation);
             sample.Year = GetYear(observation);
+            sample.Horizon = GetHorizon(observation);
 
             if (sample.Id == null |
                 sample.Location == null)
