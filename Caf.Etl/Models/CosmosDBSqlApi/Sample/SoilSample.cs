@@ -16,7 +16,7 @@ namespace Caf.Etl.Models.CosmosDBSqlApi.Sample
         public double DepthBottom { get; set; }
 
         /// <summary></summary>
-        [JsonProperty("yearSampled")]
+        [JsonProperty("year")]
         public int Year { get; set; }
     }
 }

@@ -87,8 +87,8 @@ namespace Caf.Etl.Nodes.Manual.Mappers
             {
                 { "Horizon", "Horizon" },
                 { "BulkDensity", "BulkDensity" },
-                { "dC13", "IsotopicSignatureC13" },
-                { "dC13AcidWashed", "IsotopicSignatureC13AcidWashed" },
+                { "dC13", "d13CVpdb" },
+                { "dC13AcidWashed", "d13CVpdbAcidWashed" },
                 { "TNConc", "TotalNitrogenConcentration" },
                 { "TNConcAcidWashed", "TotalNitrogenConcentrationAcidWashed" }, 
                 { "TCConc", "TotalCarbonConcentration" },
