@@ -74,8 +74,8 @@ namespace Caf.Etl.Nodes.Manual.Mappers
         }
         public string GetHorizon(SoilGridPointSurveyV1 observation)
         {
-            if (observation.Horizon == null)
-                throw new ArgumentNullException();
+            //if (observation.Horizon == null)
+            //    return "";
 
             return observation.Horizon;
         }
