@@ -129,7 +129,7 @@ namespace Caf.Etl.IntegrationTests
             List<SoilSample> transformed = transformer.Transform(extracted);
             StoredProcedureResponse<bool>[] results = await loader.LoadBulk(transformed);
 
-            Assert.Equal(29, transformed.Count);
+            Assert.Equal(30, transformed.Count);
             Assert.NotEmpty(results);
         }
 

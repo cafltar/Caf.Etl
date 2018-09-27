@@ -74,6 +74,19 @@ namespace Caf.Etl.Nodes.CosmosDBSqlApi.Load
             return r;
         }
 
+        //public async Task<ResourceResponse<Document>> Load(
+        //    IAmDocument doc)
+        //{
+        //    var r = await this.client.CreateDocumentAsync(
+        //        UriFactory.CreateDocumentUri(
+        //            databaseId,
+        //            collectionId,
+        //            doc.Id),
+        //        doc);
+        //
+        //    return r;
+        //}
+
         /// <summary>
         /// Loads multple IAmDocuments, split by partitionKey, using 
         /// the bulkImport stored procedure.  The stored procedure is
