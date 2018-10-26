@@ -11,7 +11,7 @@ using Caf.Etl.Nodes.CosmosDBSqlApi.Load;
 using Microsoft.Azure.Documents;
 using Caf.Etl.TestUtils;
 
-namespace Caf.Etl.Nodes.CosmosDBSqlApi.Tests
+namespace Caf.Etl.UnitTests.Nodes.CosmosDBSqlApi
 {
     public class DocumentLoaderTests
     {

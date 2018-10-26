@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using Caf.Etl.Models.CosmosDBSqlApi.Measurement;
 
-namespace Caf.Etl.Nodes.CosmosDBSqlApi.Tests
+namespace Caf.Etl.UnitTests.Nodes.CosmosDBSqlApi
 {
     public class MeasurementV1JsonExtractorTests
     {
