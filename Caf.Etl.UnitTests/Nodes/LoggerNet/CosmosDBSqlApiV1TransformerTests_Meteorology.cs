@@ -10,7 +10,7 @@ using Caf.Etl.Models.CosmosDBSqlApi.Measurement;
 
 namespace Caf.Etl.UnitTests.Nodes.LoggerNet
 {
-    public class DocumentDbMeasurementV1TransformerTests_Meteorology
+    public class CosmosDBSqlApiV1TransformerTests_Meteorology
     {
         [Fact]
         public void ToMeasurement_ValidData_ReturnCorrectMeasurements()
@@ -70,8 +70,8 @@ namespace Caf.Etl.UnitTests.Nodes.LoggerNet
             MapFromMeteorologyDataTableToCafStandards map = 
                 new MapFromMeteorologyDataTableToCafStandards();
 
-            DocumentDbMeasurementV1Transformer sut = 
-                new DocumentDbMeasurementV1Transformer(map, "1.0.0");
+            CosmosDBSqlApiV1Transformer sut = 
+                new CosmosDBSqlApiV1Transformer(map, "1.0.0");
             actualMeasurements = sut.ToMeasurements(GetMockMeteorology());
 
             //# Assert
