@@ -1,4 +1,5 @@
 ﻿using Caf.Etl.Nodes.LoggerNet.Transform;
+using Caf.Etl.Nodes.LoggerNet.Mappers;
 using System.Collections.Generic;
 using Xunit;
 using Caf.Etl.Models.CosmosDBSqlApi.Core;
@@ -9,7 +10,7 @@ using Caf.Etl.TestUtils;
 using System.Linq;
 using Caf.Etl.Models.CosmosDBSqlApi.Measurement;
 
-namespace Caf.Etl.Nodes.LoggerNet.Tests
+namespace Caf.Etl.UnitTests.Nodes.LoggerNet
 {
     public class DocumentDbMeasurementV2TransformerTests_Flux
     {
@@ -17,8 +18,8 @@ namespace Caf.Etl.Nodes.LoggerNet.Tests
         public void ToMeasurement_ValidDataMetV2_ReturnCorrectMeasurementsV2()
         {
             //# Arrange
-            Mappers.MapFromToa5DataTableToCafStandards map = 
-                new Mappers.MapFromToa5DataTableToCafStandards();
+            MapFromToa5DataTableToCafStandards map = 
+                new MapFromToa5DataTableToCafStandards();
             TOA5 toa5 = LoggerNetArranger.GetToa5MeteorologyDerivedFromActualDataV2();
 
             List<MeasurementV2> expected = 

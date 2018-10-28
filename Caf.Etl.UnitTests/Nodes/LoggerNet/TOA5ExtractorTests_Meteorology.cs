@@ -7,7 +7,7 @@ using Caf.Etl.Models.LoggerNet.TOA5.DataTables;
 using System.Linq;
 using Caf.Etl.TestUtils;
 
-namespace Caf.Etl.Nodes.LoggerNet.Tests
+namespace Caf.Etl.UnitTests.Nodes.LoggerNet
 {
     public class TOA5ExtractorTests_Meteorology
     {

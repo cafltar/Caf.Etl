@@ -1,4 +1,5 @@
 ﻿using Caf.Etl.Nodes.LoggerNet.Transform;
+using Caf.Etl.Nodes.LoggerNet.Mappers;
 using System.Collections.Generic;
 using Xunit;
 using Caf.Etl.Models.CosmosDBSqlApi.Core;
@@ -7,7 +8,7 @@ using System;
 using Caf.Etl.Models.LoggerNet.TOA5.DataTables;
 using Caf.Etl.Models.CosmosDBSqlApi.Measurement;
 
-namespace Caf.Etl.Nodes.LoggerNet.Tests
+namespace Caf.Etl.UnitTests.Nodes.LoggerNet
 {
     public class DocumentDbMeasurementV1TransformerTests_Meteorology
     {
@@ -66,8 +67,8 @@ namespace Caf.Etl.Nodes.LoggerNet.Tests
             List<MeasurementV1> actualMeasurements = new List<MeasurementV1>();
 
             //# Act
-            Mappers.MapFromMeteorologyDataTableToCafStandards map = 
-                new Mappers.MapFromMeteorologyDataTableToCafStandards();
+            MapFromMeteorologyDataTableToCafStandards map = 
+                new MapFromMeteorologyDataTableToCafStandards();
 
             DocumentDbMeasurementV1Transformer sut = 
                 new DocumentDbMeasurementV1Transformer(map, "1.0.0");

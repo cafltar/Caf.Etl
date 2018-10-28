@@ -8,7 +8,7 @@ using Caf.Etl.Models.LoggerNet.TOA5.DataTables;
 using Caf.Etl.TestUtils;
 using System.Linq;
 
-namespace Caf.Etl.Nodes.LoggerNet.Tests
+namespace Caf.Etl.UnitTests.Nodes.LoggerNet
 {
     // TODO: Update after making changes to toa5-transformation-cosmosdb
 /*    public class DocumentDbMeasurementV2TransformerTests_Flux
