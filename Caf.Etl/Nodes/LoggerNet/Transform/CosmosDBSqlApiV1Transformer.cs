@@ -74,7 +74,7 @@ namespace Caf.Etl.Nodes.LoggerNet.Transform
             DateTime measurementDateTime = new DateTime(observation.TIMESTAMP.Ticks, DateTimeKind.Utc);
 
             List<PhysicalQuantityV1> physicalQuantitis = new List<PhysicalQuantityV1>() {
-                new PhysicalQuantityV1(pqMetric.Value, pqMetric.Unit, 0, 0, 0, DateTime.UtcNow, "DocumentDbMeasurementTransformer")
+                new PhysicalQuantityV1(pqMetric.Value, pqMetric.Unit, 0, 0, 0, DateTime.UtcNow, "CosmosDBSqlApiTransformer")
             };
 
             LocationV1 location = new LocationV1("Point",

@@ -28,7 +28,7 @@ namespace Caf.Etl.UnitTests.Nodes.LoggerNet
                 new CosmosDBSqlApiV2Transformer(
                     map,
                     "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json",
-                    "DocumentDbMeasurementTransformer",
+                    "CosmosDBSqlApiTransformer",
                     "Measurement",
                     "CafMeteorologyEcTower",
                     1800);
@@ -58,7 +58,7 @@ namespace Caf.Etl.UnitTests.Nodes.LoggerNet
                 new CosmosDBSqlApiV2Transformer(
                     map,
                     "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json",
-                    "DocumentDbMeasurementTransformer",
+                    "CosmosDBSqlApiTransformer",
                     "Measurement",
                     "CafMeteorologyEcTower",
                     1800);
@@ -87,7 +87,7 @@ namespace Caf.Etl.UnitTests.Nodes.LoggerNet
                 new CosmosDBSqlApiV2Transformer(
                     map,
                     "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json",
-                    "DocumentDbMeasurementTransformer",
+                    "CosmosDBSqlApiTransformer",
                     "Measurement",
                     "CafMeteorologyEcTower",
                     1800);

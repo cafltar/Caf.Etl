@@ -30,7 +30,7 @@ namespace Caf.Etl.UnitTests.Nodes.LoggerNet
                 new List<PhysicalQuantityV1>() { new PhysicalQuantityV1(
                     (decimal)56.22676, "%", 0, 0, 0,
                     DateTime.MaxValue,
-                    "DocumentDbMeasurementTransformer")});
+                    "CosmosDBSqlApiTransformer")});
 
             MeasurementV1 expectedMeasurement_amb_tmpr_Avg = new MeasurementV1(
                 "EcTower_CookEast_TemperatureAirTsAvg",
@@ -46,7 +46,7 @@ namespace Caf.Etl.UnitTests.Nodes.LoggerNet
                 new List<PhysicalQuantityV1>() { new PhysicalQuantityV1(
                     (decimal)4.940109, "C", 0, 0, 0,
                     DateTime.MaxValue,
-                    "DocumentDbMeasurementTransformer")});
+                    "CosmosDBSqlApiTransformer")});
 
             MeasurementV1 expectedMeasurement_PAR_density_Avg = new MeasurementV1(
                 "EcTower_CookEast_ParDensityTsAvg",
@@ -62,7 +62,7 @@ namespace Caf.Etl.UnitTests.Nodes.LoggerNet
                 new List<PhysicalQuantityV1>() { new PhysicalQuantityV1(
                     (decimal)0.001956598, "mol/(m^2 s)", 0, 0, 0,
                     DateTime.MaxValue,
-                    "DocumentDbMeasurementTransformer")});
+                    "CosmosDBSqlApiTransformer")});
 
             List<MeasurementV1> actualMeasurements = new List<MeasurementV1>();
 

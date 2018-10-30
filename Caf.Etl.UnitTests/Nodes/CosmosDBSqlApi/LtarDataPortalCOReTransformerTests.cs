@@ -48,48 +48,48 @@ namespace Caf.Etl.UnitTests.Nodes.CosmosDBSqlApi
                 new MeasurementV1(
                     "", "", "", "WindSpeedTsResultant", "", "", "", "", "", "", null, "", null, DateTime.ParseExact("2017-09-06T00:00:00Z", "yyyy-MM-dd'T'HH:mm:ss'Z'", CultureInfo.InvariantCulture, DateTimeStyles.AssumeUniversal | DateTimeStyles.AdjustToUniversal), new List<PhysicalQuantityV1>()
                     {
-                        new PhysicalQuantityV1(3.014338m, "m/s", 0, 0, 0, DateTime.Parse("2017-09-06T00:04:15.9797575Z"), "DocumentDbMeasurementTransformer")
+                        new PhysicalQuantityV1(3.014338m, "m/s", 0, 0, 0, DateTime.Parse("2017-09-06T00:04:15.9797575Z"), "CosmosDBSqlApiTransformer")
                     }),
                 new MeasurementV1(
                     "", "", "", "TemperatureAirTsAvg", "", "", "", "", "", "", null, "", null, DateTime.ParseExact("2017-09-06T00:00:00Z", "yyyy-MM-dd'T'HH:mm:ss'Z'", CultureInfo.InvariantCulture, DateTimeStyles.AssumeUniversal | DateTimeStyles.AdjustToUniversal), new List<PhysicalQuantityV1>()
                     {
-                        new PhysicalQuantityV1(27.80702m, "C", 0, 0, 0, DateTime.Parse("2017-09-06T00:04:15.9797575Z"), "DocumentDbMeasurementTransformer")
+                        new PhysicalQuantityV1(27.80702m, "C", 0, 0, 0, DateTime.Parse("2017-09-06T00:04:15.9797575Z"), "CosmosDBSqlApiTransformer")
                     }),
 
                 new MeasurementV1(
                     "", "", "", "PrecipitationTsAccum", "", "", "", "", "", "", null, "", null, DateTime.ParseExact("2017-09-06T00:00:00Z", "yyyy-MM-dd'T'HH:mm:ss'Z'", CultureInfo.InvariantCulture, DateTimeStyles.AssumeUniversal | DateTimeStyles.AdjustToUniversal), new List<PhysicalQuantityV1>()
                     {
-                        new PhysicalQuantityV1(0m, "m", 0, 0, 0, DateTime.Parse("2017-09-06T00:04:15.9797575Z"), "DocumentDbMeasurementTransformer")
+                        new PhysicalQuantityV1(0m, "m", 0, 0, 0, DateTime.Parse("2017-09-06T00:04:15.9797575Z"), "CosmosDBSqlApiTransformer")
                     }),
                 new MeasurementV1(
                     "", "", "", "WindDirection", "", "", "", "", "", "", null, "", null, DateTime.ParseExact("2017-09-06T00:00:00Z", "yyyy-MM-dd'T'HH:mm:ss'Z'", CultureInfo.InvariantCulture, DateTimeStyles.AssumeUniversal | DateTimeStyles.AdjustToUniversal), new List<PhysicalQuantityV1>()
                     {
-                        new PhysicalQuantityV1(125.9m, "deg", 0, 0, 0, DateTime.Parse("2017-09-06T00:04:15.9797575Z"), "DocumentDbMeasurementTransformer")
+                        new PhysicalQuantityV1(125.9m, "deg", 0, 0, 0, DateTime.Parse("2017-09-06T00:04:15.9797575Z"), "CosmosDBSqlApiTransformer")
                     }),
                 new MeasurementV1(
                     "", "", "", "RelativeHumidityTsAvg", "", "", "", "", "", "", null, "", null, DateTime.ParseExact("2017-09-06T00:00:00Z", "yyyy-MM-dd'T'HH:mm:ss'Z'", CultureInfo.InvariantCulture, DateTimeStyles.AssumeUniversal | DateTimeStyles.AdjustToUniversal), new List<PhysicalQuantityV1>()
                     {
-                        new PhysicalQuantityV1(22.4503m, "%", 0, 0, 0, DateTime.Parse("2017-09-06T00:04:15.9797575Z"), "DocumentDbMeasurementTransformer")
+                        new PhysicalQuantityV1(22.4503m, "%", 0, 0, 0, DateTime.Parse("2017-09-06T00:04:15.9797575Z"), "CosmosDBSqlApiTransformer")
                     }),
                 new MeasurementV1(
                     "", "", "", "BatteryVoltageTsAvg", "", "", "", "", "", "", null, "", null, DateTime.ParseExact("2017-09-06T00:00:00Z", "yyyy-MM-dd'T'HH:mm:ss'Z'", CultureInfo.InvariantCulture, DateTimeStyles.AssumeUniversal | DateTimeStyles.AdjustToUniversal), new List<PhysicalQuantityV1>()
                     {
-                        new PhysicalQuantityV1(13.01541m, "V", 0, 0, 0, DateTime.Parse("2017-09-06T00:04:15.9797575Z"), "DocumentDbMeasurementTransformer")
+                        new PhysicalQuantityV1(13.01541m, "V", 0, 0, 0, DateTime.Parse("2017-09-06T00:04:15.9797575Z"), "CosmosDBSqlApiTransformer")
                     }),
                 new MeasurementV1(
                     "", "", "", "PressureAirTsAvg", "", "", "", "", "", "", null, "", null, DateTime.ParseExact("2017-09-06T00:00:00Z", "yyyy-MM-dd'T'HH:mm:ss'Z'", CultureInfo.InvariantCulture, DateTimeStyles.AssumeUniversal | DateTimeStyles.AdjustToUniversal), new List<PhysicalQuantityV1>()
                     {
-                        new PhysicalQuantityV1(93334.82m, "Pa", 0, 0, 0, DateTime.Parse("2017-09-06T00:04:15.9797575Z"), "DocumentDbMeasurementTransformer")
+                        new PhysicalQuantityV1(93334.82m, "Pa", 0, 0, 0, DateTime.Parse("2017-09-06T00:04:15.9797575Z"), "CosmosDBSqlApiTransformer")
                     }),
                 new MeasurementV1(
                     "", "", "", "ParDensityTsAvg", "", "", "", "", "", "", null, "", null, DateTime.ParseExact("2017-09-06T00:00:00Z", "yyyy-MM-dd'T'HH:mm:ss'Z'", CultureInfo.InvariantCulture, DateTimeStyles.AssumeUniversal | DateTimeStyles.AdjustToUniversal), new List<PhysicalQuantityV1>()
                     {
-                        new PhysicalQuantityV1(0.0002833229m, "mol/(m^2 s)", 0, 0, 0, DateTime.Parse("2017-09-06T00:04:15.9797575Z"), "DocumentDbMeasurementTransformer")
+                        new PhysicalQuantityV1(0.0002833229m, "mol/(m^2 s)", 0, 0, 0, DateTime.Parse("2017-09-06T00:04:15.9797575Z"), "CosmosDBSqlApiTransformer")
                     }),
                 new MeasurementV1(
                     "", "", "", "TemperaturePanelTsAvg", "", "", "", "", "", "", null, "", null, DateTime.ParseExact("2017-09-06T00:00:00Z", "yyyy-MM-dd'T'HH:mm:ss'Z'", CultureInfo.InvariantCulture, DateTimeStyles.AssumeUniversal | DateTimeStyles.AdjustToUniversal), new List<PhysicalQuantityV1>()
                     {
-                        new PhysicalQuantityV1(29.87764m, "C", 0, 0, 0, DateTime.Parse("2017-09-06T00:04:15.9797575Z"), "DocumentDbMeasurementTransformer")
+                        new PhysicalQuantityV1(29.87764m, "C", 0, 0, 0, DateTime.Parse("2017-09-06T00:04:15.9797575Z"), "CosmosDBSqlApiTransformer")
                     })
             };
 
