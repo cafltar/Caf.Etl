@@ -1,4 +1,5 @@
 ﻿using Caf.Etl.Nodes.LoggerNet.Transform;
+using Caf.Etl.Nodes.LoggerNet.Mappers;
 using System.Collections.Generic;
 using Xunit;
 using Caf.Etl.Models.CosmosDBSqlApi.Core;
@@ -7,9 +8,9 @@ using System;
 using Caf.Etl.Models.LoggerNet.TOA5.DataTables;
 using Caf.Etl.Models.CosmosDBSqlApi.Measurement;
 
-namespace Caf.Etl.Nodes.LoggerNet.Tests
+namespace Caf.Etl.UnitTests.Nodes.LoggerNet
 {
-    public class DocumentDbMeasurementV1TransformerTests_Meteorology
+    public class CosmosDBSqlApiV1TransformerTests_Meteorology
     {
         [Fact]
         public void ToMeasurement_ValidData_ReturnCorrectMeasurements()
@@ -29,7 +30,7 @@ namespace Caf.Etl.Nodes.LoggerNet.Tests
                 new List<PhysicalQuantityV1>() { new PhysicalQuantityV1(
                     (decimal)56.22676, "%", 0, 0, 0,
                     DateTime.MaxValue,
-                    "DocumentDbMeasurementTransformer")});
+                    "CosmosDBSqlApiTransformer")});
 
             MeasurementV1 expectedMeasurement_amb_tmpr_Avg = new MeasurementV1(
                 "EcTower_CookEast_TemperatureAirTsAvg",
@@ -45,7 +46,7 @@ namespace Caf.Etl.Nodes.LoggerNet.Tests
                 new List<PhysicalQuantityV1>() { new PhysicalQuantityV1(
                     (decimal)4.940109, "C", 0, 0, 0,
                     DateTime.MaxValue,
-                    "DocumentDbMeasurementTransformer")});
+                    "CosmosDBSqlApiTransformer")});
 
             MeasurementV1 expectedMeasurement_PAR_density_Avg = new MeasurementV1(
                 "EcTower_CookEast_ParDensityTsAvg",
@@ -61,16 +62,16 @@ namespace Caf.Etl.Nodes.LoggerNet.Tests
                 new List<PhysicalQuantityV1>() { new PhysicalQuantityV1(
                     (decimal)0.001956598, "mol/(m^2 s)", 0, 0, 0,
                     DateTime.MaxValue,
-                    "DocumentDbMeasurementTransformer")});
+                    "CosmosDBSqlApiTransformer")});
 
             List<MeasurementV1> actualMeasurements = new List<MeasurementV1>();
 
             //# Act
-            Mappers.MapFromMeteorologyDataTableToCafStandards map = 
-                new Mappers.MapFromMeteorologyDataTableToCafStandards();
+            MapFromMeteorologyDataTableToCafStandards map = 
+                new MapFromMeteorologyDataTableToCafStandards();
 
-            DocumentDbMeasurementV1Transformer sut = 
-                new DocumentDbMeasurementV1Transformer(map, "1.0.0");
+            CosmosDBSqlApiV1Transformer sut = 
+                new CosmosDBSqlApiV1Transformer(map, "1.0.0");
             actualMeasurements = sut.ToMeasurements(GetMockMeteorology());
 
             //# Assert

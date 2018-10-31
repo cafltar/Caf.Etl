@@ -13,7 +13,7 @@ using Caf.Etl.Models.CosmosDBSqlApi.Measurement;
 
 namespace Caf.Etl.Nodes.LoggerNet.Transform
 {
-    public class DocumentDbMeasurementV1Transformer
+    public class CosmosDBSqlApiV1Transformer
     {
         private readonly string targetSchemaVersion;
         private readonly string documentType;
@@ -25,7 +25,7 @@ namespace Caf.Etl.Nodes.LoggerNet.Transform
         public string DocumentType { get { return documentType; } }
         public string MetadataId { get { return metadataId; } }
 
-        public DocumentDbMeasurementV1Transformer(IMapper map,
+        public CosmosDBSqlApiV1Transformer(IMapper map,
             string targetSchemaVersion,
             string documentType = "Measurement",
             string metadataId = "CafMeteorologyEcTower")
@@ -74,7 +74,7 @@ namespace Caf.Etl.Nodes.LoggerNet.Transform
             DateTime measurementDateTime = new DateTime(observation.TIMESTAMP.Ticks, DateTimeKind.Utc);
 
             List<PhysicalQuantityV1> physicalQuantitis = new List<PhysicalQuantityV1>() {
-                new PhysicalQuantityV1(pqMetric.Value, pqMetric.Unit, 0, 0, 0, DateTime.UtcNow, "DocumentDbMeasurementTransformer")
+                new PhysicalQuantityV1(pqMetric.Value, pqMetric.Unit, 0, 0, 0, DateTime.UtcNow, "CosmosDBSqlApiTransformer")
             };
 
             LocationV1 location = new LocationV1("Point",

@@ -6,7 +6,7 @@ using System.Globalization;
 using System.Text;
 using Xunit;
 
-namespace LtarDataPortal.Tests
+namespace Caf.Etl.UnitTests.Nodes.LtarDataPortal
 {
     public class COReCsvExtractorTests
     {

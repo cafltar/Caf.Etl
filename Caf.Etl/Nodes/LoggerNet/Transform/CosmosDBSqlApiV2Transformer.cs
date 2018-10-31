@@ -13,7 +13,7 @@ using Caf.Etl.Models.CosmosDBSqlApi.Measurement;
 
 namespace Caf.Etl.Nodes.LoggerNet.Transform
 {
-    public class DocumentDbMeasurementV2Transformer
+    public class CosmosDBSqlApiV2Transformer
     {
         private readonly IMapper map;
 
@@ -24,7 +24,7 @@ namespace Caf.Etl.Nodes.LoggerNet.Transform
         public int? Timestep { get; }
         
 
-        public DocumentDbMeasurementV2Transformer(
+        public CosmosDBSqlApiV2Transformer(
             IMapper map,
             string schema,
             string etlEventId,

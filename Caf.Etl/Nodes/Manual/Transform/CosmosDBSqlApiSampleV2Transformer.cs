@@ -80,7 +80,7 @@ namespace Caf.Etl.Nodes.Manual.Transform
             return samples;
         }
 
-        // TODO: Much of this is copy/pasted from DocumentDbMeasurementV2Transformer, consider move logic to a shared class
+        // TODO: Much of this is copy/pasted from CosmosDBSqlApiV2Transformer, consider move logic to a shared class
         // WARNING: This assumes one physicalQuantity per Measurement -- it returns null Measurement on first PhysicalQuantity with value of null
         private MeasurementV2 CreateMeasurementFromVariable(
             Variable variable, 

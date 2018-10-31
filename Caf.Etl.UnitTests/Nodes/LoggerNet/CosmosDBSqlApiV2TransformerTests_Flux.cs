@@ -8,10 +8,10 @@ using Caf.Etl.Models.LoggerNet.TOA5.DataTables;
 using Caf.Etl.TestUtils;
 using System.Linq;
 
-namespace Caf.Etl.Nodes.LoggerNet.Tests
+namespace Caf.Etl.UnitTests.Nodes.LoggerNet
 {
     // TODO: Update after making changes to toa5-transformation-cosmosdb
-/*    public class DocumentDbMeasurementV2TransformerTests_Flux
+/*    public class CosmosDBSqlApiV2TransformerTests_Flux
     {
         [Fact]
         public void ToMeasurement_ValidDataFluxV1_ReturnCorrectMeasurementsV2()
@@ -24,11 +24,11 @@ namespace Caf.Etl.Nodes.LoggerNet.Tests
             List<MeasurementV2> expected = 
                 LoggerNetArranger.GetMeasurementsV2DerivedFromActualDataV1();
 
-            DocumentDbMeasurementV2Transformer sut =
-                new DocumentDbMeasurementV2Transformer(
+            CosmosDBSqlApiV2Transformer sut =
+                new CosmosDBSqlApiV2Transformer(
                     map,
                     "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json",
-                    "DocumentDbMeasurementTransformer",
+                    "CosmosDBSqlApiTransformer",
                     "Measurement",
                     "CafMeteorologyEcTower",
                     1800);
@@ -54,11 +54,11 @@ namespace Caf.Etl.Nodes.LoggerNet.Tests
             List<MeasurementV2> expected = 
                 LoggerNetArranger.GetMeasurementsV2DerivedFromTestDataFluxV2();
 
-            DocumentDbMeasurementV2Transformer sut =
-                new DocumentDbMeasurementV2Transformer(
+            CosmosDBSqlApiV2Transformer sut =
+                new CosmosDBSqlApiV2Transformer(
                     map,
                     "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json",
-                    "DocumentDbMeasurementTransformer",
+                    "CosmosDBSqlApiTransformer",
                     "Measurement",
                     "CafMeteorologyEcTower",
                     1800);
@@ -83,11 +83,11 @@ namespace Caf.Etl.Nodes.LoggerNet.Tests
             List<MeasurementV2> expected =
                 LoggerNetArranger.GetMeasurementsV2DerivedFromTestDataMeteorologyV2();
 
-            DocumentDbMeasurementV2Transformer sut =
-                new DocumentDbMeasurementV2Transformer(
+            CosmosDBSqlApiV2Transformer sut =
+                new CosmosDBSqlApiV2Transformer(
                     map,
                     "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json",
-                    "DocumentDbMeasurementTransformer",
+                    "CosmosDBSqlApiTransformer",
                     "Measurement",
                     "CafMeteorologyEcTower",
                     1800);
