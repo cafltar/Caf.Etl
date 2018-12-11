@@ -70,7 +70,7 @@ namespace Caf.Etl.UnitTests.Nodes.LoggerNet
 
             //# Act
             TOA5Extractor sut = new TOA5Extractor(pathToFileWithValidContentV2);
-            actualObservations = sut.GetObservations<Meteorology>().Cast<IObservation>().ToList();
+            actualObservations = sut.GetObservations(new Meteorology()).ToList();
 
             //# Assert
             // TODO: Override obj.Equals for better test
@@ -222,7 +222,7 @@ namespace Caf.Etl.UnitTests.Nodes.LoggerNet
                 pathToFileWithTestLoggerOutputV2);
 
             // Act
-            TOA5 actual = sut.GetTOA5<Meteorology>();
+            TOA5 actual = sut.GetTOA5(new Meteorology());
 
             // Assert
             Assert.Equal(expected, actual);
@@ -238,7 +238,7 @@ namespace Caf.Etl.UnitTests.Nodes.LoggerNet
                 pathToFileWithActualLoggerOutputV2);
 
             // Act
-            TOA5 actual = sut.GetTOA5<Meteorology>();
+            TOA5 actual = sut.GetTOA5(new Meteorology());
 
             // Assert
             Assert.Equal(expected, actual);
@@ -252,7 +252,7 @@ namespace Caf.Etl.UnitTests.Nodes.LoggerNet
 
             //# Act
             TOA5Extractor sut = new TOA5Extractor(pathToFileToTestTimeZoneV2, -8);
-            actualObservations = sut.GetObservations<Meteorology>().Cast<IObservation>().ToList();
+            actualObservations = sut.GetObservations(new Meteorology()).ToList();
 
             //# Assert
             Assert.Equal(actualObservations[0].TIMESTAMP, new DateTime(2017, 06, 20, 8, 30, 0));
@@ -268,7 +268,7 @@ namespace Caf.Etl.UnitTests.Nodes.LoggerNet
             TOA5Extractor sut = new TOA5Extractor(dataPath);
 
             // Act
-            List<IObservation> actualObs = sut.GetObservations<Meteorology>()
+            List<IObservation> actualObs = sut.GetObservations(new Meteorology())
                 .Cast<IObservation>()
                 .ToList();
 
