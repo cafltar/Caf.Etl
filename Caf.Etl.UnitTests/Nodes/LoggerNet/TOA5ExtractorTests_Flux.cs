@@ -32,7 +32,7 @@ namespace Caf.Etl.UnitTests.Nodes.LoggerNet
             TOA5Extractor sut = new TOA5Extractor(pathToFileWithValidContentV1);
 
             //# Act
-            actualObservations = sut.GetObservations<Flux>()
+            actualObservations = sut.GetObservations(new Flux())
                 .Cast<IObservation>()
                 .ToList();
 
@@ -50,7 +50,7 @@ namespace Caf.Etl.UnitTests.Nodes.LoggerNet
             TOA5Extractor sut = new TOA5Extractor(pathToFileWithTestLoggerOutputV2);
 
             //# Act
-            actualObservations = sut.GetObservations<Flux>()
+            actualObservations = sut.GetObservations(new Flux())
                 .Cast<IObservation>()
                 .ToList();
 
@@ -65,7 +65,7 @@ namespace Caf.Etl.UnitTests.Nodes.LoggerNet
             List<IObservation> expectedObservations = 
                 LoggerNetArranger.GetFluxObservationsDerivedFromActualDataV1();
 
-            TOA5 fluxTable = sut.GetTOA5<Flux>();
+            TOA5 fluxTable = sut.GetTOA5(new Flux());
 
             Assert.Equal(expectedObservations, fluxTable.Observations);
             //TODO: Test actual metadata
@@ -81,7 +81,7 @@ namespace Caf.Etl.UnitTests.Nodes.LoggerNet
                 pathToFileWithTestLoggerOutputV2);
 
             // Act
-            TOA5 actual = sut.GetTOA5<Flux>();
+            TOA5 actual = sut.GetTOA5(new Flux());
 
             // Assert
             Assert.Equal(expected, actual);

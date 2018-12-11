@@ -63,11 +63,11 @@ namespace Caf.Etl.Nodes.LoggerNet.Extract
             this.UtcOffset = utcOffset;
         }
 
-        public List<T> GetObservations<T>() where T : IObservation
+        public List<IObservation> GetObservations(IObservation datatable)
         {
             if (this.FileContent.Length <= 0) throw new Exception("No content");
 
-            List<T> observations = new List<T>();
+            List<IObservation> observations = new List<IObservation>();
 
             using (TextReader sr = new StringReader(cleanNulls(cleanHeaders(trimMetaData(this.FileContent)))))
             {
@@ -80,7 +80,7 @@ namespace Caf.Etl.Nodes.LoggerNet.Extract
 
                 try
                 {
-                    observations = csv.GetRecords<T>().ToList();
+                    observations = csv.GetRecords(datatable.GetType()).Cast<IObservation>().ToList();
                 }
                 catch(Exception e)
                 {
@@ -146,13 +146,13 @@ namespace Caf.Etl.Nodes.LoggerNet.Extract
             return md;
         }
 
-        public TOA5 GetTOA5<T>() where T : IObservation
+        public TOA5 GetTOA5(IObservation datatable)
         {
             TOA5 toa5 = new TOA5();
 
             toa5.Metadata = GetMetadata();
 
-            toa5.Observations = GetObservations<T>().Cast<IObservation>().ToList();
+            toa5.Observations = GetObservations(datatable).ToList();
 
             return toa5;
         }
