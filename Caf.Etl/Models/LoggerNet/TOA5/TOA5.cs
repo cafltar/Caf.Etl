@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ namespace Caf.Etl.Models.LoggerNet.TOA5
         public Metadata Metadata { get; set; }
 
         /// <summary></summary>
+        [JsonProperty(ItemTypeNameHandling = TypeNameHandling.Auto)]
         public List<IObservation> Observations { get; set; }
 
         public override bool Equals(object obj)
