@@ -8,6 +8,7 @@ using Newtonsoft.Json;
 
 namespace Caf.Etl.Nodes.CosmosDBSqlApi.Extract
 {
+    [Obsolete]
     public class MeasurementJsonExtractor
     {
         public MeasurementJsonExtractor()
