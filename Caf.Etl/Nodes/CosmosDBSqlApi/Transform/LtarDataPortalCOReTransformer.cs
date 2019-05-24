@@ -139,14 +139,6 @@ namespace Caf.Etl.Nodes.CosmosDBSqlApi.Transform
                 DateTimeOffset dtoUtc = new DateTimeOffset(group.Key, TimeSpan.Zero);
                 DateTimeOffset dtoSpecified = dtoUtc.ToOffset(TimeSpan.FromHours(utcOffset));
 
-                // Convert units if needed
-                // m to mm
-                if (precip != null) precip = precip * 1000;
-                // Pa to kPa
-                if (airPress != null) airPress = airPress / 1000;
-                // mol/(m^2 s) to umol/(m^2 s)
-                if (par != null) par = par * 1000000;
-
                 Observation o = new Observation(
                     ltarSiteAcronym,
                     stationId,

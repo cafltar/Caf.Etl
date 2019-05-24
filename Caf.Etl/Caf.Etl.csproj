@@ -7,9 +7,9 @@
     <Description>A simple ETL library for working with CAF LTAR related data</Description>
     <RepositoryUrl>https://github.com/caf-ltar/caf.etl</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <Version>4.2.0</Version>
-    <AssemblyVersion>4.1.0</AssemblyVersion>
-    <FileVersion>4.1.0</FileVersion>
+    <Version>4.2.1</Version>
+    <AssemblyVersion>4.2.1</AssemblyVersion>
+    <FileVersion>4.1.1</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
