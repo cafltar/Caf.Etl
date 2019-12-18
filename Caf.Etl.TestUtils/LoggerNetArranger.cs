@@ -1869,5 +1869,18 @@ new Variable() { FieldName = "SHFP_1_SENS", Units = "uv/W/m^2", Processing = "Sm
             return measurements;
         }
 
+        public static List<MeasurementV2> GetMeasurementV2TwoVariablesMultipleTimesteps()
+        {
+            List<MeasurementV2> measurements = new List<MeasurementV2>();
+            measurements.Add(new MeasurementV2("CafMeteorologyEcTower_CookEast_ParDensityTsAvg", "CookEast_ParDensityTsAvg_Ts900_2018-06-27T13:15:00.0000000Z", "Measurement", "ParDensityTsAvg", "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json", "CafMeteorologyEcTower", "", "", "", "", null, "CookEast", new LocationV2("Point", 46.78152, -117.08205), new DateTime(2018, 1, 8, 13, 15, 0), new List<PhysicalQuantityV2>() { new PhysicalQuantityV2(1806.077, "umol/(s m^2)", DateTime.Now, "CosmosDBSqlApiTransformer") }, 900));
+            measurements.Add(new MeasurementV2("CafMeteorologyEcTower_CookEast_ParDensityTsAvg", "CookEast_ParDensityTsAvg_Ts900_2018-06-27T13:30:00.0000000Z", "Measurement", "ParDensityTsAvg", "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json", "CafMeteorologyEcTower", "", "", "", "", null, "CookEast", new LocationV2("Point", 46.78152, -117.08205), new DateTime(2018, 1, 8, 13, 30, 0), new List<PhysicalQuantityV2>() { new PhysicalQuantityV2(1706.077, "umol/(s m^2)", DateTime.Now, "CosmosDBSqlApiTransformer") }, 900));
+            measurements.Add(new MeasurementV2("CafMeteorologyEcTower_CookEast_ParDensityTsAvg", "CookEast_ParDensityTsAvg_Ts900_2018-06-27T13:45:00.0000000Z", "Measurement", "ParDensityTsAvg", "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json", "CafMeteorologyEcTower", "", "", "", "", null, "CookEast", new LocationV2("Point", 46.78152, -117.08205), new DateTime(2018, 1, 8, 13, 45, 0), new List<PhysicalQuantityV2>() { new PhysicalQuantityV2(1906.077, "umol/(s m^2)", DateTime.Now, "CosmosDBSqlApiTransformer") }, 900));
+
+            measurements.Add(new MeasurementV2("CafMeteorologyEcTower_CookEast_TemperatureAirTsAvg", "CookEast_TemperatureAirTsAvg_Ts900_2018-06-27T13:15:00.0000000Z", "Measurement", "TemperatureAirTsAvg", "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json", "CafMeteorologyEcTower", "", "", "", "", null, "CookEast", new LocationV2("Point", 46.78152, -117.08205), new DateTime(2018, 1, 8, 13, 15, 0), new List<PhysicalQuantityV2>() { new PhysicalQuantityV2(22.96937, "C", DateTime.Now, "CosmosDBSqlApiTransformer") }, 900));
+            measurements.Add(new MeasurementV2("CafMeteorologyEcTower_CookEast_TemperatureAirTsAvg", "CookEast_TemperatureAirTsAvg_Ts900_2018-06-27T13:30:00.0000000Z", "Measurement", "TemperatureAirTsAvg", "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json", "CafMeteorologyEcTower", "", "", "", "", null, "CookEast", new LocationV2("Point", 46.78152, -117.08205), new DateTime(2018, 1, 8, 13, 30, 0), new List<PhysicalQuantityV2>() { new PhysicalQuantityV2(20, "C", DateTime.Now, "CosmosDBSqlApiTransformer") }, 900));
+            measurements.Add(new MeasurementV2("CafMeteorologyEcTower_CookEast_TemperatureAirTsAvg", "CookEast_TemperatureAirTsAvg_Ts900_2018-06-27T13:45:00.0000000Z", "Measurement", "TemperatureAirTsAvg", "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json", "CafMeteorologyEcTower", "", "", "", "", null, "CookEast", new LocationV2("Point", 46.78152, -117.08205), new DateTime(2018, 1, 8, 13, 45, 0), new List<PhysicalQuantityV2>() { new PhysicalQuantityV2(21, "C", DateTime.Now, "CosmosDBSqlApiTransformer") }, 900));
+
+            return measurements;
+        }
     }
 }
