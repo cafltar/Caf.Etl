@@ -51,7 +51,7 @@ namespace Caf.Etl.Nodes.CosmosDBSqlApi.Extract
                 FeedIterator<MeasurementV2> feedIterator = container.GetItemQueryIterator<MeasurementV2>(
                     query,
                     null,
-                    new QueryRequestOptions() { PartitionKey = new PartitionKey("CafMeteorologyEcTower_CookEast_ParDensityTsAvg") });
+                    new QueryRequestOptions() { PartitionKey = new PartitionKey(partitionkey) });
 
                 while(feedIterator.HasMoreResults)
                 {
