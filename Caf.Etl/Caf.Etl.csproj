@@ -10,9 +10,9 @@
     <Description>A simple ETL library for working with CAF LTAR related data</Description>
     <RepositoryUrl>https://github.com/caf-ltar/caf.etl</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <Version>4.3.1</Version>
-    <AssemblyVersion>4.3.1</AssemblyVersion>
-    <FileVersion>4.3.1</FileVersion>
+    <Version>4.3.2</Version>
+    <AssemblyVersion>4.3.2</AssemblyVersion>
+    <FileVersion>4.3.2</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>

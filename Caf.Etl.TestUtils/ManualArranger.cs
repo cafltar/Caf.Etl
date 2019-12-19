@@ -208,5 +208,30 @@ namespace Caf.Etl.TestUtils
 
             return samples;
         }
+
+        public static TidyData GetTidyDataDerivedFromMockDateTimeObservation()
+        {
+            TidyData td = new TidyData();
+
+            td.Metadata = new Metadata()
+            {
+                Variables = new List<Variable>()
+                {
+                    new Variable() { FieldName = "DateTimeUtc", Units = "unitless", Description = "" }
+                }
+            };
+            td.Observations = new List<IObservation>()
+            {
+                new DateTimeObservation() { DateTimeUtc = new DateTimeOffset(new DateTime(2019, 12, 01, 8, 15, 00, DateTimeKind.Utc)) }
+            };
+
+            return td;
+        }
     }
+
+    public class DateTimeObservation : IObservation
+    {
+        public DateTimeOffset DateTimeUtc { get; set; }
+    }
+
 }
